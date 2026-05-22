@@ -90,7 +90,7 @@ h1{font-size:2rem;margin-top:24px;margin-bottom:4px;background:linear-gradient(1
 .view-star{font-family:'Creepster',cursive;font-size:2.4rem;line-height:1;cursor:pointer;user-select:none;color:#fec;display:inline-flex;align-items:center;margin-right:12px;animation:titlePulse .71s ease-in-out .25s infinite alternate,titleFloat .83s ease-in-out .12s infinite alternate}
 .view-star .fch{display:inline-block;-webkit-text-stroke:0 rgba(240,240,255,.85)}
 .view-star-wrap{display:inline-flex;align-items:center}
-.bottom-info{position:fixed;bottom:4px;left:0;width:100%;text-align:center;font-size:.9rem;color:#a0a0b0;pointer-events:none;z-index:100}
+@media(max-width:800px){.tm{display:none}}.bottom-info{position:fixed;bottom:4px;left:0;width:100%;text-align:center;font-size:.9rem;color:#a0a0b0;pointer-events:none;z-index:100}
 .bottom-info a{color:#c4b5fd;text-decoration:underline;cursor:pointer;pointer-events:auto}
 .bottom-info a:hover{color:#fff}
 </style>
@@ -299,7 +299,7 @@ const data=[
 
 let q=[],i=0,sh=false;
 const gdPlayer=document.getElementById('gdPlayer'),audioPlayer=document.getElementById('audioPlayer'),audioWrap=document.getElementById('audioWrap'),l=document.getElementById('l'),s=document.getElementById('s'),shb=document.getElementById('sh'),t=document.getElementById('t'),sunoLinkBtn=document.getElementById('sunoLinkBtn'),bgEl=document.getElementById('bgEl'),npEl=document.getElementById('npEl');
-audioPlayer.volume=0.65;
+audioPlayer.volume=0.43;
 
 function getQueueSource(){let source=[...data];if(showingStarsOnly)source=source.filter(tr=>isStarred(tr.suno_id||tr.gd_id));if(showingInstrumentalsOnly)source=source.filter(tr=>tr.has_vocal===false);return source}
 function buildQueue(){const source=getQueueSource();q=sh?shf(source):[...source]}
