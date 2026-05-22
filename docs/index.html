@@ -12,7 +12,7 @@ html,body{overflow:hidden}
 h1{font-size:2rem;margin-top:24px;margin-bottom:4px;background:linear-gradient(135deg,#0a0 0%,#f00 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:-1px -1px 1px #7a42ed}
 .sub{font-size:.9rem;color:#a0a0b0}
 .pc{width:100%;max-width:800px;padding:24px;position:relative;display:flex;flex-direction:column;align-items:stretch;min-height:100vh}
-.np{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:8px 0;min-height:60px;width:100%;transition:opacity .4s ease;align-self:center}.np .btn:last-child{color:#ffd700}.np.title-glow .tt{color:#fec;text-shadow:0 0 12px rgba(254,236,204,.4)}
+.np{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding:8px 0;min-height:60px;width:100%;transition:opacity .4s ease;align-self:center}.np.title-glow .tt{color:#fec;text-shadow:0 0 12px rgba(254,236,204,.4)}
 .np .btn.dim{opacity:.65}
 .tt{font-family:'Creepster',cursive;font-size:1.9rem;font-weight:300;color:#f0f0ff;word-break:break-word;letter-spacing:2px;text-shadow:0 0 12px rgba(139,92,246,.3);text-align:center;flex:1;animation:titlePulse .667s ease-in-out infinite alternate,titleFloat .7s ease-in-out infinite alternate}
 .ttz{transform:scaleY(1.41) scaleX(1.17);transform-origin:center;display:inline;flex:1;text-align:center;z-index:-1;padding:0 12px}
@@ -40,6 +40,8 @@ h1{font-size:2rem;margin-top:24px;margin-bottom:4px;background:linear-gradient(1
 #audioPlayer::-webkit-media-controls-time-remaining-display{color:#fff}
 .pl{max-height:400px;overflow-y:auto;border-radius:8px;margin-top:-30px;position:relative;z-index:3;background:#0a0a14;width:100%;transform:translateZ(0);opacity:.96;transition:opacity .4s ease,max-height .4s ease,margin-top .4s ease,transform .4s ease}
 .pl.hidden{opacity:0;max-height:0;margin-top:0;overflow:hidden;pointer-events:none;transform:translateY(-20px)}
+
+.pl.force-opaque{opacity:1!important}
 .pli{padding:14px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;transition:all .15s;border-bottom:1px solid #1e1e2e}
 .pli:hover{background:#1a1a2e}
 .pli.on{background:#2d1f4a}
@@ -72,7 +74,7 @@ h1{font-size:2rem;margin-top:24px;margin-bottom:4px;background:linear-gradient(1
 .pl::-webkit-scrollbar-thumb{background:#33334d;border-radius:4px}
 .pl::-webkit-scrollbar-thumb:hover{background:#444466}
 .empty{text-align:center;padding:40px;color:#555570}
-.star-btn{background:none;border:none;cursor:pointer;font-size:1.1em;padding:0 4px;margin-right:6px;color:#888;transition:color .15s ease,transform .15s ease;line-height:1;vertical-align:middle;user-select:none;transform-origin:center;transform:scale(1.5)}
+.star-btn{background:none;border:none;cursor:pointer;font-size:1.1em;padding:0 4px;margin-right:6px;color:#888;transition:color .15s ease,transform .15s ease;line-height:1;vertical-align:middle;user-select:none}
 .star-btn:hover{color:#ffd700;transform:scale(1.2)}
 .star-btn.starred{color:#ffd700;text-shadow:0 0 6px rgba(255,215,0,.4)}
 .star-btn.starred:hover{color:#ffaa00}
@@ -90,7 +92,7 @@ h1{font-size:2rem;margin-top:24px;margin-bottom:4px;background:linear-gradient(1
 .view-star{font-family:'Creepster',cursive;font-size:2.4rem;line-height:1;cursor:pointer;user-select:none;color:#fec;display:inline-flex;align-items:center;margin-right:12px;animation:titlePulse .71s ease-in-out .25s infinite alternate,titleFloat .83s ease-in-out .12s infinite alternate}
 .view-star .fch{display:inline-block;-webkit-text-stroke:0 rgba(240,240,255,.85)}
 .view-star-wrap{display:inline-flex;align-items:center}
-@media(max-width:800px){.tm{display:none}}.bottom-info{position:fixed;bottom:4px;left:0;width:100%;text-align:center;font-size:.9rem;color:#a0a0b0;pointer-events:none;z-index:100}
+.bottom-info{position:fixed;bottom:4px;left:0;width:100%;text-align:center;font-size:.9rem;color:#a0a0b0;pointer-events:none;z-index:100}
 .bottom-info a{color:#c4b5fd;text-decoration:underline;cursor:pointer;pointer-events:auto}
 .bottom-info a:hover{color:#fff}
 </style>
@@ -133,6 +135,7 @@ const STAR_KEY='atribute_stars';
 function getStars(){try{const r=localStorage.getItem(STAR_KEY);return r?JSON.parse(r):{}}catch(e){return{}}}
 function setStar(id,starred){const s=getStars();if(starred)s[id]=true;else delete s[id];localStorage.setItem(STAR_KEY,JSON.stringify(s))}
 function isStarred(id){return!!getStars()[id]}
+function fmtDur(sec){if(!sec||sec<=0)return"";const m=Math.floor(sec/60),s=Math.floor(sec%60);return m+":"+(s<10?"0":"")+s}
 function toggleStar(btn,e){e.stopPropagation();const id=btn.dataset.id,now=!btn.classList.contains('starred');setStar(id,now);if(showingStarsOnly){const cid=q[i]?.suno_id||q[i]?.gd_id;buildQueue();if(cid){const idx=q.findIndex(tr=>(tr.suno_id||tr.gd_id)===cid);if(idx!==-1){i=idx;draw();setTimeout(()=>{const it=l.querySelector('.on');if(it)it.scrollIntoView({behavior:'smooth',block:'nearest'})},50);return}}i=0;if(q.length)load(0);else{gdPlayer.src='';audioPlayer.pause();audioPlayer.src='';t.textContent='No starred tracks';s.textContent='';bgEl.style.backgroundImage='';audioWrap.style.display='none';sunoLinkBtn.style.display='none';draw()}}else{draw()}}
 
 let showingStarsOnly=false,showingInstrumentalsOnly=false;
@@ -161,145 +164,171 @@ function setInstrBtn(text){const el=document.getElementById('instrBtn');if(!el)r
 function setPlBtn(text){const el=document.getElementById('plBtn');if(!el)return;animateText(el,text,plFt,clrPl)}
 
 let playlistHidden=false;
-function togglePlaylist(){playlistHidden=!playlistHidden;const el=document.getElementById('plBtn'),text=playlistHidden?'□':'■';setPlBtn(text);el.classList.toggle('on',!playlistHidden);el.title=playlistHidden?'Show playlist':'Hide playlist';l.classList.toggle('hidden',playlistHidden);npEl.classList.toggle('title-glow',playlistHidden);document.querySelectorAll('.np .btn').forEach(b=>b.classList.toggle('dim',playlistHidden));document.querySelector('.pc').classList.toggle('playlist-hidden',playlistHidden);document.getElementById('fbEl').classList.toggle('playlist-hidden',playlistHidden);bgEl.style.opacity=playlistHidden?'1':'0.42'}
+function togglePlaylist(){playlistHidden=!playlistHidden;const el=document.getElementById('plBtn'),text=playlistHidden?'□':'■';setPlBtn(text);el.classList.toggle('on',!playlistHidden);el.title=playlistHidden?'Show playlist':'Hide playlist';l.classList.toggle('hidden',playlistHidden);l.classList.add('force-opaque');setTimeout(()=>l.classList.remove('force-opaque'),450);npEl.classList.toggle('title-glow',playlistHidden);document.querySelectorAll('.np .btn').forEach(b=>b.classList.toggle('dim',playlistHidden));document.querySelector('.pc').classList.toggle('playlist-hidden',playlistHidden);document.getElementById('fbEl').classList.toggle('playlist-hidden',playlistHidden);bgEl.style.opacity=playlistHidden?'1':'0.42'}
 
-function downloadSelf(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='atribute-music-player.html';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
+function downloadSelf(){const clone=document.documentElement.cloneNode(true);const cPl=clone.querySelector('.pl');if(cPl){cPl.innerHTML='';cPl.classList.remove('hidden');cPl.classList.remove('force-opaque');cPl.style.cssText=''}const cPw=clone.querySelector('.pw');if(cPw)cPw.style.cssText='';const cT=clone.querySelector('#t');if(cT){cT.innerHTML='Select a track';cT.style.cssText='';cT.className='tt'}const cS=clone.querySelector('#s');if(cS){cS.textContent='Select a track';cS.style.cssText=''}const cBg=clone.querySelector('#bgEl');if(cBg){cBg.style.cssText='';cBg.className='bg'}const cGd=clone.querySelector('#gdPlayer');if(cGd){cGd.src='';cGd.style.cssText='display:none';cGd.className='pf'}const cAu=clone.querySelector('#audioPlayer');if(cAu){cAu.src='';cAu.style.cssText=''}const cAw=clone.querySelector('#audioWrap');if(cAw)cAw.style.cssText='display:none;width:100%;';const cSl=clone.querySelector('#sunoLinkBtn');if(cSl){cSl.href='#';cSl.style.cssText='';cSl.className='suno-link-btn'}const cNp=clone.querySelector('#npEl');if(cNp){cNp.className='np';cNp.style.cssText='';cNp.querySelectorAll('.btn').forEach(b=>{b.classList.remove('dim');b.style.cssText=''})}const cPc=clone.querySelector('.pc');if(cPc){cPc.classList.remove('playlist-hidden');cPc.style.cssText=''}const cFb=clone.querySelector('#fbEl');if(cFb){cFb.classList.remove('playlist-hidden');cFb.style.cssText=''}const cPlBtn=clone.querySelector('#plBtn');if(cPlBtn){cPlBtn.innerHTML='&#9632;';cPlBtn.className='pl-btn on';cPlBtn.style.cssText='';cPlBtn.title='Hide playlist'}const cInstrBtn=clone.querySelector('#instrBtn');if(cInstrBtn){cInstrBtn.innerHTML='&#9675;';cInstrBtn.className='instr-btn';cInstrBtn.style.cssText='';cInstrBtn.title='Instrumentals only'}const cViewStar=clone.querySelector('#viewStar');if(cViewStar){cViewStar.innerHTML='&#9734;';cViewStar.className='view-star';cViewStar.style.cssText='';cViewStar.title='Show starred only'}const cSh=clone.querySelector('#sh');if(cSh){cSh.classList.remove('on');cSh.style.cssText=''}clone.querySelectorAll('.force-opaque').forEach(el=>el.classList.remove('force-opaque'));const html='<!DOCTYPE html>\n'+clone.outerHTML;const blob=new Blob([html],{type:'text/html'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='atribute-music-player.html';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)}
 
 function getAudioUrl(tr){return tr.suno_id?'https://cdn1.suno.ai/'+tr.suno_id+'.mp3':null}
 function isSuno(tr){return!!tr.suno_id}
 function sunoPage(tr){return tr.suno_id?'https://suno.com/song/'+tr.suno_id:null}
 
 const data=[
-{name:"🥁 Quebienx",gd_id:"13Eo1ip5owOyI3nAnzdepAeY5OpFyWFsY",suno_id:"df96598b-c3d1-4795-80a9-25c9e0f392f2",artwork:"https://cdn2.suno.ai/d5fedb28-5021-4059-a261-3550ff26bae6.jpeg",duration_sec:138.96,duration_str:"2:18",has_vocal:true,m:"glitch-hop bass drop • cl0wncore house, industrial jazz fusion",created_at:"2026-05-21T06:52:55.185Z"},
-{name:"Specificity in Duality",gd_id:"1-7BnurB8u1xAwlMSPPPL9qpr5oNkGJON",suno_id:"2e49e855-952e-4c0d-8372-dd07a7a656ef",artwork:"https://cdn2.suno.ai/d8954545-6ff8-4de2-ac10-2e566cb789e4.jpeg",duration_sec:310.2,duration_str:"5:10",has_vocal:true,m:"philosophical ambient drone • downtempo electronic, beat poetry, #OoK",created_at:"2026-05-20T04:11:02.211Z"},
-{name:"🍭 He will come for You surely",gd_id:"1mSiWpuvSgUpMrEQ8VjUOCYhdK-XK0pDE",suno_id:"6a2df838-73fb-43a7-a533-ccfd772e62f0",artwork:"https://cdn2.suno.ai/343cf259-f3fc-442e-be71-f69e1a2b5576.jpeg",duration_sec:282.76,duration_str:"4:42",has_vocal:true,m:"gospel techno fusion • synthwave, cl0wncore trance",created_at:"2026-05-16T08:34:05.232Z"},
-{name:"SIAFO [Remix]",gd_id:"161CC6jsAw-M-4FMenqlz_3UUMaCnqECS",suno_id:"c6341e65-785d-439e-a8ca-9a2f4f2468b0",artwork:"https://cdn2.suno.ai/968161d9-fcb8-45f5-9ea1-00c6e25dfe28.jpeg",duration_sec:209.96,duration_str:"3:29",has_vocal:true,m:"four-on-floor rework • soul, ballad, pop",created_at:"2026-05-14T08:36:15.964Z"},
-{name:"Never a Boy 🪕 or Two",gd_id:"1R_48o-j_lSj0HIDxB1qy_UxdcdoPqrhx",suno_id:"2dfd537b-b56b-48bd-9345-24013cc2d1eb",artwork:"https://cdn2.suno.ai/e049b5fa-718f-4c19-b9e0-c578185af4f8.jpeg",duration_sec:195.68,duration_str:"3:15",has_vocal:true,m:"remastered indie anthem • jazz soul",created_at:"2026-05-14T07:25:36.031Z"},
-{name:"She Loves ⚠️ (My Voice)",gd_id:"1SGeAKSkweYxgw_GJ79xtsLIL92krLpgb",suno_id:"3b2420fa-fcb0-495d-a3c6-62e5eb8a7144",artwork:"https://cdn2.suno.ai/1c98a45d-505c-422f-82d6-f4f6dbb0057c.jpeg",duration_sec:167.96,duration_str:"2:47",has_vocal:true,m:"vocal loop mantra • jazz, pop",created_at:"2026-05-13T08:44:09.129Z"},
-{name:"🥁 Forget Tonight (Again) 🍭",gd_id:"1s5uDHYkKnE2XhhXZM4_PE2wam099-ymF",suno_id:"6005ac08-25ab-425f-afba-05e9565aa559",artwork:"https://cdn2.suno.ai/953612b2-3c04-4516-b61a-36602a807376.jpeg",duration_sec:256.806875,duration_str:"4:16",has_vocal:false,m:"melancholy piano ballad • cl0wncore trance",created_at:"2026-05-08T04:41:23.084Z"},
-{name:"Caged Bird Locked In (Encore)",gd_id:"1vA1fQi_TQnyuZmeQT2-LRmu26xnCnOhH",suno_id:"c0a2adae-4ea5-431f-b892-2d62dd61ae0d",artwork:"https://cdn2.suno.ai/0fbf13a8-4843-4c38-a297-2ca3b9be5af8.jpeg",duration_sec:233.96,duration_str:"3:53",has_vocal:false,m:"trap soul encore • cl0wncore, instrumental, rough jazz, jazz fusion",created_at:"2026-04-30T06:08:05.838Z"},
-{name:") Go Smooth ( 🥁",gd_id:"19PvGB51ltSxqk0rrWxnPifX-9D7qLO4B",suno_id:"7f67b284-25e8-4a44-8d7d-41351eef43c4",artwork:"https://cdn2.suno.ai/9d9d2dac-806d-4e0b-aa5b-1f00057d9e57.jpeg",duration_sec:257.96,duration_str:"4:17",has_vocal:false,m:"late night R&B • dub & bass, psy cl0wncore",created_at:"2026-04-28T23:07:08.193Z"},
-{name:"Old House on the Ice Hill",gd_id:"150EhDRSFjp_0P03dC_3YJ4zLoD_HteMS",suno_id:"d44fd1c5-72dc-4309-9fb7-3e2518299916",artwork:"https://cdn2.suno.ai/b0db79e1-7b81-4086-a9f4-1d1e793bfbfc.jpeg",duration_sec:323.699875,duration_str:"5:23",has_vocal:false,m:"haunted folk memory • ambient, cl0wncore, minimal",created_at:"2026-04-28T10:16:47.251Z"},
-{name:"Secret Robot (Encore)",gd_id:"1ljReeOW6IhMIuhsGgqdQ9WzUZHv-dZvu",suno_id:"b41a74fe-2755-4055-b459-03476a38f0e0",artwork:"https://cdn2.suno.ai/1c8646b8-c7ae-4f52-8372-d17cf79a63a9.jpeg",duration_sec:280.28,duration_str:"4:40",has_vocal:true,m:"android love encore • instrumental, jazz, mallcore, cl0wncore",created_at:"2026-04-28T07:07:14.905Z"},
-{name:"(Ornamental) Death Gape",gd_id:"1vJ-KTRX18sG9Cd9pWN6fQUFxs4tJmzfJ",suno_id:"8e9727ba-1b51-4cf0-9d7b-61317e242a8a",artwork:"https://cdn2.suno.ai/0bb4fa73-b949-43ec-9667-ce823ce7f395.jpeg",duration_sec:196.24,duration_str:"3:16",has_vocal:true,m:"gothic baroque interlude • breakcore, classical, cl0wncore",created_at:"2026-04-25T09:27:23.506Z"},
-{name:"Y U such a ()  #OoK",gd_id:"12klrnP0wYF09L91N4oWa_5WKa_Cr8AuI",suno_id:"9a075c31-5e1f-4a0c-a49e-154eacd06b0b",artwork:"https://cdn2.suno.ai/03831f38-3292-4822-81e9-0044e86d8026.jpeg",duration_sec:167.32,duration_str:"2:47",has_vocal:true,m:"text message breakup • cl0wncore house, disco swing",created_at:"2026-04-21T08:43:38.795Z"},
-{name:"Get It (Over Here)",gd_id:"1gtJWcaUy5AEuD9q08RI4D8A6ErC8bvgX",suno_id:"4904b3b4-080b-4719-a26a-3a84c7e199e4",artwork:"https://cdn2.suno.ai/f5f12694-4041-459e-b53c-471a4d38a703.jpeg",duration_sec:204.72,duration_str:"3:24",has_vocal:false,m:"demand funk groove • cl0wncore dnb",created_at:"2026-04-19T10:25:14.153Z"},
-{name:"Where (You) Asked Me 🥁",gd_id:"1xPzQsf3qtws8RC0LZBMonKTBl_fjOWFr",suno_id:"c48df62a-0546-4a31-87df-6107ef17723b",artwork:"https://cdn2.suno.ai/09c16686-0586-43cd-aa06-a875a5df8623.jpeg",duration_sec:275.08,duration_str:"4:35",has_vocal:true,m:"memory lane stroll • psy jazz, rough jazz",created_at:"2026-04-12T16:31:03.596Z"},
-{name:"I Will Follow You (Home)",gd_id:"1zM8vFYB_TyGoN-bFxP8XgrFvbwTADG7h",suno_id:"deb99617-f45a-4f79-bfd0-d75b3bcc3a57",artwork:"https://cdn2.suno.ai/54c75aba-f215-4b73-9ec4-642452891629.jpeg",duration_sec:158.48,duration_str:"2:38",has_vocal:true,m:"stalking synthwave theme • hip-hop",created_at:"2026-03-31T18:57:57.731Z"},
-{name:"💎 Don't Dare Move Lad",gd_id:"1e3UTk8YSAR_lIBx7lIrAbPsI6QwWxen7",suno_id:"23642ff7-8c71-4439-bebb-7c0af3690a4b",artwork:"https://cdn2.suno.ai/8fc437c1-476b-46d0-b65a-9bd6febc31fc.jpeg",duration_sec:148.24,duration_str:"2:28",has_vocal:true,m:"tense thriller score • acid house jazz",created_at:"2026-03-26T10:25:27.550Z"},
-{name:"She 🪕ð (Encore)",gd_id:"1gFaRwoKX3gC3xMpFrmVNiI8wZB29NirQ",suno_id:null,m:"synth-pop love reprise"},
-{name:"Lila Pralliné",gd_id:"1ibWW2ewtWvhkMR394A-a9UGueWdw546k",suno_id:null,m:"chocolate dream sequence"},
-{name:"FYCDN-222 [Remix]",gd_id:"13cntOrIhbuTzwM2FdbwRxbLYujNr6K6B",suno_id:null,m:"warehouse acid cut"},
-{name:"Duds of Canada",gd_id:"1Hju95zu1MsTMm7DfcQCqbrc5s2mm34Tt",suno_id:null,m:"lo-fi folk sketch"},
-{name:"Do What I Say",gd_id:"1V5qCgY6v72bQrFxOU0i9QutoLgqanrk8",suno_id:null,m:"industrial command anthem"},
-{name:"What Do (You Want)",gd_id:"1SGphPbqN9cNinBIQFkBX0EMkwaBzRTu0",suno_id:null,m:"post-punk question mark"},
-{name:"Side Hustle",gd_id:"1Z5ifqLjJgD_Catwt14pWhJgc1hzmGrlQ",suno_id:null,m:"grind culture banger"},
-{name:"Kakapo, Class",gd_id:"1Kagdfp0imitp9w58-fYTjU2s8MBRbMTD",suno_id:null,m:"rare bird elegy"},
-{name:"Princess Bear",gd_id:"1P-J4VeDGmmoBD5XUj4ei7XqLFQda3p7T",suno_id:null,m:"toy piano lullaby"},
-{name:"Dreams For Which There Are No Dreamers",gd_id:"1ffZXk_s1U20g1r0oeJPOzRytM9jPs-Z9",suno_id:null,m:"orphan ambient suite"},
-{name:"(For You) 💜 To Stay",gd_id:"1thI0lNVx38H0Mh1Rw_MAOxhEwUSqE12n",suno_id:null,m:"purple heart plea"},
-{name:"Demons In My Head",gd_id:"1vttZsX7o90R7dNf0-pJt4Nk3xFPayMbR",suno_id:null,m:"anxiety rock confession"},
-{name:"D.nt Be M¡d, As Much As You Can",gd_id:"1efiecAsCzVj8lR8CpWIGj7GjVrWi2ZYV",suno_id:null,m:"censored pop protest"},
-{name:"Turn Over Dom (Encore)",gd_id:"1DigQDvh3xb8wZ0cvu1TnTZsJRWSouVxT",suno_id:null,m:"BDSM house encore"},
-{name:"Breakup Sex",gd_id:"10661uyX6NG4Xj7QSbqoeS7tiH7kPoO67",suno_id:null,m:"complicated feelings anthem"},
-{name:"Then Time (For Work)",gd_id:"1qYUktkVFe7YQoEenTPhHS3XzLuVGSpx_",suno_id:null,m:"clock-in industrial beat"},
-{name:"Move Over Lass",gd_id:"1jqpn9b9h519BhtZAqqYbRUxSRRFSznA1",suno_id:null,m:"pub rock shanty"},
-{name:"SSSSsS111!!!11",gd_id:"1EK3YICCX7-S1JB071WEbqrOLXHSYMbVK",suno_id:null,m:"noise collage explosion"},
-{name:"Boys' Room (PC)",gd_id:"1tCTnQed8lsOPN9GhoUdsykZ1tNdt_5l9",suno_id:null,m:"nostalgia chip tune"},
-{name:"Secret Soldier",gd_id:"1bc7L0WYci4E7VTc7qIhaM9sdsUHbM_mD",suno_id:null,m:"covert ops synth"},
-{name:"The Bones Are Whistling",gd_id:"1C95FsCJDhN9G4mWUFt7erWjNycAKRzS-",suno_id:null,m:"spaghetti western whistle"},
-{name:"Your Father's Watch",gd_id:"1t8AOzJAKraGv4RnJ08n2dlXLKTvpJ8Vy",suno_id:null,m:"heirloom timepiece elegy"},
-{name:"Woke Up Asleep (GPS JAM)",gd_id:"1FwmYHqrda9LPDJ42pnIeNAypRTVS_7A1",suno_id:null,m:"navigation failure dub"},
-{name:"(Wrong Side) The Sun Comes Up",gd_id:"1dHOH6TOOQsOgXDNW2AaGnSUA8l89CvHy",suno_id:null,m:"dawn after regret"},
-{name:"Northwards Crotch",gd_id:"1vQPGfSWWdcNw8w-N0uGI8ndS8weCzkOp",suno_id:null,m:"crude compass punk"},
-{name:"(Dead Tape) Shuffle",gd_id:"1FeHg5Axro4K3QX_jK59VZkN0ZsJpXkye",suno_id:null,m:"degraded cassette nostalgia"},
-{name:"(Trance) Slowly",gd_id:"1yR8UajSL4DSaJRKPSNh44tiroFOMWHeN",suno_id:null,m:"slow build euphoria"},
-{name:"(Selft ok) Keeps Safes",gd_id:"17nybluRxMXbzfutTx7oTLDo1VfKvYFQ9",suno_id:null,m:"typo therapy ambient"},
-{name:"This Is Control (1)",gd_id:"1EQLuv9Z7LXFb7tx71FVOXtiTTkk0BYCR",suno_id:null,m:"authoritarian electro march"},
-{name:"🥁 Ecnart Rehgih 🍭",gd_id:"1w-5S4_6QshfLpevdnw4OZn0pP6W47Vux",suno_id:null,m:"mirror world carnival"},
-{name:"Mumi Ya Eahirat",gd_id:"1j93_VvPgUeVTgzjJIixZGHpSqaWeD1MF",suno_id:null,m:"desert wind ritual"},
-{name:"Come Milk My Cow(s) Fair Maiden",gd_id:"1mDw8cJtd8cQrK9XHB-FVsqHHPk4CO7_l",suno_id:null,m:"bucolic double entendre"},
-{name:"(Silent) Back Stabber",gd_id:"1UkVKZyLhgoROKsCHEuUTGLH1FNO2UP1_",suno_id:null,m:"quiet betrayal theme"},
-{name:"(Lost to) Darkness 💎",gd_id:"1N7Q8bIJuhTD-bqYjHO1lY3t2m-l0CuQX",suno_id:null,m:"diamond in void"},
-{name:"Tall Tales (🤡 shoutout @DETONER)",gd_id:"1m13LFZ48yj0E06dZNB41g3KLs26AWTq7",suno_id:null,m:"clown circus diss"},
-{name:"(in)Sensitive",gd_id:"16BMjKNZ0YYqYxGIvi4EZiwSXwsgFxNms",suno_id:null,m:"ironic soft rock"},
-{name:"Vogel (im Käfig)",gd_id:"1ngYJRGGtXkWVKwX6uyizf8FlrvpEapgp",suno_id:null,m:"caged bird German"},
-{name:"Lover Undersea 💜",gd_id:"166h-XTcbncezez53xKVtC5S1FypbNQZm",suno_id:null,m:"submarine romance ambient"},
-{name:"No Quota For Sh¡t To Happen",gd_id:"1OqEvnUwS-n1yyktvfuiDRQCjzacz6pnD",suno_id:null,m:"bureaucratic frustration anthem"},
-{name:"Space (Blu—) Purples",gd_id:"1hpofYxnTA7u_VyRU0LHyx0sP_ajBtSoc",suno_id:null,m:"cosmic color study"},
-{name:"Never Out (Of Trouble) 🎸",gd_id:"13eSzpeHZzXb1sX-hIoskr7BbZH00fb71",suno_id:null,m:"guitar rebel forever"},
-{name:"Dreams In Ultraviolet (1)",gd_id:"1ol_UieUULAu1y8DOC-5aq8q7CR2gQyQH",suno_id:null,m:"blacklight bedroom pop"},
-{name:"Come Up (With The Sun)",gd_id:"1gAZ_HW5ZYh3tCunOE1uo50tmvJqlzZ-6",suno_id:null,m:"morning motivation groove"},
-{name:"DRKCTNGHTDRV",gd_id:"1JWY_DcpCHAlYqaGq5EUNFBt4rTptnj8P",suno_id:null,m:"night drive phonetic"},
-{name:"We Need It",gd_id:"18puZbmLMF9r3ZCH36T7S9CxztoTGz4k_",suno_id:null,m:"urgent collective chant"},
-{name:"Fin",gd_id:"1EGHiYPvIeCU54rOsDU7fDIt-Pi3-4lH3",suno_id:null,m:"closing credits piano"},
-{name:"And you want to stay, want to stay",gd_id:"1kt1orUJQNxJ19-f_Sh70hRhOsCss2UHR",suno_id:null,m:"repetitive desire loop"},
-{name:"Shut up, and Groove",gd_id:"15GxkCS8dXQgudHvejyaFs0Ht2QKVySkt",suno_id:null,m:"command to dance"},
-{name:"Insert Silence",gd_id:"1MzKFOqSCjlSUgB54p_wWI3C4Ub9h1Eby",suno_id:null,m:"negative space composition"},
-{name:"Smooch Delinquent",gd_id:"1i7mC8NTz7xLhX1ei7TOajo6aFLO7VXgK",suno_id:null,m:"juvenile delinquent romance"},
-{name:"Blue Groove",gd_id:"12Ux-YmrquvyqKMbP9oVWgkXTGqCmkznC",suno_id:null,m:"cool sax swagger"},
-{name:"Inner Rooms of Sobriety",gd_id:"1_A8ScGOkOgzw6K1Qiv4E7-2I7Ve3U7V1",suno_id:null,m:"recovery chamber ambient"},
-{name:"Feel This Out",gd_id:"1HK4fKDJnWdH3dKG1-1gMD_FZvIjCiC9U",suno_id:null,m:"tactile exploration jam"},
-{name:"Suck It And Find Out",gd_id:"1bO1nUSgw-kskZ__ZB6l8WpFJoX-jZ1iS",suno_id:null,m:"dare you hook"},
-{name:"Bіtc_es Need To Know",gd_id:"1aSAbthxsA_QhNuudclcyu9DAVccGpfxi",suno_id:null,m:"censored gossip anthem"},
-{name:"سلم SALÉM",gd_id:"1xatkopGdUP56gSPmmB1QYva_WcE38bZn",suno_id:null,m:"arabic peace invocation"},
-{name:"Hands off, Flying",gd_id:"1fkrST2HZN1obNcOVVv2KBeD82IyEhSz7",suno_id:null,m:"aviation warning groove"},
-{name:"Frack Tax Surveil",gd_id:"1hPz9S0uCjT5_SB0156t55LPEW54dlMCB",suno_id:null,m:"political surveillance dub"},
-{name:"Int Def Con Tak Sat Nav Bog Suc",gd_id:"1jvhkbdbB8MKKOkPsAlhP2BaXzYrtErY6",suno_id:null,m:"acronym overload nonsense"},
-{name:"Not This Knob [[ It's You I Like ]]",gd_id:"1nS3qeZ5TVvDmAsiWIrcoJtWf0i6QrlPP",suno_id:null,m:"knob innuendo love"},
-{name:"It Knows You",gd_id:"14tLlqj3V5YVPr2fAJBRelMQxanz2yZzw",suno_id:null,m:"AI surveillance paranoia"},
-{name:"Higher Trance Mix",gd_id:"15b5cQix_IafwCw3Q6E5_r7qs5WN_00oU",suno_id:null,m:"elevated state remix"},
-{name:"Secret Robot Only For Me",gd_id:"1nJJpKlEBu5qR1VTKQGPdRG7y_xtkLpkc",suno_id:null,m:"exclusive android love"},
-{name:"I Want A Robot",gd_id:"1GMbiR6n8vnhY74sHbYcEbjiDKGEE9tKk",suno_id:null,m:"mechanical companion desire"},
-{name:"Bitches Need To Know",gd_id:"1N52q73bGhIAMSSywbhVJhqgdwDdLjqQc",suno_id:null,m:"information dissemination anthem"},
-{name:"You Are So Vain You Think This Song Is About You Boy",gd_id:"1JI0jsiZzqBY5CAFY3qEyoJrcn2pNo8Ue",suno_id:null,m:"meta narcissism epic"},
-{name:"Rain On Glass",gd_id:"1wjwNm7lI1H5T2I5kRJGjscXvR_AxhDvT",suno_id:null,m:"melancholy window scene"},
-{name:"Africa Nippon",gd_id:"1MRhPPPMq3ddI7mvaJlzf0mlTfb0RvoJd",suno_id:null,m:"continent crossover fusion"},
-{name:"You're In This Room Now",gd_id:"1oVSpbj-orCiarkuc5jgJWPN_YeNewWIT",suno_id:null,m:"claustrophobic presence anthem"},
-{name:"Amaste Me Nunca",gd_id:"10K_-grtwdJZlOQPbFkqCHKZ6-4-ocZKw",suno_id:null,m:"spanish never love"},
-{name:"Mother Used To Say",gd_id:"11KG37cSzXqVLUrOqrEAkZ4U0u4v1cR9y",suno_id:null,m:"maternal wisdom sample"},
-{name:"Outside the Other",gd_id:"1zPTcMdO45cNbzUc6Eal6JOyY-uE1Ampv",suno_id:null,m:"existential duality ambient"},
-{name:"Ring Your Boner",gd_id:"1UalfMUu90x83YLOMzL2zFcpqQYfw6JKP",suno_id:null,m:"crude phone call"},
-{name:"She Has Inverted Pressure",gd_id:"1RZVmnDPpb5RGztAfJVC1GT2-jfOtu-F5",suno_id:null,m:"physics metaphor love"},
-{name:"Steal & Sell",gd_id:"18rywguXBimjXuB9ZLHCdfDd8lAdUg1Vb",suno_id:null,m:"capitalist crime duo"},
-{name:"Zaidi Slantce",gd_id:"1HY3ErweWVmzkWhgSTv6ueurKP0R9csWW",suno_id:null,m:"more sunshine foreign"},
-{name:"Higher Trance",gd_id:"10MiXFhG1GEQ1pgi4nOhRAMB1tGF9pYWB",suno_id:null,m:"ascending arpeggio journey"},
-{name:"Disrupt Your Rhythm (0.94x)",gd_id:"1vWeabCfNLKxY7PRVRKjNXGnvxAZroe7m",suno_id:null,m:"slightly slower chaos"},
-{name:"She Shows You Where To Put It",gd_id:"1QB1AwpPyYtOXEO85ISkVR5fsar5NT_1C",suno_id:null,m:"instructional innuendo jam"},
-{name:"Three, You, Two, Never, One, She Would",gd_id:"1iQM4BUX5hf87BBAC6I1cU0vKx7KVyX6T",suno_id:null,m:"scrambled countdown romance"},
-{name:"I Loves Your Mamma Bud",gd_id:"1N93HTqp8PT9E2_90j4nAnI4NXQPeN7s0",suno_id:null,m:"affectionate maternal tribute"},
-{name:"Duduk Qwala",gd_id:"1liZ7VDhQ86YFl5wEdnYzusFJZtH0mDFY",suno_id:null,m:"armenian flute reverie"},
-{name:"Calling All Lamb",gd_id:"1qkTcis9COmUppcPAPtCN3i9HX942-uKy",suno_id:null,m:"shepherd synth summons"},
-{name:"Blue Tyger Inversion",gd_id:"127K_ZS9mkMJAtYmfdV5BgTvDPb08tWOv",suno_id:null,m:"blake poem electronic"},
-{name:"Int 90s NiPop",gd_id:"1R0jU0HB8i5lN8GytljU9DDbC60xs37qg",suno_id:null,m:"international nineties nostalgia"},
-{name:"Nomi Was Alone",gd_id:"1O1Idto23JYm32CnOJrcuJCYbUEKvX_Qi",suno_id:null,m:"isolated character study"},
-{name:"Chinchilla Overdrive",gd_id:"1LtIhoLtPR2aG-n9cA9Cwu8wdYHVvog4-",suno_id:null,m:"furry fuzz pedal"},
-{name:"Giorgio Was Here (tape scratched)",gd_id:"1cTvGWtHzfJW38sFsCFVMeWovyml04U24",suno_id:null,m:"morseled moroder homage"},
-{name:"Your Call Is Important To Us",gd_id:"18WGfujQJourO5Dg34JhBD8sKsab8VLUx",suno_id:null,m:"hold music satire"},
-{name:"Infinite Realm of Incomprehensible Suffering",gd_id:"1AV8CEbv1Zq8BNdyFyqa_IKyDCEiyCztO",suno_id:null,m:"existential dread ambient"},
-{name:"She Would Never Jazz You",gd_id:"1XK6FNnGn0z1hbrYsjS_1yueGDMCTf11x",suno_id:null,m:"genre fidelity oath"},
-{name:"Overjazz (0.94x)",gd_id:"1GAsb-GmAbULZw3zwInKXUEZFPh00-roR",suno_id:null,m:"excessive brass slowdown"},
-{name:"Proofed",gd_id:"1x1lNPiqeCcnhEECZQ1nQIN6Un_XA0DHI",suno_id:null,m:"final draft approved"},
-{name:"I know you're having sex in there. (Radio Edit)",gd_id:"1uY33QMwK6rsgvqXbGAqxNO6RtqhosaAI",suno_id:null,m:"censored voyeurism pop"},
-{name:"Nail that Apple",gd_id:"1sn6NaN5nca8mtH-_lOXYFG4NjeGPA30s",suno_id:null,m:"forbidden fruit percussion"},
-{name:"Tigers in L.A.",gd_id:"1gv66afhoa5329oWMr4QYIQ0SP66LqJQC",suno_id:null,m:"urban jungle prowling"},
-{name:"deparcS",gd_id:"1Hth_aY3zubuXFLDxaMnoy6VP8BvoDJSg",suno_id:null,m:"reverse spelling puzzle"},
-{name:"So Much Lamb Mary Did Have That Day",gd_id:"1GtP-GU_AewOQUGs2p7q5NqLl_OXF8JvW",suno_id:null,m:"nursery rhyme excess"},
-{name:"Gourdjieff Arena",gd_id:"130jpU2j97Thv9XWmlM1F_WhdakQM7QGT",suno_id:null,m:"mystic philosopher stadium"},
-{name:"6AM.",gd_id:"1-G7hFUI2mVLNY3Z9rnbAoA7xSTG9JQN0",suno_id:null,m:"dawn comedown ambient"},
-{name:"6PM.",gd_id:"13SMUhh5E8lRQYB-rVyGCleHZG6JGwY2x",suno_id:null,m:"evening wind down"},
-{name:"My Sister Never Dig You, Friend",gd_id:"16EUyOOFbqNWWXQnU_5gR1mh6vl3AewF2",suno_id:null,m:"sibling rejection notice"},
-{name:"IKYAHSIT",gd_id:"1jtFkDxhnt-BFEGwWENnuO7GTcnCV4akp",suno_id:null,m:"acronym mirror phrase"},
-{name:"She Would Never Choose You Proper",gd_id:"1890r7rt7Ym-ycsRQhDfBLaiQnaPno4ur",suno_id:null,m:"class conscious rejection"},
-{name:"Never Jazz You Over, Ty",gd_id:"1RFkx4sOOgCyzd9BF9z6_RvUxFYYY8-uw",suno_id:null,m:"tyler typo tribute"},
-{name:"Face Tyler (My Pussy)",gd_id:"1kOSJg_PpcZ58zVEPpmRBG1haOI6Wf-dQ",suno_id:null,m:"provocative identity claim"},
-{name:"I know you're having sex in there",gd_id:"1QUfGiTvr4ZPorOYd8mAdGd9DsoHzf26j",suno_id:null,m:"unfiltered voyeurism anthem"},
-{name:"CINEMA OFFICIEL - UV (Undercover Cover)",gd_id:"1uFbk6-XmSz7MxlqIJ3aL6l_cNC2aXep-",suno_id:null,m:"meta cinematic disguise"}
+{"name":"🥁 Quebienx","gd_id":"13Eo1ip5owOyI3nAnzdepAeY5OpFyWFsY","suno_id":"df96598b-c3d1-4795-80a9-25c9e0f392f2","artwork":"https://cdn2.suno.ai/d5fedb28-5021-4059-a261-3550ff26bae6.jpeg","duration_sec":138.96,"has_vocal":true,"m":"glitch-hop bass drop • cl0wncore house, industrial jazz fusion","created_at":"2026-05-21T06:52:55.185Z"},
+{"name":"Specificity in Duality","gd_id":"1-7BnurB8u1xAwlMSPPPL9qpr5oNkGJON","suno_id":"2e49e855-952e-4c0d-8372-dd07a7a656ef","artwork":"https://cdn2.suno.ai/d8954545-6ff8-4de2-ac10-2e566cb789e4.jpeg","duration_sec":310.2,"has_vocal":true,"m":"philosophical ambient drone • downtempo electronic, beat poetry, #OoK","created_at":"2026-05-20T04:11:02.211Z"},
+{"name":"🍭 He will come for You surely","gd_id":"1mSiWpuvSgUpMrEQ8VjUOCYhdK-XK0pDE","suno_id":"6a2df838-73fb-43a7-a533-ccfd772e62f0","artwork":"https://cdn2.suno.ai/343cf259-f3fc-442e-be71-f69e1a2b5576.jpeg","duration_sec":282.76,"has_vocal":true,"m":"gospel techno fusion • synthwave, cl0wncore trance","created_at":"2026-05-16T08:34:05.232Z"},
+{"name":"SIAFO [Remix]","gd_id":"161CC6jsAw-M-4FMenqlz_3UUMaCnqECS","suno_id":"c6341e65-785d-439e-a8ca-9a2f4f2468b0","artwork":"https://cdn2.suno.ai/968161d9-fcb8-45f5-9ea1-00c6e25dfe28.jpeg","duration_sec":209.96,"has_vocal":true,"m":"four-on-floor rework • soul, ballad, pop","created_at":"2026-05-14T08:36:15.964Z"},
+{"name":"Never a Boy 🪕 or Two","gd_id":"1R_48o-j_lSj0HIDxB1qy_UxdcdoPqrhx","suno_id":"2dfd537b-b56b-48bd-9345-24013cc2d1eb","artwork":"https://cdn2.suno.ai/e049b5fa-718f-4c19-b9e0-c578185af4f8.jpeg","duration_sec":195.68,"has_vocal":true,"m":"remastered indie anthem • jazz soul","created_at":"2026-05-14T07:25:36.031Z"},
+{"name":"She Loves ⚠️ (My Voice)","gd_id":"1SGeAKSkweYxgw_GJ79xtsLIL92krLpgb","suno_id":"3b2420fa-fcb0-495d-a3c6-62e5eb8a7144","artwork":"https://cdn2.suno.ai/1c98a45d-505c-422f-82d6-f4f6dbb0057c.jpeg","duration_sec":167.96,"has_vocal":true,"m":"vocal loop mantra • jazz, pop","created_at":"2026-05-13T08:44:09.129Z"},
+{"name":"🥁 Forget Tonight (Again) 🍭","gd_id":"1s5uDHYkKnE2XhhXZM4_PE2wam099-ymF","suno_id":"6005ac08-25ab-425f-afba-05e9565aa559","artwork":"https://cdn2.suno.ai/953612b2-3c04-4516-b61a-36602a807376.jpeg","duration_sec":256.806875,"has_vocal":false,"m":"melancholy piano ballad • cl0wncore trance","created_at":"2026-05-08T04:41:23.084Z"},
+{"name":"Caged Bird Locked In (Encore)","gd_id":"1vA1fQi_TQnyuZmeQT2-LRmu26xnCnOhH","suno_id":"c0a2adae-4ea5-431f-b892-2d62dd61ae0d","artwork":"https://cdn2.suno.ai/0fbf13a8-4843-4c38-a297-2ca3b9be5af8.jpeg","duration_sec":233.96,"has_vocal":false,"m":"trap soul encore • cl0wncore, instrumental, rough jazz, jazz fusion","created_at":"2026-04-30T06:08:05.838Z"},
+{"name":") Go Smooth ( 🥁","gd_id":"19PvGB51ltSxqk0rrWxnPifX-9D7qLO4B","suno_id":"7f67b284-25e8-4a44-8d7d-41351eef43c4","artwork":"https://cdn2.suno.ai/9d9d2dac-806d-4e0b-aa5b-1f00057d9e57.jpeg","duration_sec":257.96,"has_vocal":false,"m":"late night R&B • dub & bass, psy cl0wncore","created_at":"2026-04-28T23:07:08.193Z"},
+{"name":"Old House on the Ice Hill","gd_id":"150EhDRSFjp_0P03dC_3YJ4zLoD_HteMS","suno_id":"d44fd1c5-72dc-4309-9fb7-3e2518299916","artwork":"https://cdn2.suno.ai/b0db79e1-7b81-4086-a9f4-1d1e793bfbfc.jpeg","duration_sec":323.699875,"has_vocal":false,"m":"haunted folk memory • ambient, cl0wncore, minimal","created_at":"2026-04-28T10:16:47.251Z"},
+{"name":"Secret Robot (Encore)","gd_id":"1ljReeOW6IhMIuhsGgqdQ9WzUZHv-dZvu","suno_id":"b41a74fe-2755-4055-b459-03476a38f0e0","artwork":"https://cdn2.suno.ai/1c8646b8-c7ae-4f52-8372-d17cf79a63a9.jpeg","duration_sec":280.28,"has_vocal":true,"m":"android love encore • instrumental, jazz, mallcore, cl0wncore","created_at":"2026-04-28T07:07:14.905Z"},
+{"name":"(Ornamental) Death Gape","gd_id":"1vJ-KTRX18sG9Cd9pWN6fQUFxs4tJmzfJ","suno_id":"8e9727ba-1b51-4cf0-9d7b-61317e242a8a","artwork":"https://cdn2.suno.ai/0bb4fa73-b949-43ec-9667-ce823ce7f395.jpeg","duration_sec":196.24,"has_vocal":true,"m":"gothic baroque interlude • breakcore, classical, cl0wncore","created_at":"2026-04-25T09:27:23.506Z"},
+{"name":"Y U such a ()  #OoK","gd_id":"12klrnP0wYF09L91N4oWa_5WKa_Cr8AuI","suno_id":"9a075c31-5e1f-4a0c-a49e-154eacd06b0b","artwork":"https://cdn2.suno.ai/03831f38-3292-4822-81e9-0044e86d8026.jpeg","duration_sec":167.32,"has_vocal":true,"m":"text message breakup • cl0wncore house, disco swing","created_at":"2026-04-21T08:43:38.795Z"},
+{"name":"Get It (Over Here)","gd_id":"1gtJWcaUy5AEuD9q08RI4D8A6ErC8bvgX","suno_id":"4904b3b4-080b-4719-a26a-3a84c7e199e4","artwork":"https://cdn2.suno.ai/f5f12694-4041-459e-b53c-471a4d38a703.jpeg","duration_sec":204.72,"has_vocal":false,"m":"demand funk groove • cl0wncore dnb","created_at":"2026-04-19T10:25:14.153Z"},
+{"name":"Where (You) Asked Me 🥁","gd_id":"1xPzQsf3qtws8RC0LZBMonKTBl_fjOWFr","suno_id":"c48df62a-0546-4a31-87df-6107ef17723b","artwork":"https://cdn2.suno.ai/09c16686-0586-43cd-aa06-a875a5df8623.jpeg","duration_sec":275.08,"has_vocal":true,"m":"memory lane stroll • psy jazz, rough jazz","created_at":"2026-04-12T16:31:03.596Z"},
+{"name":"I Will Follow You (Home)","gd_id":"1zM8vFYB_TyGoN-bFxP8XgrFvbwTADG7h","suno_id":"deb99617-f45a-4f79-bfd0-d75b3bcc3a57","artwork":"https://cdn2.suno.ai/54c75aba-f215-4b73-9ec4-642452891629.jpeg","duration_sec":158.48,"has_vocal":true,"m":"stalking synthwave theme • hip-hop","created_at":"2026-03-31T18:57:57.731Z"},
+{"name":"💎 Don't Dare Move Lad","gd_id":"1e3UTk8YSAR_lIBx7lIrAbPsI6QwWxen7","suno_id":"23642ff7-8c71-4439-bebb-7c0af3690a4b","artwork":"https://cdn2.suno.ai/8fc437c1-476b-46d0-b65a-9bd6febc31fc.jpeg","duration_sec":148.24,"has_vocal":true,"m":"tense thriller score • acid house jazz","created_at":"2026-03-26T10:25:27.550Z"},
+{"name":"🍭 Int Def Con Tak Sat Nav Bog Suc","suno_id":"97affc6e-121f-480c-95a1-26fc16240112","artwork":"https://cdn2.suno.ai/image_large_97affc6e-121f-480c-95a1-26fc16240112.jpeg","duration_sec":251.6,"has_vocal":true,"m":"dnb, jazz fusion, mix","created_at":"2026-02-18T03:51:34.180Z"},
+{"name":"💎 It Knows You Back","suno_id":"e72b2d8b-a8eb-44dc-9722-30c8c4020e54","artwork":"https://cdn2.suno.ai/video_upload_1e195455-5565-4404-85e8-cf9f1d1faf96_video_upload_1e195455-5565-4404-85e8-cf9f1d1faf96_cover_snapshot_0s_1771733156_image.jpeg","duration_sec":67.6,"has_vocal":true,"m":"gospel","created_at":"2026-02-18T03:12:02.853Z"},
+{"name":"Knowboydy Gnawsit audio_2026-02-17_19-14-43","suno_id":"ab474434-d610-41f8-bf74-12643d739124","artwork":"https://cdn2.suno.ai/image_large_ab474434-d610-41f8-bf74-12643d739124.jpeg","duration_sec":60.024,"has_vocal":true,"m":"a cappella, beatbox, soulful male vocals","created_at":"2026-02-17T17:16:24.962Z"},
+{"name":"🍭 Higher Trance [[ MIX ]] 2000","suno_id":"7563a29c-aa50-40af-8b4b-31228b3230f0","artwork":"https://cdn2.suno.ai/bbf66136-4f3e-4395-96b4-b57b46bf2835.jpeg","duration_sec":228.4,"has_vocal":true,"m":"edm","created_at":"2026-02-17T09:29:14.598Z"},
+{"name":"I Want A Robot","gd_id":"1GMbiR6n8vnhY74sHbYcEbjiDKGEE9tKk","suno_id":"aa6c857f-84c6-4ed8-9e07-c471a8929111","artwork":"https://cdn2.suno.ai/c35b2526-9dc2-46f0-bf2b-d9242223a978.jpeg","duration_sec":184.28,"has_vocal":false,"m":"mechanical companion desire","created_at":"2026-02-17T04:43:17.463Z"},
+{"name":"Secret Robot Only For Me","gd_id":"1nJJpKlEBu5qR1VTKQGPdRG7y_xtkLpkc","suno_id":"97a20fd8-a589-474a-90fc-fe5f884f80bb","artwork":"https://cdn2.suno.ai/video_upload_4654d31a-b417-4d31-8da4-74ce223547ae_video_upload_4654d31a-b417-4d31-8da4-74ce223547ae_cover_snapshot_0s_1771319848_image.jpeg","duration_sec":229.96,"has_vocal":false,"m":"exclusive android love","created_at":"2026-02-17T04:16:36.503Z"},
+{"name":"💜 Bіtc*es Need To Know","suno_id":"75ebef97-bcfb-45d7-a65d-80c5892181eb","artwork":"https://cdn2.suno.ai/video_upload_f7c5370d-243f-4a5a-88e3-beb0f8d36142_video_upload_f7c5370d-243f-4a5a-88e3-beb0f8d36142_cover_snapshot_0s_1772193691_image.jpeg","duration_sec":91.96,"has_vocal":false,"m":"RnB","created_at":"2026-02-16T04:35:18.202Z"},
+{"name":"🥁 You Are So Vain You Think This Song Is About You Boy 🪘","suno_id":"7f294916-00b6-4acb-8ded-ca8c6800132b","artwork":"https://cdn2.suno.ai/389504e9-7801-4979-a8d4-0125ab371190.jpeg","duration_sec":214.56,"has_vocal":false,"m":"cl0wncore, swing house, pop","created_at":"2026-02-14T03:56:35.630Z"},
+{"name":"🥁 Dialed In 🧊","suno_id":"188d7cac-a65b-4a67-9bb0-0c4e8e376810","artwork":"https://cdn2.suno.ai/2ceaaea8-5ab6-4412-bf99-b92913c921ef.jpeg","duration_sec":182.44,"has_vocal":false,"m":"cl0wncore, rough jazz","created_at":"2026-02-14T01:35:53.124Z"},
+{"name":"🥁 Rain On Glass 🧊","suno_id":"1c4291d0-3204-41c8-89d9-c513622a1609","artwork":"https://cdn2.suno.ai/bdb286c8-f207-435b-9226-f2637a6fe71b.jpeg","duration_sec":235.56,"has_vocal":false,"m":"dnb, jazz fusion","created_at":"2026-02-14T01:35:00.633Z"},
+{"name":"You're In This Room Now 🥁","suno_id":"ea92276c-f482-4638-b701-a21f47563329","artwork":"https://cdn2.suno.ai/27230ef9-0b9a-47af-ae2f-8a09d53a7621.jpeg","duration_sec":236.56075,"has_vocal":false,"m":"jazz fusion, dnb","created_at":"2026-02-13T04:59:11.626Z"},
+{"name":"Amaste Me Nunca","gd_id":"10K_-grtwdJZlOQPbFkqCHKZ6-4-ocZKw","suno_id":"592a08e3-42c8-480c-8510-0d4fde0be5f8","artwork":"https://cdn2.suno.ai/43a8a0bd-5052-4697-96cd-22bdc6ad2dfa.jpeg","duration_sec":205,"has_vocal":false,"m":"spanish never love","created_at":"2026-02-12T06:02:30.899Z"},
+{"name":"Mother Used To Say","gd_id":"11KG37cSzXqVLUrOqrEAkZ4U0u4v1cR9y","suno_id":"53acfd0c-ae41-42a2-8cd9-5bc18cc2bb9b","artwork":"https://cdn2.suno.ai/0c77f379-af2e-41a8-b551-60bbd3516fe8.jpeg","duration_sec":143.12,"has_vocal":true,"m":"maternal wisdom sample","created_at":"2026-02-12T05:57:26.346Z"},
+{"name":"Outside the Other In","suno_id":"df3c6992-a52e-4065-b094-50fa2c788ecd","artwork":"https://cdn2.suno.ai/979799fb-83ce-4bb1-849c-ac02a086e2a3.jpeg","duration_sec":106.44,"has_vocal":false,"m":"jazz, soul","created_at":"2026-02-12T05:42:15.303Z"},
+{"name":"🎸 A Ring Your Boner","suno_id":"61695e18-eb57-4971-a095-24066bd562a3","artwork":"https://cdn2.suno.ai/231a2d78-deed-4cdf-be31-3ffa1c1c5582.jpeg","duration_sec":324.76,"has_vocal":false,"m":"rough jazz, cl0wncore, neo-classical","created_at":"2026-02-10T05:06:39.146Z"},
+{"name":"Afrika N¡ppon 🍭","suno_id":"944da701-ad1c-4d49-bf61-ffbf548c912f","artwork":"https://cdn2.suno.ai/555eea9e-808f-43dc-a075-592377e13d77.jpeg","duration_sec":241.52,"has_vocal":false,"m":"cinematic, soundtrack","created_at":"2026-02-08T02:06:26.520Z"},
+{"name":"969","suno_id":"1ab0bb8b-3db9-4319-bc81-260ecd2d6618","artwork":"https://cdn2.suno.ai/image_large_1ab0bb8b-3db9-4319-bc81-260ecd2d6618.jpeg","duration_sec":256.92,"has_vocal":true,"m":"pop, happy","created_at":"2026-02-08T01:32:27.290Z"},
+{"name":"Sound Test","suno_id":"194bcbbd-4943-45f2-8968-b360d0b7a756","artwork":"https://cdn2.suno.ai/image_large_194bcbbd-4943-45f2-8968-b360d0b7a756.jpeg","duration_sec":287.92,"has_vocal":false,"m":"cl0wncore","created_at":"2026-02-07T08:54:55.472Z"},
+{"name":"She Has Inverted Pressure 🥁","suno_id":"ab630bb9-b5ae-4dd3-a68c-a16358dd9911","artwork":"https://cdn2.suno.ai/image_large_ab630bb9-b5ae-4dd3-a68c-a16358dd9911.jpeg","duration_sec":203.52,"has_vocal":false,"m":"jazz fusion, dnb, cl0wncore","created_at":"2026-01-31T08:01:41.246Z"},
+{"name":"Steal & Sell","gd_id":"18rywguXBimjXuB9ZLHCdfDd8lAdUg1Vb","suno_id":"ef83e46b-4dfe-40e7-b9bd-46f2289dd6e1","artwork":"https://cdn2.suno.ai/24b9c914-edf5-49b4-b695-bf6375e6f075.jpeg","duration_sec":200.24,"has_vocal":false,"m":"capitalist crime duo","created_at":"2026-01-30T04:25:27.674Z"},
+{"name":"(Dead Tape) Shuffle","gd_id":"1FeHg5Axro4K3QX_jK59VZkN0ZsJpXkye","m":"degraded cassette nostalgia"},
+{"name":"(For You) 💜 To Stay","gd_id":"1thI0lNVx38H0Mh1Rw_MAOxhEwUSqE12n","m":"purple heart plea"},
+{"name":"(in)Sensitive","gd_id":"16BMjKNZ0YYqYxGIvi4EZiwSXwsgFxNms","suno_id":"97190ec3-be34-49e7-947a-681d89dd06e0","m":"ironic soft rock"},
+{"name":"(Lost to) Darkness 💎","gd_id":"1N7Q8bIJuhTD-bqYjHO1lY3t2m-l0CuQX","m":"diamond in void"},
+{"name":"(put some lyrics on it V5)","suno_id":"0476e2f9-1493-48c0-a4f2-961d0d3b4436","m":"new from suno dump"},
+{"name":"(Selft ok) Keeps Safes","gd_id":"17nybluRxMXbzfutTx7oTLDo1VfKvYFQ9","suno_id":"7a74e66a-dd2a-4878-9fad-bbd1402b66aa","m":"typo therapy ambient"},
+{"name":"(Silent) Back Stabber","gd_id":"1UkVKZyLhgoROKsCHEuUTGLH1FNO2UP1_","suno_id":"d49ff209-fc57-4e05-b4d5-c8aa1662f254","m":"quiet betrayal theme"},
+{"name":"(Special) Never Is Happening","suno_id":"5ea52147-b480-4ff6-a3a1-d61ae241dd46","m":"new from suno dump"},
+{"name":"(Trance) Slowly","gd_id":"1yR8UajSL4DSaJRKPSNh44tiroFOMWHeN","m":"slow build euphoria"},
+{"name":"(Wrong Side) The Sun Comes Up","gd_id":"1dHOH6TOOQsOgXDNW2AaGnSUA8l89CvHy","m":"dawn after regret"},
+{"name":"6AM.","gd_id":"1-G7hFUI2mVLNY3Z9rnbAoA7xSTG9JQN0","m":"dawn comedown ambient"},
+{"name":"6PM.","gd_id":"13SMUhh5E8lRQYB-rVyGCleHZG6JGwY2x","m":"evening wind down"},
+{"name":"Africa Nippon","gd_id":"1MRhPPPMq3ddI7mvaJlzf0mlTfb0RvoJd","m":"continent crossover fusion"},
+{"name":"And You Want To Stay (Encore)","suno_id":"48a9a710-0806-4556-a8a3-416fe16768a9","m":"new from suno dump"},
+{"name":"And you want to stay, want to stay","gd_id":"1kt1orUJQNxJ19-f_Sh70hRhOsCss2UHR","m":"repetitive desire loop"},
+{"name":"Bitches Need To Know","gd_id":"1N52q73bGhIAMSSywbhVJhqgdwDdLjqQc","m":"information dissemination anthem"},
+{"name":"Blue Groove","gd_id":"12Ux-YmrquvyqKMbP9oVWgkXTGqCmkznC","m":"cool sax swagger"},
+{"name":"Blue Tyger Inversion","gd_id":"127K_ZS9mkMJAtYmfdV5BgTvDPb08tWOv","m":"blake poem electronic"},
+{"name":"Boys' Room (PC)","gd_id":"1tCTnQed8lsOPN9GhoUdsykZ1tNdt_5l9","m":"nostalgia chip tune"},
+{"name":"Breakup Sex","gd_id":"10661uyX6NG4Xj7QSbqoeS7tiH7kPoO67","m":"complicated feelings anthem"},
+{"name":"Bіtc_es Need To Know","gd_id":"1aSAbthxsA_QhNuudclcyu9DAVccGpfxi","m":"censored gossip anthem"},
+{"name":"Calling All Lamb","gd_id":"1qkTcis9COmUppcPAPtCN3i9HX942-uKy","m":"shepherd synth summons"},
+{"name":"Chinchilla Overdrive","gd_id":"1LtIhoLtPR2aG-n9cA9Cwu8wdYHVvog4-","m":"furry fuzz pedal"},
+{"name":"CINEMA OFFICIEL - UV (Undercover Cover)","gd_id":"1uFbk6-XmSz7MxlqIJ3aL6l_cNC2aXep-","m":"meta cinematic disguise"},
+{"name":"Come Milk My Cow(s) Fair Maiden","gd_id":"1mDw8cJtd8cQrK9XHB-FVsqHHPk4CO7_l","suno_id":"c958089c-33b9-4aa8-9e01-2b6bc2984039","m":"bucolic double entendre"},
+{"name":"Come Up (With The Sun)","gd_id":"1gAZ_HW5ZYh3tCunOE1uo50tmvJqlzZ-6","suno_id":"42806e2a-56ed-43db-8cf0-52a9bac1c111","m":"morning motivation groove"},
+{"name":"D.nt Be M¡d, As Much As You Can","gd_id":"1efiecAsCzVj8lR8CpWIGj7GjVrWi2ZYV","m":"censored pop protest"},
+{"name":"Demons In My Head","gd_id":"1vttZsX7o90R7dNf0-pJt4Nk3xFPayMbR","m":"anxiety rock confession"},
+{"name":"deparcS","gd_id":"1Hth_aY3zubuXFLDxaMnoy6VP8BvoDJSg","m":"reverse spelling puzzle"},
+{"name":"Disrupt Your Rhythm (0.94x)","gd_id":"1vWeabCfNLKxY7PRVRKjNXGnvxAZroe7m","m":"slightly slower chaos"},
+{"name":"Do What I Say","gd_id":"1V5qCgY6v72bQrFxOU0i9QutoLgqanrk8","m":"industrial command anthem"},
+{"name":"Dreams For Which There Are No Dreamers","gd_id":"1ffZXk_s1U20g1r0oeJPOzRytM9jPs-Z9","m":"orphan ambient suite"},
+{"name":"Dreams In Ultraviolet (1)","gd_id":"1ol_UieUULAu1y8DOC-5aq8q7CR2gQyQH","m":"blacklight bedroom pop"},
+{"name":"DRKCTNGHTDRV","gd_id":"1JWY_DcpCHAlYqaGq5EUNFBt4rTptnj8P","m":"night drive phonetic"},
+{"name":"Duds of Canada","gd_id":"1Hju95zu1MsTMm7DfcQCqbrc5s2mm34Tt","m":"lo-fi folk sketch"},
+{"name":"Duduk Qwala","gd_id":"1liZ7VDhQ86YFl5wEdnYzusFJZtH0mDFY","m":"armenian flute reverie"},
+{"name":"Face Tyler (My Pussy)","gd_id":"1kOSJg_PpcZ58zVEPpmRBG1haOI6Wf-dQ","m":"provocative identity claim"},
+{"name":"Feel This Out","gd_id":"1HK4fKDJnWdH3dKG1-1gMD_FZvIjCiC9U","m":"tactile exploration jam"},
+{"name":"Fin","gd_id":"1EGHiYPvIeCU54rOsDU7fDIt-Pi3-4lH3","m":"closing credits piano"},
+{"name":"Frack Tax Surveil","gd_id":"1hPz9S0uCjT5_SB0156t55LPEW54dlMCB","suno_id":"1684f9ff-894a-4312-ac8b-062df794b9a1","m":"political surveillance dub"},
+{"name":"FYCDN-222 [Remix]","gd_id":"13cntOrIhbuTzwM2FdbwRxbLYujNr6K6B","m":"warehouse acid cut"},
+{"name":"Giorgio Was Here (tape scratched)","gd_id":"1cTvGWtHzfJW38sFsCFVMeWovyml04U24","m":"morseled moroder homage"},
+{"name":"Gourdjieff Arena","gd_id":"130jpU2j97Thv9XWmlM1F_WhdakQM7QGT","m":"mystic philosopher stadium"},
+{"name":"Hands off, Flying","gd_id":"1fkrST2HZN1obNcOVVv2KBeD82IyEhSz7","suno_id":"e7c01a9b-1cba-43a3-9f25-03c077481c69","m":"aviation warning groove"},
+{"name":"Higher Trance","gd_id":"10MiXFhG1GEQ1pgi4nOhRAMB1tGF9pYWB","m":"ascending arpeggio journey"},
+{"name":"Higher Trance Mix","gd_id":"15b5cQix_IafwCw3Q6E5_r7qs5WN_00oU","m":"elevated state remix"},
+{"name":"I know you're having sex in there","gd_id":"1QUfGiTvr4ZPorOYd8mAdGd9DsoHzf26j","m":"unfiltered voyeurism anthem"},
+{"name":"I know you're having sex in there. (Radio Edit)","gd_id":"1uY33QMwK6rsgvqXbGAqxNO6RtqhosaAI","m":"censored voyeurism pop"},
+{"name":"I Loves Your Mamma Bud","gd_id":"1N93HTqp8PT9E2_90j4nAnI4NXQPeN7s0","m":"affectionate maternal tribute"},
+{"name":"IKYAHSIT","gd_id":"1jtFkDxhnt-BFEGwWENnuO7GTcnCV4akp","m":"acronym mirror phrase"},
+{"name":"Infinite Realm of Incomprehensible Suffering","gd_id":"1AV8CEbv1Zq8BNdyFyqa_IKyDCEiyCztO","m":"existential dread ambient"},
+{"name":"Inner Rooms of Sobriety","gd_id":"1_A8ScGOkOgzw6K1Qiv4E7-2I7Ve3U7V1","suno_id":"6de8370d-86e0-4219-befe-1c5f7498de58","m":"recovery chamber ambient"},
+{"name":"Insert Silence","gd_id":"1MzKFOqSCjlSUgB54p_wWI3C4Ub9h1Eby","m":"negative space composition"},
+{"name":"Int 90s NiPop","gd_id":"1R0jU0HB8i5lN8GytljU9DDbC60xs37qg","m":"international nineties nostalgia"},
+{"name":"Int Def Con Tak Sat Nav Bog Suc","gd_id":"1jvhkbdbB8MKKOkPsAlhP2BaXzYrtErY6","m":"acronym overload nonsense"},
+{"name":"It Knows You","gd_id":"14tLlqj3V5YVPr2fAJBRelMQxanz2yZzw","m":"AI surveillance paranoia"},
+{"name":"It Knows You Back || Outside the Other In","suno_id":"97e20b77-b45e-4718-831d-8c0206a67cce","m":"new from suno dump"},
+{"name":"Kakapo, Class","gd_id":"1Kagdfp0imitp9w58-fYTjU2s8MBRbMTD","m":"rare bird elegy"},
+{"name":"Lila Pralliné","gd_id":"1ibWW2ewtWvhkMR394A-a9UGueWdw546k","m":"chocolate dream sequence"},
+{"name":"Lover Undersea 💜","gd_id":"166h-XTcbncezez53xKVtC5S1FypbNQZm","m":"submarine romance ambient"},
+{"name":"Mother Left You Out","suno_id":"c03bcd7e-a251-489b-bea1-b645db817895","m":"new from suno dump"},
+{"name":"Move Over Lass","gd_id":"1jqpn9b9h519BhtZAqqYbRUxSRRFSznA1","m":"pub rock shanty"},
+{"name":"Mumi Ya Eahirat","gd_id":"1j93_VvPgUeVTgzjJIixZGHpSqaWeD1MF","suno_id":"df9a956f-df47-4427-bc57-90496fcfdee3","m":"desert wind ritual"},
+{"name":"My Sister Never Dig You, Friend","gd_id":"16EUyOOFbqNWWXQnU_5gR1mh6vl3AewF2","m":"sibling rejection notice"},
+{"name":"Nail that Apple","gd_id":"1sn6NaN5nca8mtH-_lOXYFG4NjeGPA30s","m":"forbidden fruit percussion"},
+{"name":"Never Jazz You Over, Ty","gd_id":"1RFkx4sOOgCyzd9BF9z6_RvUxFYYY8-uw","m":"tyler typo tribute"},
+{"name":"Never Out (Of Trouble) 🎸","gd_id":"13eSzpeHZzXb1sX-hIoskr7BbZH00fb71","suno_id":"4ab439f5-efdb-41a4-9f6c-4ff61cd9933c","m":"guitar rebel forever"},
+{"name":"No Quota For Sh¡t To Happen","gd_id":"1OqEvnUwS-n1yyktvfuiDRQCjzacz6pnD","m":"bureaucratic frustration anthem"},
+{"name":"Nomi Was Alone","gd_id":"1O1Idto23JYm32CnOJrcuJCYbUEKvX_Qi","m":"isolated character study"},
+{"name":"Northwards Crotch","gd_id":"1vQPGfSWWdcNw8w-N0uGI8ndS8weCzkOp","m":"crude compass punk"},
+{"name":"Not This Knob [[ It's You I Like ]]","gd_id":"1nS3qeZ5TVvDmAsiWIrcoJtWf0i6QrlPP","m":"knob innuendo love"},
+{"name":"Outside the Other","gd_id":"1zPTcMdO45cNbzUc6Eal6JOyY-uE1Ampv","m":"existential duality ambient"},
+{"name":"Overjazz (0.94x)","gd_id":"1GAsb-GmAbULZw3zwInKXUEZFPh00-roR","m":"excessive brass slowdown"},
+{"name":"Princess Bear","gd_id":"1P-J4VeDGmmoBD5XUj4ei7XqLFQda3p7T","m":"toy piano lullaby"},
+{"name":"Proofed","gd_id":"1x1lNPiqeCcnhEECZQ1nQIN6Un_XA0DHI","m":"final draft approved"},
+{"name":"Rain On Glass","gd_id":"1wjwNm7lI1H5T2I5kRJGjscXvR_AxhDvT","m":"melancholy window scene"},
+{"name":"Ring Your Boner","gd_id":"1UalfMUu90x83YLOMzL2zFcpqQYfw6JKP","m":"crude phone call"},
+{"name":"Secret Soldier","gd_id":"1bc7L0WYci4E7VTc7qIhaM9sdsUHbM_mD","m":"covert ops synth"},
+{"name":"She Has Inverted Pressure","gd_id":"1RZVmnDPpb5RGztAfJVC1GT2-jfOtu-F5","m":"physics metaphor love"},
+{"name":"She Never Kissed You Back 🥁","suno_id":"bd84ec46-7577-498e-bc08-2cc28bcd7de9","m":"new from suno dump"},
+{"name":"She Shows You Where To Put It","gd_id":"1QB1AwpPyYtOXEO85ISkVR5fsar5NT_1C","m":"instructional innuendo jam"},
+{"name":"She Would Never Choose You Proper","gd_id":"1890r7rt7Ym-ycsRQhDfBLaiQnaPno4ur","m":"class conscious rejection"},
+{"name":"She Would Never Jazz You","gd_id":"1XK6FNnGn0z1hbrYsjS_1yueGDMCTf11x","m":"genre fidelity oath"},
+{"name":"She 🪕ð (Encore)","gd_id":"1gFaRwoKX3gC3xMpFrmVNiI8wZB29NirQ","m":"synth-pop love reprise"},
+{"name":"Shut up, and Groove","gd_id":"15GxkCS8dXQgudHvejyaFs0Ht2QKVySkt","suno_id":"2c1e89ee-7a2f-4729-b163-1f761cbe44ca","m":"command to dance"},
+{"name":"Side Hustle","gd_id":"1Z5ifqLjJgD_Catwt14pWhJgc1hzmGrlQ","m":"grind culture banger"},
+{"name":"Smooch Delinquent","gd_id":"1i7mC8NTz7xLhX1ei7TOajo6aFLO7VXgK","m":"juvenile delinquent romance"},
+{"name":"So Much Lamb Mary Did Have That Day","gd_id":"1GtP-GU_AewOQUGs2p7q5NqLl_OXF8JvW","m":"nursery rhyme excess"},
+{"name":"Space (Blu—) Purples","gd_id":"1hpofYxnTA7u_VyRU0LHyx0sP_ajBtSoc","suno_id":"fd8035cc-b8f6-4bea-8b76-d9f313fec1d8","m":"cosmic color study"},
+{"name":"SSSSsS111!!!11","gd_id":"1EK3YICCX7-S1JB071WEbqrOLXHSYMbVK","m":"noise collage explosion"},
+{"name":"Suck It And Find Out","gd_id":"1bO1nUSgw-kskZ__ZB6l8WpFJoX-jZ1iS","suno_id":"98a687c1-180f-4d04-a0c4-757a5e5cba6c","m":"dare you hook"},
+{"name":"Tall Tales (🤡 shoutout @DETONER)","gd_id":"1m13LFZ48yj0E06dZNB41g3KLs26AWTq7","m":"clown circus diss"},
+{"name":"The Bones Are Whistling","gd_id":"1C95FsCJDhN9G4mWUFt7erWjNycAKRzS-","m":"spaghetti western whistle"},
+{"name":"Then Time (For Work)","gd_id":"1qYUktkVFe7YQoEenTPhHS3XzLuVGSpx_","m":"clock-in industrial beat"},
+{"name":"This Is Control (1)","gd_id":"1EQLuv9Z7LXFb7tx71FVOXtiTTkk0BYCR","m":"authoritarian electro march"},
+{"name":"Three, You, Two, Never, One, She Would","gd_id":"1iQM4BUX5hf87BBAC6I1cU0vKx7KVyX6T","m":"scrambled countdown romance"},
+{"name":"Tigers in L.A.","gd_id":"1gv66afhoa5329oWMr4QYIQ0SP66LqJQC","m":"urban jungle prowling"},
+{"name":"Turn Over Dom (Encore)","gd_id":"1DigQDvh3xb8wZ0cvu1TnTZsJRWSouVxT","m":"BDSM house encore"},
+{"name":"Vogel (im Käfig)","gd_id":"1ngYJRGGtXkWVKwX6uyizf8FlrvpEapgp","m":"caged bird German"},
+{"name":"We Need It","gd_id":"18puZbmLMF9r3ZCH36T7S9CxztoTGz4k_","suno_id":"0a0a3407-10bf-45f3-8c29-812fa76533ad","m":"urgent collective chant"},
+{"name":"What Do (You Want)","gd_id":"1SGphPbqN9cNinBIQFkBX0EMkwaBzRTu0","m":"post-punk question mark"},
+{"name":"Woke Up Asleep (GPS JAM)","gd_id":"1FwmYHqrda9LPDJ42pnIeNAypRTVS_7A1","m":"navigation failure dub"},
+{"name":"You Are So Vain You Think This Song Is About You Boy","gd_id":"1JI0jsiZzqBY5CAFY3qEyoJrcn2pNo8Ue","m":"meta narcissism epic"},
+{"name":"You're In This Room Now","gd_id":"1oVSpbj-orCiarkuc5jgJWPN_YeNewWIT","m":"claustrophobic presence anthem"},
+{"name":"Your Call Is Important To Us","gd_id":"18WGfujQJourO5Dg34JhBD8sKsab8VLUx","m":"hold music satire"},
+{"name":"Your Father's Watch","gd_id":"1t8AOzJAKraGv4RnJ08n2dlXLKTvpJ8Vy","m":"heirloom timepiece elegy"},
+{"name":"Zaidi Slantce","gd_id":"1HY3ErweWVmzkWhgSTv6ueurKP0R9csWW","m":"more sunshine foreign"},
+{"name":"سلم SALÉM","gd_id":"1xatkopGdUP56gSPmmB1QYva_WcE38bZn","suno_id":"3b4b959d-e6c9-4bf1-8cc8-4c7c57e81cba","m":"arabic peace invocation"},
+{"name":"🎸 Kat Never Hit You Back","suno_id":"76977420-e8bd-4a20-9538-984ced93da9c","m":"new from suno dump"},
+{"name":"🎻 F.rgt Ton/ght 🍭","suno_id":"c5b81b72-bbc3-48f4-93c4-513140154631","m":"new from suno dump"},
+{"name":"🥁 Diagonal Splits 🥁","suno_id":"d4542e8b-7202-4eae-b498-00f2fc83afd1","m":"new from suno dump"},
+{"name":"🥁 Ecnart Rehgih 🍭","gd_id":"1w-5S4_6QshfLpevdnw4OZn0pP6W47Vux","suno_id":"1fd3cd56-c797-4ee5-874f-5c6c2c942b1d","m":"mirror world carnival"},
+{"name":"🥁 We Go Deaf Today 🎸","suno_id":"a0236fca-c682-4aa8-a5a0-dafccdec3cb7","m":"new from suno dump"},
+{"name":"🪘 Paint the Walls (Already) 🥁","suno_id":"982c0a42-2458-442a-8945-840a1cc2b8da","m":"new from suno dump"}
 ];
 
 let q=[],i=0,sh=false;
 const gdPlayer=document.getElementById('gdPlayer'),audioPlayer=document.getElementById('audioPlayer'),audioWrap=document.getElementById('audioWrap'),l=document.getElementById('l'),s=document.getElementById('s'),shb=document.getElementById('sh'),t=document.getElementById('t'),sunoLinkBtn=document.getElementById('sunoLinkBtn'),bgEl=document.getElementById('bgEl'),npEl=document.getElementById('npEl');
-audioPlayer.volume=0.43;
+audioPlayer.volume=0.65;
 
 function getQueueSource(){let source=[...data];if(showingStarsOnly)source=source.filter(tr=>isStarred(tr.suno_id||tr.gd_id));if(showingInstrumentalsOnly)source=source.filter(tr=>tr.has_vocal===false);return source}
 function buildQueue(){const source=getQueueSource();q=sh?shf(source):[...source]}
@@ -307,20 +336,29 @@ function gdUrl(id){return'https://drive.google.com/file/d/'+id+'/preview'}
 function shf(a){const b=[...a];for(let j=b.length-1;j>0;j--){const k=Math.floor(Math.random()*(j+1));[b[j],b[k]]=[b[k],b[j]]}return b}
 function sub(m){s.textContent=m}
 
+let bgTimeout=null,bgPending=null;
+function setBgArtwork(url){if(bgTimeout)clearTimeout(bgTimeout);bgPending=null;if(!url){bgEl.style.backgroundImage='';return}const img=new Image();img.onload=()=>{bgPending=url;bgTimeout=setTimeout(()=>{if(bgPending===url)bgEl.style.backgroundImage='url('+url+')'},2200)};img.onerror=()=>{if(bgPending===null)bgEl.style.backgroundImage=''};img.src=url}
+
+
+function cleanName(n){if(!n)return'';let r='',h=!1;for(let c of n){let cp=c.codePointAt(0),cat='',name='';try{cat=String.fromCodePoint(cp).charCodeAt(0)<128?'':String.fromCodePoint(cp);name=String.fromCodePoint(cp).charCodeAt(0)<128?'':c}catch(e){}if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=/\u2764|\u2763|\u2665|\u2661|\u1F493-\u1F49F|\u1F5A4|\u1F90D|\u1F90E|\u1F9E1/.test(c)||/HEART/.test(name);if(isHeart){r+='\u{1F5A4}';h=!0}else if(/\p{So}/u.test(c)&&cp>127){continue}else{r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\s+/g,' ').trim();return r}
+function cleanM(n){return cleanName(n)}
+
 function load(x){
   const tr=q[x];if(!tr)return;i=x;sub('Loading...');
   if(isSuno(tr)){
     gdPlayer.style.display='none';gdPlayer.src='';
     audioWrap.style.display='block';
     audioPlayer.src=getAudioUrl(tr);audioPlayer.load();
-    if(tr.artwork){bgEl.style.backgroundImage='url('+tr.artwork+')'}else{bgEl.style.backgroundImage=''}
+    setBgArtwork(tr.artwork||null)
     const sp=sunoPage(tr);
     if(sp){sunoLinkBtn.href=sp;sunoLinkBtn.style.display='flex'}else{sunoLinkBtn.style.display='none'}
+    stopGdriveSkip()
   }else{
     audioPlayer.pause();audioPlayer.src='';
     audioWrap.style.display='none';
     gdPlayer.style.display='block';gdPlayer.src=gdUrl(tr.gd_id);
-    bgEl.style.backgroundImage='';sunoLinkBtn.style.display='none'
+    setBgArtwork(null);sunoLinkBtn.style.display='none'
+    startGdriveSkip()
   }
   setT(tr.name);draw();
   setTimeout(()=>{const it=l.querySelector('.on');if(it)it.scrollIntoView({behavior:'smooth',block:'nearest'})},50)
@@ -332,7 +370,7 @@ function prev(){if(!q.length)return;i=(i-1+q.length)%q.length;load(i)}
 function shuf(){
   const wasShuffled=sh;
   sh=!sh;shb.classList.toggle('on',sh);
-  if(!wasShuffled&&sh){const pw=document.getElementById('pw')||document.querySelector('.pw'),pl=document.getElementById('l');if(pw){pw.classList.add('shake');setTimeout(()=>pw.classList.remove('shake'),385)}if(pl){pl.classList.add('shake');setTimeout(()=>pl.classList.remove('shake'),385)}}
+  if(!wasShuffled&&sh){const pw=document.getElementById('pw')||document.querySelector('.pw'),pl=document.getElementById('l');if(pw){pw.classList.add('shake');setTimeout(()=>pw.classList.remove('shake'),385)}if(pl){pl.classList.add('shake');pl.classList.add('force-opaque');setTimeout(()=>{pl.classList.remove('shake');pl.classList.remove('force-opaque')},385)}}
   const cid=q[i]?.suno_id||q[i]?.gd_id;
   buildQueue();
   if(cid){const idx=q.findIndex(tr=>(tr.suno_id||tr.gd_id)===cid);if(idx!==-1){i=idx;draw();return}}
@@ -342,16 +380,28 @@ function shuf(){
 function draw(){
   if(!q.length){let msg='No tracks configured.';if(showingStarsOnly&&showingInstrumentalsOnly)msg='No starred instrumental tracks.';else if(showingStarsOnly)msg='No starred tracks.';else if(showingInstrumentalsOnly)msg='No instrumental tracks.';l.innerHTML='<div class="empty">'+msg+'</div>';return}
   l.innerHTML=q.map((tr,x)=>{
-    const on=x===i,starred=isStarred(tr.suno_id||tr.gd_id),showGold=starred&&!showingStarsOnly,id=tr.suno_id||tr.gd_id,dur=tr.duration_str?'<span class="dur">'+htm(tr.duration_str)+'</span>':'',isInstr=tr.has_vocal===false,numClass=isInstr?'tn instr':'tn';
-    return'<div class="pli '+(on?'on ':'')+(showGold?'starred-track ':'')+'" data-i="'+x+'"><span class="'+numClass+'" onclick="play('+x+')">'+(x+1)+'</span><div class="ti" onclick="play('+x+')"><div class="track-left"><button class="star-btn '+(starred?'starred':'')+'" data-id="'+id+'" onclick="toggleStar(this,event)">'+(starred?'★':'☆')+'</button><div style="flex:1;min-width:0;"><div class="tnm">'+htm(tr.name)+'</div></div></div></div><div class="tm">'+htm(tr.m)+'</div>'+dur+'</div>'
+    const on=x===i,starred=isStarred(tr.suno_id||tr.gd_id),showGold=starred&&!showingStarsOnly,id=tr.suno_id||tr.gd_id,dur=tr.duration_sec?'<span class="dur">'+fmtDur(tr.duration_sec)+'</span>':'',isInstr=tr.has_vocal===false,numClass=isInstr?'tn instr':'tn';
+    return'<div class="pli '+(on?'on ':'')+(showGold?'starred-track ':'')+'" data-i="'+x+'"><span class="'+numClass+'" onclick="play('+x+')">'+(x+1)+'</span><div class="ti" onclick="play('+x+')"><div class="track-left"><button class="star-btn '+(starred?'starred':'')+'" data-id="'+id+'" onclick="toggleStar(this,event)">'+(starred?'★':'☆')+'</button><div style="flex:1;min-width:0;"><div class="tnm">'+htm(cleanName(tr.name))+'</div></div></div></div><div class="tm">'+htm(cleanM(tr.m))+'</div>'+dur+'</div>'
   }).join('')
 }
 
-gdPlayer.addEventListener('load',()=>sub('Streaming from Google Drive'));
+gdPlayer.addEventListener('load',()=>{if(gdriveSkipActive)updateSkipDisplay()});
 audioPlayer.addEventListener('loadedmetadata',()=>{if(q[i]&&isSuno(q[i]))sub('Streaming from Suno')});
 audioPlayer.addEventListener('canplay',()=>{if(q[i]&&isSuno(q[i])){audioPlayer.play().then(()=>sub('Streaming from Suno')).catch(()=>sub('Click play to start (Suno)'))}});
 audioPlayer.addEventListener('ended',next);
 audioPlayer.addEventListener('error',e=>{console.error('Audio error:',e);if(q[i]&&isSuno(q[i])){const src=audioPlayer.src;audioPlayer.src='';setTimeout(()=>{audioPlayer.src=src;audioPlayer.load()},500);sub('Retrying Suno stream...')}});
+
+let gdriveSkipTimer=null,gdriveCountdownInterval=null,gdriveSkipActive=false,gdriveTrackLoadTime=0;
+function resetGdriveSkip(){if(!gdriveSkipActive)return;gdriveSkipActive=false;clearTimeout(gdriveSkipTimer);clearInterval(gdriveCountdownInterval);gdriveSkipTimer=null;gdriveCountdownInterval=null;s.textContent='Stopped.';}
+function checkGdriveSkip(){if(gdriveSkipActive&&q[i]&&!isSuno(q[i]))next()}
+function updateSkipDisplay(){if(!gdriveSkipActive||!q[i]||isSuno(q[i])){clearInterval(gdriveCountdownInterval);gdriveCountdownInterval=null;return}const rem=Math.max(0,Math.ceil((10000-(Date.now()-gdriveTrackLoadTime))/1000));if(rem<=0){s.textContent='Skipping...';clearInterval(gdriveCountdownInterval);gdriveCountdownInterval=null;return}s.textContent='Streaming from Google Drive • skip in '+rem+'s'}
+function startGdriveSkip(){clearTimeout(gdriveSkipTimer);clearInterval(gdriveCountdownInterval);gdriveSkipActive=true;gdriveTrackLoadTime=Date.now();gdriveSkipTimer=setTimeout(checkGdriveSkip,10000);gdriveCountdownInterval=setInterval(updateSkipDisplay,200);updateSkipDisplay()}
+function stopGdriveSkip(){clearTimeout(gdriveSkipTimer);clearInterval(gdriveCountdownInterval);gdriveSkipTimer=null;gdriveCountdownInterval=null;gdriveSkipActive=false}
+document.addEventListener('mousemove',resetGdriveSkip);
+document.addEventListener('touchstart',resetGdriveSkip);
+
+let scrollOpaqueTimer=null;
+l.addEventListener('scroll',()=>{l.classList.add('force-opaque');if(scrollOpaqueTimer)clearTimeout(scrollOpaqueTimer);scrollOpaqueTimer=setTimeout(()=>l.classList.remove('force-opaque'),400)});
 
 buildQueue();draw();if(q.length)load(0);setViewStar('☆');setInstrBtn('○');setPlBtn('■');
 </script>
