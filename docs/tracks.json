@@ -1,237 +1,2047 @@
-const data=[
-  {name:"🥁 Quebienx",suno_id:"df96598b-c3d1-4795-80a9-25c9e0f392f2",gd_id:"13Eo1ip5owOyI3nAnzdepAeY5OpFyWFsY",artwork:"https://cdn2.suno.ai/d5fedb28-5021-4059-a261-3550ff26bae6.jpeg",duration_sec:138.96,has_vocal:true,m:"glitch-hop bass drop • cl0wncore house, industrial jazz fusion",created_at:"2026-05-21T06:52:55.185Z"},
-  {name:"Specificity in Duality",suno_id:"2e49e855-952e-4c0d-8372-dd07a7a656ef",gd_id:"1-7BnurB8u1xAwlMSPPPL9qpr5oNkGJON",artwork:"https://cdn2.suno.ai/d8954545-6ff8-4de2-ac10-2e566cb789e4.jpeg",duration_sec:310.2,has_vocal:true,m:"philosophical ambient drone • downtempo electronic, beat poetry, #OoK",created_at:"2026-05-20T04:11:02.211Z"},
-  {name:"🍭 He will come for You surely",suno_id:"6a2df838-73fb-43a7-a533-ccfd772e62f0",gd_id:"1mSiWpuvSgUpMrEQ8VjUOCYhdK-XK0pDE",artwork:"https://cdn2.suno.ai/343cf259-f3fc-442e-be71-f69e1a2b5576.jpeg",duration_sec:282.76,has_vocal:true,m:"gospel techno fusion • synthwave, cl0wncore trance",created_at:"2026-05-16T08:34:05.232Z"},
-  {name:"SIAFO [Remix]",suno_id:"c6341e65-785d-439e-a8ca-9a2f4f2468b0",gd_id:"161CC6jsAw-M-4FMenqlz_3UUMaCnqECS",artwork:"https://cdn2.suno.ai/968161d9-fcb8-45f5-9ea1-00c6e25dfe28.jpeg",duration_sec:209.96,has_vocal:true,m:"four-on-floor rework • soul, ballad, pop",created_at:"2026-05-14T08:36:15.964Z"},
-  {name:"Never a Boy 🪕 or Two",suno_id:"2dfd537b-b56b-48bd-9345-24013cc2d1eb",gd_id:"1R_48o-j_lSj0HIDxB1qy_UxdcdoPqrhx",artwork:"https://cdn2.suno.ai/e049b5fa-718f-4c19-b9e0-c578185af4f8.jpeg",duration_sec:195.68,has_vocal:true,m:"remastered indie anthem • jazz soul",created_at:"2026-05-14T07:25:36.031Z"},
-  {name:"She Loves ⚠️ (My Voice)",suno_id:"3b2420fa-fcb0-495d-a3c6-62e5eb8a7144",gd_id:"1SGeAKSkweYxgw_GJ79xtsLIL92krLpgb",artwork:"https://cdn2.suno.ai/1c98a45d-505c-422f-82d6-f4f6dbb0057c.jpeg",duration_sec:167.96,has_vocal:true,m:"vocal loop mantra • jazz, pop",created_at:"2026-05-13T08:44:09.129Z"},
-  {name:"She 🩷ð (Encore)",suno_id:"dbb33865-fa54-4f3f-8f01-b40967558418",gd_id:"1gFaRwoKX3gC3xMpFrmVNiI8wZB29NirQ",artwork:"https://cdn2.suno.ai/eb658123-8953-46fb-bdbd-6c1a04244196.jpeg",duration_sec:252.52,has_vocal:true,m:"jazz, mallcore",created_at:"2026-05-13T08:19:35.759Z"},
-  {name:"🥁 Forget Tonight (Again) 🍭",suno_id:"6005ac08-25ab-425f-afba-05e9565aa559",gd_id:"1s5uDHYkKnE2XhhXZM4_PE2wam099-ymF",artwork:"https://cdn2.suno.ai/953612b2-3c04-4516-b61a-36602a807376.jpeg",duration_sec:256.806875,has_vocal:false,m:"melancholy piano ballad • cl0wncore trance",created_at:"2026-05-08T04:41:23.084Z"},
-  {name:"Caged Bird Locked In (Encore)",suno_id:"c0a2adae-4ea5-431f-b892-2d62dd61ae0d",gd_id:"1vA1fQi_TQnyuZmeQT2-LRmu26xnCnOhH",artwork:"https://cdn2.suno.ai/0fbf13a8-4843-4c38-a297-2ca3b9be5af8.jpeg",duration_sec:233.96,has_vocal:false,m:"trap soul encore • cl0wncore, instrumental, rough jazz, jazz fusion",created_at:"2026-04-30T06:08:05.838Z"},
-  {name:") Go Smooth ( 🥁",suno_id:"7f67b284-25e8-4a44-8d7d-41351eef43c4",gd_id:"19PvGB51ltSxqk0rrWxnPifX-9D7qLO4B",artwork:"https://cdn2.suno.ai/9d9d2dac-806d-4e0b-aa5b-1f00057d9e57.jpeg",duration_sec:257.96,has_vocal:false,m:"late night R&B • dub & bass, psy cl0wncore",created_at:"2026-04-28T23:07:08.193Z"},
-  {name:"Old House on the Ice Hill",suno_id:"d44fd1c5-72dc-4309-9fb7-3e2518299916",gd_id:"150EhDRSFjp_0P03dC_3YJ4zLoD_HteMS",artwork:"https://cdn2.suno.ai/b0db79e1-7b81-4086-a9f4-1d1e793bfbfc.jpeg",duration_sec:323.699875,has_vocal:false,m:"haunted folk memory • ambient, cl0wncore, minimal",created_at:"2026-04-28T10:16:47.251Z"},
-  {name:"Secret Robot (Encore)",suno_id:"b41a74fe-2755-4055-b459-03476a38f0e0",gd_id:"1ljReeOW6IhMIuhsGgqdQ9WzUZHv-dZvu",artwork:"https://cdn2.suno.ai/1c8646b8-c7ae-4f52-8372-d17cf79a63a9.jpeg",duration_sec:280.28,has_vocal:true,m:"android love encore • instrumental, jazz, mallcore, cl0wncore",created_at:"2026-04-28T07:07:14.905Z"},
-  {name:"(Ornamental) Death Gape",suno_id:"8e9727ba-1b51-4cf0-9d7b-61317e242a8a",gd_id:"1vJ-KTRX18sG9Cd9pWN6fQUFxs4tJmzfJ",artwork:"https://cdn2.suno.ai/0bb4fa73-b949-43ec-9667-ce823ce7f395.jpeg",duration_sec:196.24,has_vocal:true,m:"gothic baroque interlude • breakcore, classical, cl0wncore",created_at:"2026-04-25T09:27:23.506Z"},
-  {name:"Y U such a ()  #OoK",suno_id:"9a075c31-5e1f-4a0c-a49e-154eacd06b0b",gd_id:"12klrnP0wYF09L91N4oWa_5WKa_Cr8AuI",artwork:"https://cdn2.suno.ai/03831f38-3292-4822-81e9-0044e86d8026.jpeg",duration_sec:167.32,has_vocal:true,m:"text message breakup • cl0wncore house, disco swing",created_at:"2026-04-21T08:43:38.795Z"},
-  {name:"Get It (Over Here)",suno_id:"4904b3b4-080b-4719-a26a-3a84c7e199e4",gd_id:"1gtJWcaUy5AEuD9q08RI4D8A6ErC8bvgX",artwork:"https://cdn2.suno.ai/f5f12694-4041-459e-b53c-471a4d38a703.jpeg",duration_sec:204.72,has_vocal:false,m:"demand funk groove • cl0wncore dnb",created_at:"2026-04-19T10:25:14.153Z"},
-  {name:"Where (You) Asked Me 🥁",suno_id:"c48df62a-0546-4a31-87df-6107ef17723b",gd_id:"1xPzQsf3qtws8RC0LZBMonKTBl_fjOWFr",artwork:"https://cdn2.suno.ai/09c16686-0586-43cd-aa06-a875a5df8623.jpeg",duration_sec:275.08,has_vocal:true,m:"memory lane stroll • psy jazz, rough jazz",created_at:"2026-04-12T16:31:03.596Z"},
-  {name:"(For You) 💜 To Stay",suno_id:"64912f72-a694-4573-a580-f771bf8b432d",gd_id:"1thI0lNVx38H0Mh1Rw_MAOxhEwUSqE12n",artwork:"https://cdn2.suno.ai/47747a01-32dd-4c94-af8e-c540d462f5a9.jpeg",duration_sec:283.16,has_vocal:true,m:"purple heart plea",created_at:"2026-04-07T09:09:47.608Z"},
-  {name:"Lila Pralliné",suno_id:"a9a06050-3a21-4dac-8de5-d5ac0ce1e916",gd_id:"1ibWW2ewtWvhkMR394A-a9UGueWdw546k",artwork:"https://cdn2.suno.ai/0c0ab988-a686-44a7-a9a5-67c2eb42b470.jpeg",duration_sec:214.88,has_vocal:true,m:"choral ska punk",created_at:"2026-04-05T18:15:13.950Z"},
-  {name:"Tell Me To Come 💜",suno_id:"30f2f60c-e2b9-409f-bf4c-eda9e3055707",artwork:"https://cdn2.suno.ai/image_30f2f60c-e2b9-409f-bf4c-eda9e3055707.jpeg",duration_sec:198.16,has_vocal:true,m:"Experimental vocal drone and throat singing. The piece features a single male voice performing deep, resonant overtone singing and rhythmic vocalizations. The performance begins with a sustained low-frequency fundamental drone, rich in harmonic overtones that shift in timbre. The vocalist employs circular breathing to maintain a continuous sound. Mid-way through, the texture shifts to rhythmic, percussive glottal stops and chesty grunts, creating a steady pulse. The recording has a natural, dry acoustic with minimal reverberation, emphasizing the intimate, physical textures of the vocal cords and breath. The pitch centers around a low C1 fundamental with shifting resonance in the 400Hz to 1200Hz range. The tempo of the rhythmic section is approximately 85 BPM.",created_at:"2026-04-02T09:22:39.181Z"},
-  {name:"Necesassary",suno_id:"801fccf0-6b5d-43a7-8da8-67f1d7faea73",artwork:"https://cdn2.suno.ai/de51ac69-f8be-49fa-90b2-37849e268e4f.jpeg",duration_sec:191.24,has_vocal:true,m:"Sensual world mix. A question without an answer, in many answers. An avant-garde soundscape characterized by heavy, rhythmic breathing and visceral vocalizations. The piece lacks traditional instrumentation, relying entirely on human breath and guttural sounds to create a tense, intimate atmosphere. The tempo is moderate but fluctuates with the intensity of the breathing patterns. The vocal quality is raw and breathy, featuring deep inhalations, sharp exhalations, and rhythmic grunting.  The structure is linear, building in intensity through faster pacing and more aggressive vocal textures.",created_at:"2026-04-01T08:57:52.794Z"},
-  {name:"I Will Follow You (Home)",suno_id:"deb99617-f45a-4f79-bfd0-d75b3bcc3a57",gd_id:"1zM8vFYB_TyGoN-bFxP8XgrFvbwTADG7h",artwork:"https://cdn2.suno.ai/54c75aba-f215-4b73-9ec4-642452891629.jpeg",duration_sec:158.48,has_vocal:true,m:"stalking synthwave theme • hip-hop",created_at:"2026-03-31T18:57:57.731Z"},
-  {name:"Dreams For Which There Are No Dreamers",suno_id:"a791c655-779d-4024-9173-42a45def8e6f",gd_id:"1ffZXk_s1U20g1r0oeJPOzRytM9jPs-Z9",artwork:"https://cdn2.suno.ai/b73a2fbc-2157-4049-a70f-b9258b82b6df.jpeg",duration_sec:151.9199791667,has_vocal:true,m:"orphan ambient suite",created_at:"2026-03-28T00:23:32.886Z"},
-  {name:"Kakapo, Class",suno_id:"5aaf772a-3277-4a8f-9b8f-3ac12da5d411",gd_id:"1Kagdfp0imitp9w58-fYTjU2s8MBRbMTD",artwork:"https://cdn2.suno.ai/e8252700-7c7c-4700-ad0e-e67abde2f7f8.jpeg",duration_sec:217.64,has_vocal:true,m:"rare bird elegy",created_at:"2026-03-27T22:11:41.567Z"},
-  {name:"(Borrowed) Take It All 🩷",suno_id:"3f6ac02c-7675-4757-bcbb-9bac6b62fef3",artwork:"https://cdn2.suno.ai/464b5f10-20a2-4bb1-afda-ad319726b39c.jpeg",duration_sec:459.0,has_vocal:true,m:"dark experimental synthmusic, avantgarde beat poetry, child mc, retro 80s analog synths, melancholic male vocals, deep and emotional tone, mystery world mix",created_at:"2026-03-27T21:24:37.345Z"},
-  {name:"Enter",suno_id:"0be5ed1a-b5e4-4129-be1d-038b50ed9f4a",artwork:"https://cdn2.suno.ai/image_0be5ed1a-b5e4-4129-be1d-038b50ed9f4a.jpeg",duration_sec:289.24,has_vocal:true,m:"túrk bop trap, dark experimental synth, retro analog, melancholic male vocals, deep and emotional tone, tape saturation, spoken word whispers, reverb-heavy vocals, minimal techno, industrial ambient",created_at:"2026-03-27T08:44:52.339Z"},
-  {name:"Princess Bear 💜",suno_id:"21afb6e6-b6c5-4610-af43-7909a57eae4c",gd_id:"1P-J4VeDGmmoBD5XUj4ei7XqLFQda3p7T",artwork:"https://cdn2.suno.ai/video_upload_1edf40b0-df2d-4c61-bbac-5ad60b08f68a_video_upload_1edf40b0-df2d-4c61-bbac-5ad60b08f68a_cover_snapshot_0s_1774556529_image.jpeg",duration_sec:210.96,has_vocal:true,m:"toy piano lullaby",created_at:"2026-03-26T20:06:47.404Z"},
-  {name:"Side Hustle",suno_id:"f5395bce-b207-4123-a039-3fb2d8080a1d",gd_id:"1Z5ifqLjJgD_Catwt14pWhJgc1hzmGrlQ",artwork:"https://cdn2.suno.ai/5a7e2d70-28d4-4891-b9ef-59de9ed70aad.jpeg",duration_sec:234.2,has_vocal:true,m:"grind culture banger",created_at:"2026-03-26T18:46:42.444Z"},
-  {name:"Duds of Canada",suno_id:"7bc65543-92d3-46ba-a3d3-a70157674a32",gd_id:"1Hju95zu1MsTMm7DfcQCqbrc5s2mm34Tt",artwork:"https://cdn2.suno.ai/video_upload_336a7e56-999f-4b37-acdf-bcf1fc3a38c5_video_upload_336a7e56-999f-4b37-acdf-bcf1fc3a38c5_cover_snapshot_0s_1774819001_image.jpeg",duration_sec:187.84,has_vocal:true,m:"lo-fi folk sketch",created_at:"2026-03-26T17:35:18.169Z"},
-  {name:"💎 Don't Dare Move Lad",suno_id:"23642ff7-8c71-4439-bebb-7c0af3690a4b",gd_id:"1e3UTk8YSAR_lIBx7lIrAbPsI6QwWxen7",artwork:"https://cdn2.suno.ai/8fc437c1-476b-46d0-b65a-9bd6febc31fc.jpeg",duration_sec:148.24,has_vocal:true,m:"tense thriller score • acid house jazz",created_at:"2026-03-26T10:25:27.550Z"},
-  {name:"Boys' Room (PC)",suno_id:"18afb5a1-616d-4f82-b46b-0e3c338300e3",gd_id:"1tCTnQed8lsOPN9GhoUdsykZ1tNdt_5l9",artwork:"https://cdn2.suno.ai/ae780b7c-3edd-4e37-b252-ff2ebf67542a.jpeg",duration_sec:286.4,has_vocal:true,m:"nostalgia chip tune",created_at:"2026-03-25T17:08:46.816Z"},
-  {name:"Secret Soldier",suno_id:"f0972912-fff6-4658-bbeb-6ff1b5f5c988",gd_id:"1bc7L0WYci4E7VTc7qIhaM9sdsUHbM_mD",artwork:"https://cdn2.suno.ai/69c76f50-031c-4e82-bc52-ff55e4099940.jpeg",duration_sec:152.72,has_vocal:true,m:"covert ops synth",created_at:"2026-03-25T16:16:16.849Z"},
-  {name:"The Bones Are Whistling",suno_id:"d3f68a2a-368f-4723-817a-29cf68125926",gd_id:"1C95FsCJDhN9G4mWUFt7erWjNycAKRzS-",artwork:"https://cdn2.suno.ai/777e332e-a362-4cd8-b6c0-a3e7fa585bb0.jpeg",duration_sec:109.68,has_vocal:true,m:"spaghetti western whistle",created_at:"2026-03-25T14:20:36.160Z"},
-  {name:"Your Father's Watch",suno_id:"4562efd1-b677-43c8-939b-3a281a3e18b7",gd_id:"1t8AOzJAKraGv4RnJ08n2dlXLKTvpJ8Vy",artwork:"https://cdn2.suno.ai/99050255-df36-46bb-b301-09b965fca512.jpeg",duration_sec:263.12,has_vocal:true,m:"heirloom timepiece elegy",created_at:"2026-03-25T12:54:14.457Z"},
-  {name:"Woke Up Asleep (GPS JAM)",suno_id:"dd9c6016-2f03-4230-a753-da3da854654b",gd_id:"1FwmYHqrda9LPDJ42pnIeNAypRTVS_7A1",artwork:"https://cdn2.suno.ai/b38d0245-abcb-4a5c-b439-499a9956af87.jpeg",duration_sec:162.4799791667,has_vocal:true,m:"dubstep, rough jazz",created_at:"2026-03-25T12:07:42.291Z"},
-  {name:"(Wrong Side) The Sun Comes Up",suno_id:"d06c3cac-65a0-4ce7-82a4-31f26478416f",gd_id:"1dHOH6TOOQsOgXDNW2AaGnSUA8l89CvHy",artwork:"https://cdn2.suno.ai/image_d06c3cac-65a0-4ce7-82a4-31f26478416f.jpeg",duration_sec:317.32,has_vocal:true,m:"dawn after regret",created_at:"2026-03-25T11:05:30.880Z"},
-  {name:"SSSSsS111!!!11",suno_id:"c5fc51e4-8650-48f6-86b4-ec00d6db758e",gd_id:"1EK3YICCX7-S1JB071WEbqrOLXHSYMbVK",artwork:"https://cdn2.suno.ai/5fcfaac0-0943-4356-86fd-dfb50ea80224.jpeg",duration_sec:211.12,has_vocal:true,m:"noise collage explosion",created_at:"2026-03-25T10:36:58.401Z"},
-  {name:"(Dead Tape) Shuffle",suno_id:"3e4beae5-e0c9-4502-bf6f-571258f83c45",gd_id:"1FeHg5Axro4K3QX_jK59VZkN0ZsJpXkye",artwork:"https://cdn2.suno.ai/6ced7e0c-1618-499e-a853-8017cff55081.jpeg",duration_sec:288.1210625,has_vocal:false,m:"degraded cassette nostalgia",created_at:"2026-03-24T16:13:04.973Z"},
-  {name:"(Selft ok) Keeps Safes",suno_id:"7a74e66a-dd2a-4878-9fad-bbd1402b66aa",gd_id:"17nybluRxMXbzfutTx7oTLDo1VfKvYFQ9",artwork:"https://cdn2.suno.ai/8dad712e-f39b-4882-846b-949b8d455400.jpeg",duration_sec:181.8701666667,has_vocal:false,m:"typo therapy ambient",created_at:"2026-03-20T17:36:45.659Z"},
-  {name:"This Is Control",suno_id:"6de44cf3-4098-4a0f-bb07-69b45cce12cd",gd_id:"1EQLuv9Z7LXFb7tx71FVOXtiTTkk0BYCR",artwork:"https://cdn2.suno.ai/06994473-57ec-4b96-8381-7a40060cc8d3.jpeg",duration_sec:218.3599791667,has_vocal:true,m:"authoritarian electro march",created_at:"2026-03-18T18:20:37.512Z"},
-  {name:"Mumi Ya Eahirat",suno_id:"df9a956f-df47-4427-bc57-90496fcfdee3",gd_id:"1j93_VvPgUeVTgzjJIixZGHpSqaWeD1MF",artwork:"https://cdn2.suno.ai/3ce61a83-efd7-49af-98db-9e5b176129b9.jpeg",duration_sec:205.44,has_vocal:false,m:"desert wind ritual",created_at:"2026-03-16T18:02:18.372Z"},
-  {name:"(Special) Never Is Happening",suno_id:"5ea52147-b480-4ff6-a3a1-d61ae241dd46",artwork:"https://cdn2.suno.ai/1a3efed1-f46e-49bf-8107-79b50e8bd3d3.jpeg",duration_sec:180.8,has_vocal:false,m:"((( soul rnb, instrumental, jazz ))), peruvian, cuban, welsh, saudi drum and bass, smooth trap, ambient, space disco grand bass",created_at:"2026-03-14T14:34:24.278Z"},
-  {name:"🥁 Ecnart Rehgih 🍭",suno_id:"1fd3cd56-c797-4ee5-874f-5c6c2c942b1d",gd_id:"1w-5S4_6QshfLpevdnw4OZn0pP6W47Vux",artwork:"https://cdn2.suno.ai/d48a3abb-5f24-4328-8e04-91a177e16c98.jpeg",duration_sec:227.88,has_vocal:true,m:"mirror world carnival",created_at:"2026-03-14T11:34:21.233Z"},
-  {name:"Come Milk My Cow(s) Fair Maiden",suno_id:"c958089c-33b9-4aa8-9e01-2b6bc2984039",gd_id:"1mDw8cJtd8cQrK9XHB-FVsqHHPk4CO7_l",artwork:"https://cdn2.suno.ai/ccb4803f-c63b-4b77-97c0-0eadeb4a1f6d.jpeg",duration_sec:251.64,has_vocal:true,m:"bucolic double entendre",created_at:"2026-03-14T10:05:21.732Z"},
-  {name:"(Silent) Back Stabber",suno_id:"d49ff209-fc57-4e05-b4d5-c8aa1662f254",gd_id:"1UkVKZyLhgoROKsCHEuUTGLH1FNO2UP1_",artwork:"https://cdn2.suno.ai/7bcfcb63-a66b-49f4-bfe4-b3e7ff396486.jpeg",duration_sec:242.12,has_vocal:true,m:"quiet betrayal theme",created_at:"2026-03-13T12:15:42.964Z"},
-  {name:"Tall Tales (🤡 shoutout @DETONER)",suno_id:"71865382-5e54-4b93-b6bb-88280abf3ec0",gd_id:"1m13LFZ48yj0E06dZNB41g3KLs26AWTq7",artwork:"https://cdn2.suno.ai/image_edcdcf56-d051-4113-9d58-1b5b0b0d19e1.jpeg",duration_sec:204.6827083333,has_vocal:false,m:"clown circus diss",created_at:"2026-03-11T10:47:16.548Z"},
-  {name:"(in)Sensitive",suno_id:"97190ec3-be34-49e7-947a-681d89dd06e0",gd_id:"16BMjKNZ0YYqYxGIvi4EZiwSXwsgFxNms",artwork:"https://cdn2.suno.ai/70a605b9-ed87-4e8f-8806-d4e217b25dda.jpeg",duration_sec:214.12,has_vocal:false,m:"ironic soft rock",created_at:"2026-03-11T07:42:49.295Z"},
-  {name:"🪘 (Caged) Bird 🎸",suno_id:"00964451-10bb-44c5-8e6e-ab28f80c3e26",artwork:"https://cdn2.suno.ai/image_00964451-10bb-44c5-8e6e-ab28f80c3e26.jpeg",duration_sec:150.72,has_vocal:false,m:"cl0wncore, hardbass, special trap beat develops into psi progression terminating in a filter breakdown, pa break down, singer breakdown and overall disaster audio",created_at:"2026-03-10T05:53:12.241Z"},
-  {name:"Lover Undersea 💜",suno_id:"f9179ca4-1fab-4281-8eec-b574a3c29e1a",gd_id:"166h-XTcbncezez53xKVtC5S1FypbNQZm",artwork:"https://cdn2.suno.ai/6c432c91-2932-4e0b-9d27-e7e41511708b.jpeg",duration_sec:223.0,has_vocal:false,m:"submarine romance ambient",created_at:"2026-03-10T05:08:29.477Z"},
-  {name:"Space (Blu—) Purples",suno_id:"fd8035cc-b8f6-4bea-8b76-d9f313fec1d8",gd_id:"1hpofYxnTA7u_VyRU0LHyx0sP_ajBtSoc",artwork:"https://cdn2.suno.ai/1068f454-f9d7-4173-b960-35eda4f9f9e9.jpeg",duration_sec:236.92,has_vocal:false,m:"cosmic color study",created_at:"2026-03-09T12:40:30.472Z"},
-  {name:"Never Out (Of Trouble) 🎸",suno_id:"4ab439f5-efdb-41a4-9f6c-4ff61cd9933c",gd_id:"13eSzpeHZzXb1sX-hIoskr7BbZH00fb71",artwork:"https://cdn2.suno.ai/b5685557-98d4-4ab1-80be-19a7a7faec1c.jpeg",duration_sec:258.76,has_vocal:false,m:"guitar rebel forever",created_at:"2026-03-09T11:51:08.660Z"},
-  {name:"No Quota (4sh¡t 2 Happen 2U) retroactively",suno_id:"9961cec1-7bd5-4ffe-8913-09c302c4e5e5",artwork:"https://cdn2.suno.ai/0b48ded8-862b-4928-b88c-ca4e1bae5452.jpeg",duration_sec:164.44,has_vocal:false,m:"aggressive jazz, blues rap, child lead mc, 808 trap, special effects",created_at:"2026-03-09T11:39:56.566Z"},
-  {name:"💎 Dreams In Ultraviolet",suno_id:"46db944e-98f5-4a35-95a6-ab6417a7c657",gd_id:"1ol_UieUULAu1y8DOC-5aq8q7CR2gQyQH",artwork:"https://cdn2.suno.ai/4d5b110c-1e66-4020-812b-2c7cf3bdea15.jpeg",duration_sec:246.6,has_vocal:false,m:"pop, soul",created_at:"2026-03-09T07:35:30.043Z"},
-  {name:"DRKCTN€HTDRV 🥁",suno_id:"495d8c0d-cd56-47e3-bc73-cfb46d6697ed",artwork:"https://cdn2.suno.ai/image_495d8c0d-cd56-47e3-bc73-cfb46d6697ed.jpeg",duration_sec:192.92,has_vocal:false,m:"instrumental, kobo jazz, taka ts, technical soundscape, koto, shamisen blues",created_at:"2026-03-07T09:49:43.050Z"},
-  {name:"And You Want To Stay (Encore)",suno_id:"48a9a710-0806-4556-a8a3-416fe16768a9",artwork:"https://cdn2.suno.ai/931fbebb-2955-49df-ac43-681a809bca80.jpeg",duration_sec:242.6,has_vocal:false,m:"(( instrumental )), jazz, quiet, spaced out, ts, technical soundscape, sax crooner lead, instrumental solos, no singing",created_at:"2026-03-06T03:40:42.732Z"},
-  {name:"🤷 Fín 🎸",suno_id:"5db9c456-4dbc-45e2-bd5b-95ddd260f6ba",artwork:"https://cdn2.suno.ai/9f90c63c-2f76-4652-bd03-03584eb4c6e4.jpeg",duration_sec:269.9599791667,has_vocal:false,m:"country, instrumental metal, jazz prog, psy bass",created_at:"2026-03-06T01:17:57.189Z"},
-  {name:"💜 We Need It",suno_id:"0a0a3407-10bf-45f3-8c29-812fa76533ad",gd_id:"18puZbmLMF9r3ZCH36T7S9CxztoTGz4k_",artwork:"https://cdn2.suno.ai/3b21c110-1662-4540-9b91-7b045a471356.jpeg",duration_sec:219.96,has_vocal:false,m:"screamy, instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-03-06T01:07:38.947Z"},
-  {name:"🥁 Diagonal Splits 🥁",suno_id:"d4542e8b-7202-4eae-b498-00f2fc83afd1",artwork:"https://cdn2.suno.ai/f8414cf2-e53a-4a15-ab2c-adb146e4a80e.jpeg",duration_sec:274.04,has_vocal:false,m:"instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",created_at:"2026-03-06T00:28:32.709Z"},
-  {name:"💎 Blue Groove 🥁",suno_id:"8d175995-d05e-46ef-97fd-4c0b33bad621",artwork:"https://cdn2.suno.ai/2744858c-dbf5-4d47-89ca-1a762807d471.jpeg",duration_sec:292.9599791667,has_vocal:false,m:"blues triphop, instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-03-05T08:47:53.161Z"},
-  {name:"🥁 We Go Deaf Today 🎸",suno_id:"a0236fca-c682-4aa8-a5a0-dafccdec3cb7",artwork:"https://cdn2.suno.ai/fdd1518c-f367-4bae-a019-57d79baca1a9.jpeg",duration_sec:217.88,has_vocal:false,m:"cl0wncore, hardbass, special trap beat develops into psi progression terminating in a filter breakdown, pa break down, singer breakdown and overall disaster audio",created_at:"2026-03-04T08:38:04.957Z"},
-  {name:"(Inner) Rooms of Sobriety 🎸💜",suno_id:"6de8370d-86e0-4219-befe-1c5f7498de58",gd_id:"1_A8ScGOkOgzw6K1Qiv4E7-2I7Ve3U7V1",artwork:"https://cdn2.suno.ai/d42fcb5a-75e1-4123-a238-9b6d21318453.jpeg",duration_sec:188.28,has_vocal:false,m:"electro italo post triphop, death metal screamo harsh vocals female singer, 808 bass progression arp, pink or purple electric guitar, oriental percussion, trip-hop slow spacy quiet mix, compressed mids",created_at:"2026-03-03T05:46:40.214Z"},
-  {name:"🪘 Paint the Walls (Already) 🥁",suno_id:"982c0a42-2458-442a-8945-840a1cc2b8da",artwork:"https://cdn2.suno.ai/c983944f-e60d-4765-862b-fdadd306db74.jpeg",duration_sec:92.88,has_vocal:true,m:"instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",created_at:"2026-03-03T05:26:13.867Z"},
-  {name:"💎 Feel This Out",suno_id:"e5117715-25c2-4f21-ae4d-15698bf5041f",artwork:"https://cdn2.suno.ai/99515432-1211-48ea-9862-59827afc9ab0.jpeg",duration_sec:209.72,has_vocal:false,m:"instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-03-02T13:13:57.270Z"},
-  {name:"🥁 Shut up, and Groove 🧊",suno_id:"2c1e89ee-7a2f-4729-b163-1f761cbe44ca",gd_id:"15GxkCS8dXQgudHvejyaFs0Ht2QKVySkt",artwork:"https://cdn2.suno.ai/video_upload_0b23f1fc-120e-4666-b0cb-9479c4826b52_video_upload_0b23f1fc-120e-4666-b0cb-9479c4826b52_cover_snapshot_0s_1772766059_image.jpeg",duration_sec:238.76,has_vocal:false,m:"(((instrumental)) -- no singer, no vocals, sax lead, 808 bass  percussion. trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-03-02T10:27:23.140Z"},
-  {name:"(put some lyrics on it V5)",suno_id:"0476e2f9-1493-48c0-a4f2-961d0d3b4436",artwork:"https://cdn2.suno.ai/cadbb30b-320b-45a1-885d-2baec1541763.jpeg",duration_sec:305.64,has_vocal:true,m:"(((v5))) :: funky afro peruvian hardbass tune develops into a psy rave, a techno ts avalanche of cimbal bambal f it idunno this is shxxt",created_at:"2026-03-02T10:08:27.202Z"},
-  {name:"Hands off, Flying 🥁",suno_id:"e7c01a9b-1cba-43a3-9f25-03c077481c69",gd_id:"1fkrST2HZN1obNcOVVv2KBeD82IyEhSz7",artwork:"https://cdn2.suno.ai/35153c3c-a471-4515-9c6b-6f09fce59dce.jpeg",duration_sec:250.1599791667,has_vocal:false,m:"no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-03-01T02:34:11.393Z"},
-  {name:"🎻 F.rgt Ton/ght 🍭",suno_id:"c5b81b72-bbc3-48f4-93c4-513140154631",artwork:"https://cdn2.suno.ai/video_upload_1701fb76-9f0c-43f1-b234-4cf1d3c05fb8_video_upload_1701fb76-9f0c-43f1-b234-4cf1d3c05fb8_cover_snapshot_0s_1772713465_image.jpeg",duration_sec:136.72,has_vocal:false,m:"no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-02-28T02:39:06.096Z"},
-  {name:"سلم SALÉM 🍭",suno_id:"3b4b959d-e6c9-4bf1-8cc8-4c7c57e81cba",gd_id:"1xatkopGdUP56gSPmmB1QYva_WcE38bZn",artwork:"https://cdn2.suno.ai/fa2579ba-9e0e-45c9-9b47-25ee32d496b9.jpeg",duration_sec:203.24,has_vocal:true,m:"no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-02-28T02:23:47.748Z"},
-  {name:"Mother Left You Out",suno_id:"c03bcd7e-a251-489b-bea1-b645db817895",artwork:"https://cdn2.suno.ai/4088d799-0811-4930-81f8-0a88af7f9118.jpeg",duration_sec:126.4,has_vocal:false,m:"instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-02-26T23:44:36.163Z"},
-  {name:"💜 Suck It And Find Out 🍭",suno_id:"98a687c1-180f-4d04-a0c4-757a5e5cba6c",gd_id:"1bO1nUSgw-kskZ__ZB6l8WpFJoX-jZ1iS",artwork:"https://cdn2.suno.ai/image_98a687c1-180f-4d04-a0c4-757a5e5cba6c.jpeg",duration_sec:226.36,has_vocal:false,m:"no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-02-26T23:35:14.850Z"},
-  {name:"🎸 Kat Never Hit You Back",suno_id:"76977420-e8bd-4a20-9538-984ced93da9c",artwork:"https://cdn2.suno.ai/68a35eb5-93b6-432e-85fe-2f1e2f00d9b8.jpeg",duration_sec:293.84,has_vocal:false,m:"instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-02-22T03:21:05.368Z"},
-  {name:"She Never Kissed You Back 🥁",suno_id:"bd84ec46-7577-498e-bc08-2cc28bcd7de9",artwork:"https://cdn2.suno.ai/image_9eb9d151-eb26-44ae-8b15-b50f2b174f61.jpeg",duration_sec:263.6,has_vocal:false,m:"instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-02-22T02:54:19.843Z"},
-  {name:"🥁 Frack Tax Surveil 🍭",suno_id:"1684f9ff-894a-4312-ac8b-062df794b9a1",gd_id:"1hPz9S0uCjT5_SB0156t55LPEW54dlMCB",artwork:"https://cdn2.suno.ai/662ce4fa-fcd6-4818-b169-f259887e3f27.jpeg",duration_sec:232.48,has_vocal:false,m:"instrumental, jazz, quiet, spaced out, ts, technical soundscape",created_at:"2026-02-22T02:17:35.844Z"},
-  {name:"It Knows You Back || Outside the Other In",suno_id:"97e20b77-b45e-4718-831d-8c0206a67cce",artwork:"https://cdn2.suno.ai/76a73c08-026d-44c4-a92c-806e62329829.jpeg",duration_sec:298.84,has_vocal:true,m:"new from suno dump",created_at:"2026-02-20T18:53:46.945Z"},
-  {name:"💜 (It's You) It's You 🎸",suno_id:"ddbbb1fa-307d-4c3f-bc0d-6128c92ede79",artwork:"https://cdn2.suno.ai/187576d1-2253-464a-8480-8893b9221c98.jpeg",duration_sec:203.24,has_vocal:true,m:"electro italo post triphop, death metal screamo harsh vocals female singer, 808 bass progression arp, pink or purple electric guitar, oriental percussion, trip-hop slow spacy quiet mix, compressed mids",created_at:"2026-02-18T12:55:30.749Z"},
-  {name:"🍭 Int Def Con Tak Sat Nav Bog Suc",suno_id:"97affc6e-121f-480c-95a1-26fc16240112",gd_id:"1jvhkbdbB8MKKOkPsAlhP2BaXzYrtErY6",artwork:"https://cdn2.suno.ai/image_large_97affc6e-121f-480c-95a1-26fc16240112.jpeg",duration_sec:251.6,has_vocal:true,m:"dnb, jazz fusion, mix",created_at:"2026-02-18T03:51:34.180Z"},
-  {name:"💎 It Knows You Back",suno_id:"e72b2d8b-a8eb-44dc-9722-30c8c4020e54",artwork:"https://cdn2.suno.ai/video_upload_1e195455-5565-4404-85e8-cf9f1d1faf96_video_upload_1e195455-5565-4404-85e8-cf9f1d1faf96_cover_snapshot_0s_1771733156_image.jpeg",duration_sec:67.6,has_vocal:true,m:"gospel",created_at:"2026-02-18T03:12:02.853Z"},
-  {name:"Knowboydy Gnawsit audio_2026-02-17_19-14-43",suno_id:"ab474434-d610-41f8-bf74-12643d739124",artwork:"https://cdn2.suno.ai/image_large_ab474434-d610-41f8-bf74-12643d739124.jpeg",duration_sec:60.024,has_vocal:true,m:"a cappella, beatbox, soulful male vocals",created_at:"2026-02-17T17:16:24.962Z"},
-  {name:"🍭 Higher Trance Mix 2000",suno_id:"7563a29c-aa50-40af-8b4b-31228b3230f0",artwork:"https://cdn2.suno.ai/bbf66136-4f3e-4395-96b4-b57b46bf2835.jpeg",duration_sec:228.4,has_vocal:true,m:"edm",created_at:"2026-02-17T09:29:14.598Z"},
-  {name:"I Want A Robot",suno_id:"aa6c857f-84c6-4ed8-9e07-c471a8929111",gd_id:"1GMbiR6n8vnhY74sHbYcEbjiDKGEE9tKk",artwork:"https://cdn2.suno.ai/c35b2526-9dc2-46f0-bf2b-d9242223a978.jpeg",duration_sec:184.28,has_vocal:false,m:"mechanical companion desire",created_at:"2026-02-17T04:43:17.463Z"},
-  {name:"Secret Robot Only For Me",suno_id:"97a20fd8-a589-474a-90fc-fe5f884f80bb",gd_id:"1nJJpKlEBu5qR1VTKQGPdRG7y_xtkLpkc",artwork:"https://cdn2.suno.ai/video_upload_4654d31a-b417-4d31-8da4-74ce223547ae_video_upload_4654d31a-b417-4d31-8da4-74ce223547ae_cover_snapshot_0s_1771319848_image.jpeg",duration_sec:229.96,has_vocal:false,m:"exclusive android love",created_at:"2026-02-17T04:16:36.503Z"},
-  {name:"💜 Bіtc*es Need To Know",suno_id:"75ebef97-bcfb-45d7-a65d-80c5892181eb",artwork:"https://cdn2.suno.ai/video_upload_f7c5370d-243f-4a5a-88e3-beb0f8d36142_video_upload_f7c5370d-243f-4a5a-88e3-beb0f8d36142_cover_snapshot_0s_1772193691_image.jpeg",duration_sec:91.96,has_vocal:false,m:"RnB",created_at:"2026-02-16T04:35:18.202Z"},
-  {name:"🥁 You Are So Vain You Think This Song Is About You Boy 🪘",suno_id:"7f294916-00b6-4acb-8ded-ca8c6800132b",gd_id:"1JI0jsiZzqBY5CAFY3qEyoJrcn2pNo8Ue",artwork:"https://cdn2.suno.ai/389504e9-7801-4979-a8d4-0125ab371190.jpeg",duration_sec:214.56,has_vocal:false,m:"cl0wncore, swing house, pop",created_at:"2026-02-14T03:56:35.630Z"},
-  {name:"🥁 Dialed In 🧊",suno_id:"188d7cac-a65b-4a67-9bb0-0c4e8e376810",artwork:"https://cdn2.suno.ai/2ceaaea8-5ab6-4412-bf99-b92913c921ef.jpeg",duration_sec:182.44,has_vocal:false,m:"cl0wncore, rough jazz",created_at:"2026-02-14T01:35:53.124Z"},
-  {name:"🥁 Rain On Glass 🧊",suno_id:"1c4291d0-3204-41c8-89d9-c513622a1609",gd_id:"1wjwNm7lI1H5T2I5kRJGjscXvR_AxhDvT",artwork:"https://cdn2.suno.ai/bdb286c8-f207-435b-9226-f2637a6fe71b.jpeg",duration_sec:235.56,has_vocal:false,m:"dnb, jazz fusion",created_at:"2026-02-14T01:35:00.633Z"},
-  {name:"You're In This Room Now 🥁",suno_id:"ea92276c-f482-4638-b701-a21f47563329",gd_id:"1oVSpbj-orCiarkuc5jgJWPN_YeNewWIT",artwork:"https://cdn2.suno.ai/27230ef9-0b9a-47af-ae2f-8a09d53a7621.jpeg",duration_sec:236.56075,has_vocal:false,m:"jazz fusion, dnb",created_at:"2026-02-13T04:59:11.626Z"},
-  {name:"Amaste Me Nunca",suno_id:"592a08e3-42c8-480c-8510-0d4fde0be5f8",gd_id:"10K_-grtwdJZlOQPbFkqCHKZ6-4-ocZKw",artwork:"https://cdn2.suno.ai/43a8a0bd-5052-4697-96cd-22bdc6ad2dfa.jpeg",duration_sec:205.0,has_vocal:false,m:"spanish never love",created_at:"2026-02-12T06:02:30.899Z"},
-  {name:"Mother Used To Say",suno_id:"53acfd0c-ae41-42a2-8cd9-5bc18cc2bb9b",gd_id:"11KG37cSzXqVLUrOqrEAkZ4U0u4v1cR9y",artwork:"https://cdn2.suno.ai/0c77f379-af2e-41a8-b551-60bbd3516fe8.jpeg",duration_sec:143.12,has_vocal:true,m:"maternal wisdom sample",created_at:"2026-02-12T05:57:26.346Z"},
-  {name:"Outside the Other In",suno_id:"df3c6992-a52e-4065-b094-50fa2c788ecd",artwork:"https://cdn2.suno.ai/979799fb-83ce-4bb1-849c-ac02a086e2a3.jpeg",duration_sec:106.44,has_vocal:false,m:"jazz, soul",created_at:"2026-02-12T05:42:15.303Z"},
-  {name:"🎸 A Ring Your Boner",suno_id:"61695e18-eb57-4971-a095-24066bd562a3",artwork:"https://cdn2.suno.ai/231a2d78-deed-4cdf-be31-3ffa1c1c5582.jpeg",duration_sec:324.76,has_vocal:false,m:"rough jazz, cl0wncore, neo-classical",created_at:"2026-02-10T05:06:39.146Z"},
-  {name:"Afrika N¡ppon 🍭",suno_id:"944da701-ad1c-4d49-bf61-ffbf548c912f",artwork:"https://cdn2.suno.ai/555eea9e-808f-43dc-a075-592377e13d77.jpeg",duration_sec:241.52,has_vocal:false,m:"cinematic, soundtrack",created_at:"2026-02-08T02:06:26.520Z"},
-  {name:"969",suno_id:"1ab0bb8b-3db9-4319-bc81-260ecd2d6618",artwork:"https://cdn2.suno.ai/image_large_1ab0bb8b-3db9-4319-bc81-260ecd2d6618.jpeg",duration_sec:256.92,has_vocal:true,m:"pop, happy",created_at:"2026-02-08T01:32:27.290Z"},
-  {name:"Sound Test",suno_id:"194bcbbd-4943-45f2-8968-b360d0b7a756",artwork:"https://cdn2.suno.ai/image_large_194bcbbd-4943-45f2-8968-b360d0b7a756.jpeg",duration_sec:287.92,has_vocal:false,m:"cl0wncore",created_at:"2026-02-07T08:54:55.472Z"},
-  {name:"Come Up (With The Sun)",suno_id:"42806e2a-56ed-43db-8cf0-52a9bac1c111",gd_id:"1gAZ_HW5ZYh3tCunOE1uo50tmvJqlzZ-6",artwork:"https://cdn2.suno.ai/999ef95f-ce10-4abc-a85b-95bfd4529882.jpeg",duration_sec:203.84,has_vocal:false,m:"morning motivation groove",created_at:"2026-02-03T07:37:54.802Z"},
-  {name:"She Has Inverted Pressure 🥁",suno_id:"ab630bb9-b5ae-4dd3-a68c-a16358dd9911",gd_id:"1RZVmnDPpb5RGztAfJVC1GT2-jfOtu-F5",artwork:"https://cdn2.suno.ai/image_large_ab630bb9-b5ae-4dd3-a68c-a16358dd9911.jpeg",duration_sec:203.52,has_vocal:false,m:"jazz fusion, dnb, cl0wncore",created_at:"2026-01-31T08:01:41.246Z"},
-  {name:"Steal & Sell",suno_id:"ef83e46b-4dfe-40e7-b9bd-46f2289dd6e1",gd_id:"18rywguXBimjXuB9ZLHCdfDd8lAdUg1Vb",artwork:"https://cdn2.suno.ai/24b9c914-edf5-49b4-b695-bf6375e6f075.jpeg",duration_sec:200.24,has_vocal:false,m:"capitalist crime duo",created_at:"2026-01-30T04:25:27.674Z"},
-  {name:"Zaidi Slantce",suno_id:"b207e4a3-7923-42b7-9357-bea2dfb11e44",gd_id:"1HY3ErweWVmzkWhgSTv6ueurKP0R9csWW",artwork:"https://cdn2.suno.ai/3e4d49df-eaba-4675-9ecf-5119a50c3859.jpeg",duration_sec:136.96,has_vocal:false,m:"EDM, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, Japanese, electro swing, pop, clear, cheerful, [trap]",created_at:"2026-01-28T12:05:32.293Z"},
-  {name:"🥁 (Disrupt) Your Rhythm 🪘",suno_id:"fcfff03c-de2e-4a2f-9905-7997ed34c449",gd_id:"1vWeabCfNLKxY7PRVRKjNXGnvxAZroe7m",artwork:"https://cdn2.suno.ai/image_46edd44d-c982-412b-9efb-bc49ce8d783e.jpeg",duration_sec:237.2709166667,has_vocal:false,m:"slightly slower chaos",created_at:"2026-01-27T20:57:32.784Z"},
-  {name:"Duduk Qwala",suno_id:"e55223c7-f657-4484-b73e-5760dce7150d",gd_id:"1liZ7VDhQ86YFl5wEdnYzusFJZtH0mDFY",artwork:"https://cdn2.suno.ai/e59bb9f1-74e4-4c59-b35d-e911daa0455f.jpeg",duration_sec:210.0,has_vocal:false,m:"pocket recorder, nomix nomaster nostudio, instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",created_at:"2026-01-25T17:22:31.243Z"},
-  {name:"She Shows You Where To Put It",suno_id:"00c537f1-3bea-4049-a0bc-6cee00a3b815",gd_id:"1QB1AwpPyYtOXEO85ISkVR5fsar5NT_1C",artwork:"https://cdn2.suno.ai/image_00c537f1-3bea-4049-a0bc-6cee00a3b815.jpeg",duration_sec:263.52,has_vocal:false,m:"pocket recorder, nomix nomaster nostudio, instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",created_at:"2026-01-25T17:14:41.772Z"},
-  {name:"Three, You, Two, Never, One, She Would",suno_id:"8cdf1a98-7827-407d-9a83-8ee34f58d5e0",gd_id:"1iQM4BUX5hf87BBAC6I1cU0vKx7KVyX6T",artwork:"https://cdn2.suno.ai/d4546dd7-1e93-4ad4-89a4-b26e74520fbf.jpeg",duration_sec:310.12,has_vocal:false,m:"instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",created_at:"2026-01-25T15:56:07.791Z"},
-  {name:"Blue Tyger Inversion",suno_id:"6322984e-af03-458e-83ff-fc6929fc1ca9",gd_id:"127K_ZS9mkMJAtYmfdV5BgTvDPb08tWOv",artwork:"https://cdn2.suno.ai/40c9f83d-4547-4b07-8c9a-2e6c8ed6b8d8.jpeg",duration_sec:185.6112291667,has_vocal:false,m:"no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-01-18T01:18:25.296Z"},
-  {name:"💎 Spice Nomi",suno_id:"e19e8634-e519-49d5-80d9-c0b6f3471da7",artwork:"https://cdn2.suno.ai/8e677ced-2717-4f37-ad1c-968a4fc3b109.jpeg",duration_sec:299.08,has_vocal:true,m:"etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-01-18T00:42:21.176Z"},
-  {name:"Nomi Was Alone",suno_id:"c98fb875-894f-4acb-bb8c-c8e6f7bf06c4",gd_id:"1O1Idto23JYm32CnOJrcuJCYbUEKvX_Qi",artwork:"https://cdn2.suno.ai/0307494c-1d7c-47f5-a6f8-7f8a25339f2a.jpeg",duration_sec:203.2,has_vocal:true,m:"etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-01-18T00:35:38.734Z"},
-  {name:"Chinchilla Overdrive",suno_id:"575fd5b7-67f4-431e-ba08-39f07ea5feb0",gd_id:"1LtIhoLtPR2aG-n9cA9Cwu8wdYHVvog4-",artwork:"https://cdn2.suno.ai/eeaaa0ba-5b0a-4c24-af00-e4e39440fcc2.jpeg",duration_sec:209.8,has_vocal:false,m:"etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2026-01-17T03:50:04.304Z"},
-  {name:"Calling All Lamb",suno_id:"7f6ba460-065e-4545-9742-9682b0e2174a",gd_id:"1qkTcis9COmUppcPAPtCN3i9HX942-uKy",artwork:"https://cdn2.suno.ai/image_1ec2c243-ee25-4ad2-a87e-bf574eb0961e.jpeg",duration_sec:233.9216666667,has_vocal:false,m:"prog funk techno spit af kkl, female soprano, trappity trippity hoppit hap",created_at:"2026-01-16T06:41:23.686Z"},
-  {name:"💎 She Loves",suno_id:"d547ad7b-8526-4bdc-934f-1d8ec90393a3",artwork:"https://cdn2.suno.ai/c201b2eb-ec4d-4e75-a92d-2ffcf05d5df6.jpeg",duration_sec:107.28,has_vocal:false,m:"a classical tune is heard in bits that layer and overlay each other to develop rhythmically into a readable tune, a familiar classical tune that is baroque and free, flows like water drops in quiet, hits like a tropic thunder, french female vocalist MC",created_at:"2026-01-14T04:22:32.925Z"},
-  {name:"Giorgio Was Here (tape scratched)",suno_id:"c09f9213-c828-4f34-84ac-ee23a35c25c8",gd_id:"1cTvGWtHzfJW38sFsCFVMeWovyml04U24",artwork:"https://cdn2.suno.ai/c42f38a1-0994-4b09-bb65-fcc0ca0a2b39.jpeg",duration_sec:278.44,has_vocal:false,m:"a classical tune is heard in bits that layer and overlay each other to develop rhythmically into a readable tune, a familiar classical tune that is baroque and free, flows like water drops in quiet, hits like a tropic thunder",created_at:"2026-01-14T04:07:53.611Z"},
-  {name:"Infinite Realm of Incomprehensible Suffering",suno_id:"d67060c1-e678-4af3-a66a-77f8b69fcba6",gd_id:"1AV8CEbv1Zq8BNdyFyqa_IKyDCEiyCztO",artwork:"https://cdn2.suno.ai/d9e9fe5b-b767-49da-bcdd-7416e3961e85.jpeg",duration_sec:140.76,has_vocal:true,m:"minimal, hifi, acoustic, world",created_at:"2026-01-11T00:29:49.234Z"},
-  {name:"Deep Overjazz 95%",suno_id:"8644d54b-3436-4f5b-9a4d-c63db47ce4ee",artwork:"https://cdn2.suno.ai/e142554d-e77e-4c6c-8291-7ee579701a82.jpeg",duration_sec:218.4129791667,has_vocal:false,m:"psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",created_at:"2026-01-10T03:18:16.420Z"},
-  {name:"Please Hold",suno_id:"5f753e98-0fb2-4001-83ac-6ddcc229fe85",artwork:"https://cdn2.suno.ai/1e2be5fd-272b-4f48-b6ea-fc2ef1e09d5f.jpeg",duration_sec:223.48,has_vocal:false,m:"prog funk techno spit af kkl, female soprano, trappity trippity hoppit hap",created_at:"2026-01-09T15:51:44.195Z"},
-  {name:"She Would Never Choose You Proper",suno_id:"8fb63dae-680e-4fa1-bab9-6e1b6320eb52",gd_id:"1890r7rt7Ym-ycsRQhDfBLaiQnaPno4ur",artwork:"https://cdn2.suno.ai/ff5ffdb3-bfed-47bc-96c4-893b338d2f8a.jpeg",duration_sec:210.84,has_vocal:false,m:"psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",created_at:"2026-01-09T15:28:59.949Z"},
-  {name:"Sister Never Dig You, Tyger",suno_id:"c172d711-6a04-4584-ab6e-b99411c4fbcd",artwork:"https://cdn2.suno.ai/f80a4f5e-b11b-425f-890f-a4a2d0611233.jpeg",duration_sec:164.96,has_vocal:false,m:"psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",created_at:"2026-01-09T15:28:59.949Z"},
-  {name:"IKYAHSIT",suno_id:"8da1b2c1-b442-4a63-8d3f-5d03e18dddc0",gd_id:"1jtFkDxhnt-BFEGwWENnuO7GTcnCV4akp",artwork:"https://cdn2.suno.ai/361218ff-c13d-4ba8-b0f9-19c2203c108d.jpeg",duration_sec:244.96,has_vocal:false,m:"psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",created_at:"2026-01-09T15:27:35.729Z"},
-  {name:"🍭 6AM.",suno_id:"18570c16-542d-49a9-b7b4-2b054f8b6a5a",gd_id:"1-G7hFUI2mVLNY3Z9rnbAoA7xSTG9JQN0",artwork:"https://cdn2.suno.ai/image_18570c16-542d-49a9-b7b4-2b054f8b6a5a.jpeg",duration_sec:261.0,has_vocal:false,m:"psi psytrance, psitrance psy, prog progressive, fast drumbreak, breakbeat happy, quick japanese, classical italo, sparse techno, space disco",created_at:"2026-01-06T14:03:28.895Z"},
-  {name:"6PM. 🍭",suno_id:"b55c6f12-b4f8-4232-8e51-0c1c7cebc044",gd_id:"13SMUhh5E8lRQYB-rVyGCleHZG6JGwY2x",artwork:"https://cdn2.suno.ai/image_b55c6f12-b4f8-4232-8e51-0c1c7cebc044.jpeg",duration_sec:198.12,has_vocal:false,m:"classical italo, sparse techno, space disco",created_at:"2026-01-06T13:33:58.086Z"},
-  {name:"🍭 Persian Kebab Mix",suno_id:"6f41b1e0-46d9-43c2-857e-9dc6fe59b417",artwork:"https://cdn2.suno.ai/3a64756e-8e46-4991-b224-96c6bb1888ed.jpeg",duration_sec:274.9065833333,has_vocal:false,m:"fife and drum, medium temp, phonkaloid, hymnisch, aggressivo",created_at:"2026-01-03T16:26:28.079Z"},
-  {name:"🍭 Good Morning Iran",suno_id:"dbb5192f-d2bf-4092-ac98-0108902b5c37",artwork:"https://cdn2.suno.ai/d145468a-30b7-4347-85f6-9814d1429dd1.jpeg",duration_sec:233.52,has_vocal:false,m:"abstract hip-hop trip-hop clown-core",created_at:"2026-01-03T07:35:58.666Z"},
-  {name:"🍭 Mary Got Lambed",suno_id:"69e9664a-b80f-451c-b654-1a97fe0c0de1",artwork:"https://cdn2.suno.ai/image_69e9664a-b80f-451c-b654-1a97fe0c0de1.jpeg",duration_sec:257.96,has_vocal:false,m:"raggae, ska, epic dubstep, j-pop edm, ambient, electro, female voice, cute, technical sound, kawaii techno, pop, clear, cheerful, kickass",created_at:"2025-12-29T18:28:41.970Z"},
-  {name:"🍭 Infected Apple Graft Desert",suno_id:"d73ddb2a-f1cc-47b3-8c10-112a16ed2a72",artwork:"https://cdn2.suno.ai/5b418b52-bb6f-49cb-abbb-2fe2169c848c.jpeg",duration_sec:249.16,has_vocal:false,m:"EDM, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, Japanese, electro swing, pop, clear, cheerful",created_at:"2025-12-29T18:26:09.877Z"},
-  {name:"Face Tyler (My Pussy) 🍭",suno_id:"b0039890-52c8-437e-9ad7-1d7faf4cad15",gd_id:"1kOSJg_PpcZ58zVEPpmRBG1haOI6Wf-dQ",artwork:"https://cdn2.suno.ai/image_b0039890-52c8-437e-9ad7-1d7faf4cad15.jpeg",duration_sec:274.96,has_vocal:false,m:"EDM, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, Japanese, electro swing, pop, clear, cheerful",created_at:"2025-12-28T00:29:13.959Z"},
-  {name:"So Much Lamb Mary Did Have That Day",suno_id:"72fbe879-1303-4f13-b0c6-e99de7657ab2",gd_id:"1GtP-GU_AewOQUGs2p7q5NqLl_OXF8JvW",artwork:"https://cdn2.suno.ai/image_72fbe879-1303-4f13-b0c6-e99de7657ab2.jpeg",duration_sec:207.24,has_vocal:true,m:"orchestra classical instruments, alien composition, chair scrapes, squeeks, phone rings, coats flap, feet shuffle, throat clear, nose bleed, coke speed",created_at:"2025-12-27T17:42:45.925Z"},
-  {name:"Mary Had A Little Lamb",suno_id:"08953c32-ee1f-440d-8d89-ed8459665fca",artwork:"https://cdn2.suno.ai/image_08953c32-ee1f-440d-8d89-ed8459665fca.jpeg",duration_sec:207.36,has_vocal:true,m:"orchestra classical instruments, alien composition, chair scrapes, squeeks, phone rings, coats flap, feet shuffle, throat clear, nose bleed, coke speed",created_at:"2025-12-27T17:42:45.925Z"},
-  {name:"🍭 Desert Apple Graft",suno_id:"8061c6e9-b135-48e7-821d-23f692f83ca1",artwork:"https://cdn2.suno.ai/63a30009-05a8-4234-ac8e-9230a0852fb1.jpeg",duration_sec:307.4209375,has_vocal:false,m:"etherial quet techno, dub raggaeton, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2025-12-27T17:24:35.800Z"},
-  {name:"🍭 Nail that Apple",suno_id:"16712edd-fd1d-4e6a-897a-a03b3f6f2303",gd_id:"1sn6NaN5nca8mtH-_lOXYFG4NjeGPA30s",artwork:"https://cdn2.suno.ai/image_16712edd-fd1d-4e6a-897a-a03b3f6f2303.jpeg",duration_sec:183.08,has_vocal:false,m:"trap, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, symphonic techno space, electro swing, pop, clear, operatic soprano",created_at:"2025-12-26T13:54:45.754Z"},
-  {name:"deparcS",suno_id:"f2fb3752-bddc-4bf9-8c2e-8f8446f848df",gd_id:"1Hth_aY3zubuXFLDxaMnoy6VP8BvoDJSg",artwork:"https://cdn2.suno.ai/image_f2fb3752-bddc-4bf9-8c2e-8f8446f848df.jpeg",duration_sec:254.88,has_vocal:true,m:"808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy, breakbeat, glitch, abstract",created_at:"2025-12-23T17:09:55.084Z"},
-  {name:"There is No Apple",suno_id:"2c0d891f-7191-43ba-884d-50f87cca61e5",artwork:"https://cdn2.suno.ai/image_2c0d891f-7191-43ba-884d-50f87cca61e5.jpeg",duration_sec:119.48,has_vocal:false,m:"slowest technical techno, astral banghara 808 filter, rumble riser, kick fill",created_at:"2025-12-23T07:17:42.612Z"},
-  {name:"I know you're having sex in there. (Radio Edit)",suno_id:"2d16f3c7-0613-4feb-9af2-8a595435fd78",gd_id:"1uY33QMwK6rsgvqXbGAqxNO6RtqhosaAI",artwork:"https://cdn2.suno.ai/bc2d2cb8-c7e5-4a47-a032-a6ab783d4467.jpeg",duration_sec:202.64,has_vocal:false,m:"prog funk techno spit af kkl, female soprano, trappity trippity hoppit hap",created_at:"2025-12-22T09:27:50.531Z"},
-  {name:"I know you're having sex in there.",suno_id:"cf3d55ec-4971-4a81-9c74-4905147818f7",gd_id:"1QUfGiTvr4ZPorOYd8mAdGd9DsoHzf26j",artwork:"https://cdn2.suno.ai/1f121b5e-6179-421a-8491-e0bf3232947f.jpeg",duration_sec:216.36,has_vocal:false,m:"This trap experiment explores tempo extremes at 1bpm, built on cavernous 808 kicks hitting once per bar. Hi-hats are time-stretched to surreal length, creating ghostly textures. Sparse, suspenseful synths echo over vast silence, while massive sub drops fade slowly, amplifying tension and space.",created_at:"2025-12-21T15:00:49.757Z"},
-  {name:"Easy Star Jazzy Queen (Cover) (Cover) (Cover) (Cover)",suno_id:"94624c61-615d-4e20-8af3-bfe711f4b289",artwork:"https://cdn2.suno.ai/image_94624c61-615d-4e20-8af3-bfe711f4b289.jpeg",duration_sec:104.32,has_vocal:false,m:"etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2025-12-20T01:07:06.905Z"},
-  {name:"CINEMA OFFICIEL - UV (Undercover Eurobeat)",suno_id:"f35ae483-1b15-4c8f-b682-8b7a7f641045",artwork:"https://cdn2.suno.ai/cb11d03d-6055-49f0-8a14-38cb1fb32b20.jpeg",duration_sec:275.0,has_vocal:false,m:"riser, spacious mix, half-time, acoustic quartet klezmer, kamera music, folk instrumental, celtic quiet, trip-hop extended, frequent instrumental techno, potpourri, exotic radio, dark ambient mids",created_at:"2025-12-16T06:42:26.580Z"},
-  {name:"CINEMA OFFICIEL - UV (Undercover Cover) (Shaking the Matchbox Edit)",suno_id:"d2afa5a4-a12a-49b7-9ad6-8f16bbec8771",artwork:"https://cdn2.suno.ai/73bbb2a2-85ee-4c2c-81a4-11a6ef97dc59.jpeg",duration_sec:145.0,has_vocal:false,m:"acoustic quartet camera music, folk instrumental, celtic quiet, trip-hop extended, frequent instrumental techno, potpourri",created_at:"2025-12-15T15:10:10.758Z"},
-  {name:"CINEMA OFFICIEL - UV (Undercover Cover) (Radio Edit)",suno_id:"b22f3c70-1ee3-4b68-ab04-6962bb70d0f5",artwork:"https://cdn2.suno.ai/6a32eace-5759-4e54-bf0f-77c57424de15.jpeg",duration_sec:154.96,has_vocal:false,m:"celtic quiet, trip-hop extended, frequent instrumental techno, potpourri",created_at:"2025-12-15T15:01:24.871Z"},
-  {name:"CINEMA OFFICIEL - UV (Undercover Cover)",suno_id:"218b1147-4aa4-44e4-bba7-2eec515367b2",gd_id:"1uFbk6-XmSz7MxlqIJ3aL6l_cNC2aXep-",artwork:"https://cdn2.suno.ai/4f941c2a-606c-45e5-b1cc-39b66bc6913a.jpeg",duration_sec:320.76,has_vocal:false,m:"quet tech techno, glitch breakbeat, psy prog, swiss bass, travelling kick, dancing snare, instrumental breaks, trap space disco",created_at:"2025-12-13T10:47:04.692Z"},
-  {name:"CINEMA OFFICIEL - UV (East to West Cover)",suno_id:"b893c1cd-bcc8-4960-95d7-aa433345f485",artwork:"https://cdn2.suno.ai/066c36b9-975a-44a1-b9db-f404fc79e7b5.jpeg",duration_sec:528.08,has_vocal:false,m:"whisper singer, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",created_at:"2025-12-11T09:11:12.790Z"},
-  {name:"CINEMA OFFICIEL - UV (Habibi Tel-Aviv Cover)",suno_id:"53b4abea-7cac-4ca2-8f67-e2901ff392a9",artwork:"https://cdn2.suno.ai/111910d6-8d3e-4a88-8cec-634bf05d3b26.jpeg",duration_sec:250.44,has_vocal:false,m:"death metal screamo harsh vocals female singer, 808 bass progression arp, pink or purple electric guitar, oriental percussion, trip-hop slow spacy quiet mix, compressed mids",created_at:"2025-12-11T08:47:45.426Z"},
-  {name:"CINEMA OFFICIEL - UV (ЮЧ)",suno_id:"1688b07f-bef3-4236-bdb4-4185fa61205b",artwork:"https://cdn2.suno.ai/image_1688b07f-bef3-4236-bdb4-4185fa61205b.jpeg",duration_sec:193.76,has_vocal:false,m:"иа ат тарагу ла ыг нам поырыатка, гнам пвнагм, лта грабу де инно феклам пли знагх, ку спаб инб бувауф, country, bluegrass, oriental, chinese opera, kabuku, obal, kif, tuf",created_at:"2025-11-27T15:18:29.965Z"},
-  {name:"CINEMA OFFICIEL - UV (Kino Cover)",suno_id:"bbf5c01e-1890-4ddc-ac1e-d911c0daa01f",artwork:"https://cdn2.suno.ai/a4bb96b7-c68f-49b8-a3ce-ff515a50f2b8.jpeg",duration_sec:256.08,has_vocal:false,m:"space jazz otacore progressive quiet trip, psi bop glitch, deathmetal sonstress",created_at:"2025-11-23T16:01:48.620Z"},
-  {name:"CINEMA OFFICIEL - UV (Funk Doubletime Cover)",suno_id:"a2a65ef3-f8f2-4462-a568-cce2b2dc2be5",artwork:"https://cdn2.suno.ai/63b08eb1-c5c0-4c12-b94e-7eee57c12f66.jpeg",duration_sec:139.92,has_vocal:true,m:"medieval burlesque breakbeat, operatic electric electrical BBC, twerp innard eclectical bumbeat ingot, bluegrass lead synth alt",created_at:"2025-11-19T09:36:45.486Z"},
-  {name:"CINEMA OFFICIEL - UV (Oriental Cover)",suno_id:"0ffa83f2-e7ab-4ddd-a649-3bc6d41e8d3b",artwork:"https://cdn2.suno.ai/7980366d-f104-46ce-9a74-2f3ffd57c241.jpeg",duration_sec:286.4,has_vocal:true,m:"medieval burlesque breakbeat, operatic electric electrical BBC, twerp innard eclectical bumbeat ingot, bluegrass lead synth alt",created_at:"2025-11-19T09:36:45.486Z"},
-  {name:"Driving Past Myself (Extended Ver.)",suno_id:"5309f083-66af-4dfa-ab75-52eb2a09f9dd",artwork:"https://cdn2.suno.ai/image_5309f083-66af-4dfa-ab75-52eb2a09f9dd.jpeg",duration_sec:319.96,has_vocal:false,m:"quiet trip-hop breakbeat, operatic synth pulse low, abstract hip-hop progressive psy",created_at:"2025-11-15T17:29:54.151Z"},
-  {name:"Driving Past Myself (House Ver.)",suno_id:"fe5c4964-ea22-4bea-af95-68fcae4310af",artwork:"https://cdn2.suno.ai/image_fe5c4964-ea22-4bea-af95-68fcae4310af.jpeg",duration_sec:283.64,has_vocal:false,m:"quiet trip-hop breakbeat, operatic synth pulse low, abstract hip-hop progressive psy",created_at:"2025-11-15T17:29:54.151Z"},
-  {name:"CINEMA OFFICIEL - UV (Cover via NSM3 Synthwave Cover)",suno_id:"444c5b6b-52a6-4f7b-ba43-94dbb082b854",artwork:"https://cdn2.suno.ai/5205ece9-a486-4728-bb1c-1ef6e6b492a8.jpeg",duration_sec:242.64,has_vocal:false,m:"quiet trip-hop breakbeat, operatic synth pulse low, abstract hip-hop progressive psy",created_at:"2025-11-15T17:01:35.092Z"},
-  {name:"Tigers in L.A.",suno_id:"c93172a9-b638-493b-8936-8588a220575c",gd_id:"1gv66afhoa5329oWMr4QYIQ0SP66LqJQC",artwork:"https://cdn2.suno.ai/image_c93172a9-b638-493b-8936-8588a220575c.jpeg",duration_sec:124.16,has_vocal:true,m:"california ambient abstract hip-hop trip cleavage, psi vocoder singer house fx, space disco horror ost",created_at:"2025-11-10T11:04:09.979Z"},
-  {name:"Few.",suno_id:"e2833f87-0c5b-4e29-a0cb-4c507eb7970c",artwork:"https://cdn2.suno.ai/image_e2833f87-0c5b-4e29-a0cb-4c507eb7970c.jpeg",duration_sec:96.48,has_vocal:true,m:"california ambient abstract hip-hop trip prog, psi frog singer house fx",created_at:"2025-11-10T10:47:13.997Z"},
-  {name:"UKG  Slop",suno_id:"34ea1829-c9af-46ec-9ebc-b658eed3663a",artwork:"https://cdn2.suno.ai/28d9f3b1-7dce-42d9-83cb-e80155d4c73f.jpeg",duration_sec:149.68,has_vocal:true,m:"edm, rnb soprano sample lead, ukg bass riding",created_at:"2025-08-03T14:12:39.898Z"},
-  {name:"Sunrize Above a Desert Storm",suno_id:"32223bae-16e0-47ec-81e0-9921b4a4e6e1",artwork:"https://cdn2.suno.ai/b4874ca3-f8fa-4c54-8585-a412affad03f.jpeg",duration_sec:82.8,has_vocal:true,m:"breakbeat space disco edm trap  fusion  psy  prog,  ukg bass   harmonic,  felt gore",created_at:"2025-08-03T13:38:35.521Z"},
-  {name:"Jinn Spaceship Trapdoor",suno_id:"9dee823a-e3c5-4833-ba32-d223af76a063",artwork:"https://cdn2.suno.ai/cf1f6f6f-a4a6-4ac8-b3ca-ac0707004f7b.jpeg",duration_sec:189.0,has_vocal:true,m:"a driving, percussive rhythm. wurlitzer piano, snare drum, and hi-hats, rumbling base  breaks, ambient rnb humming, space jazz",created_at:"2025-07-14T11:10:56.080Z"},
-  {name:"Nage be a'Na Hilb",suno_id:"a4dfb7b2-1482-4ab3-9efe-a27eeeab7fd7",artwork:"https://cdn2.suno.ai/image_a4dfb7b2-1482-4ab3-9efe-a27eeeab7fd7.jpeg",duration_sec:142.0,has_vocal:true,m:"children's audiobook radioplay playful, hardbass  glitch breakcore peruvian salsa",created_at:"2025-06-08T07:06:50.156Z"},
-  {name:"Galst un Feurhdt",suno_id:"517d4edc-97e1-4f31-9b17-0b9e0a8ae960",artwork:"https://cdn2.suno.ai/image_517d4edc-97e1-4f31-9b17-0b9e0a8ae960.jpeg",duration_sec:197.56,has_vocal:true,m:"dnb female jazz singer german, african peruvian percussion djent, salsa trumpet,  drum prog",created_at:"2025-06-08T07:01:05.860Z"},
-  {name:"Kundalini Forking",suno_id:"f15b461c-cae5-4a43-ad8d-aa18d88c2b81",artwork:"https://cdn2.suno.ai/4c76b5c7-9061-4c1b-a0d0-488468a1c1f4.jpeg",duration_sec:239.04,has_vocal:true,m:"acid jazz space, psi ambient, meaty bass textures slap",created_at:"2025-05-09T09:21:43.439Z"},
-  {name:"Tune to 3:33",suno_id:"a4ae6a2f-7fc3-42f9-8f0e-effb9d8ebcba",artwork:"https://cdn2.suno.ai/image_a4ae6a2f-7fc3-42f9-8f0e-effb9d8ebcba.jpeg",duration_sec:240.0,has_vocal:true,m:"space jazz psi, dark ambient, meaty bass textures",created_at:"2025-05-09T09:06:17.012Z"},
-  {name:"Choking Kundalini",suno_id:"fe4b3a71-0acb-4738-a748-53473b4fd6ec",artwork:"https://cdn2.suno.ai/image_fe4b3a71-0acb-4738-a748-53473b4fd6ec.jpeg",duration_sec:239.08,has_vocal:true,m:"space jazz psi, dark ambient, meaty bass textures",created_at:"2025-05-09T09:06:17.012Z"},
-  {name:"Shivas  Dance",suno_id:"c5438467-23b2-45f7-b496-f82c38acfa11",artwork:"https://cdn2.suno.ai/3c465902-e575-489d-b1c0-0b2ec784dee9.jpeg",duration_sec:240.0,has_vocal:true,m:"cyber psi, breakbeat ambient, meaty bass textures",created_at:"2025-05-09T08:52:03.961Z"},
-  {name:"Dabadudukstep",suno_id:"d20410c7-bc60-42e8-b6ef-4cd8800fd605",artwork:"https://cdn2.suno.ai/image_d20410c7-bc60-42e8-b6ef-4cd8800fd605.jpeg",duration_sec:176.92,has_vocal:true,m:"Operatic female vocalist, quiet psytrance triphop, intense melodic progressive techno, duduk and tabla breakdown, Kislovodsk intro",created_at:"2024-11-24T06:16:44.669Z"},
-  {name:"Shiva Brostepam",suno_id:"6116d68e-0efa-471b-abb5-287cf1ae7574",artwork:"https://cdn2.suno.ai/image_6116d68e-0efa-471b-abb5-287cf1ae7574.jpeg",duration_sec:186.32,has_vocal:true,m:"Operatic female vocalist, quiet psytrance triphop, intense melodic progressive techno, duduk and tabla breakdown",created_at:"2024-11-24T05:58:44.203Z"},
-  {name:"Shiny Turd",suno_id:"59f99c3f-2668-4f6a-8130-bfa32cb746b5",artwork:"https://cdn2.suno.ai/image_59f99c3f-2668-4f6a-8130-bfa32cb746b5.jpeg",duration_sec:48.2,has_vocal:true,m:"babi metal thrash dub, operatic soprano backing, quiet",created_at:"2024-09-27T18:28:21.795Z"},
-  {name:"Let me explain...",suno_id:"243290dc-ab9a-4c15-8009-79d0b3db7f3e",artwork:"https://cdn2.suno.ai/image_243290dc-ab9a-4c15-8009-79d0b3db7f3e.jpeg",duration_sec:39.08,has_vocal:true,m:"operatic soprano backing, babi metal thrash dub, quiet",created_at:"2024-09-27T18:22:18.792Z"},
-  {name:"I'm so, so sorry about this.",suno_id:"c83a2dea-3e05-4b78-a7f2-545f70a29553",artwork:"https://cdn2.suno.ai/image_c83a2dea-3e05-4b78-a7f2-545f70a29553.jpeg",duration_sec:240.0,has_vocal:true,m:"operatic soprano backing, babi metal thrash dub, quiet",created_at:"2024-09-27T18:13:10.826Z"},
-  {name:"Driving Past Myself",suno_id:"c00f07df-c6e0-46cf-a7d2-57915dc72ea1",artwork:"https://cdn2.suno.ai/image_c00f07df-c6e0-46cf-a7d2-57915dc72ea1.jpeg",duration_sec:240.0,has_vocal:true,m:"symphonic progressive psytrance tabla, female indian classical rnb singer",created_at:"2024-08-14T09:23:00.583Z"},
-  {name:"Ce La Passione",suno_id:"dbf9f823-7895-4815-9efd-c1b25f861add",artwork:"https://cdn2.suno.ai/dbd426d0-e02b-4f65-b17c-fc89baf776e4.jpeg",duration_sec:240.0,has_vocal:true,m:"Am F7 Bb C# G, female jazz singer, edm screaming metal, african peruvian percussion, salsa trumpet",created_at:"2024-07-11T17:21:02.478Z"},
-  {name:"Onio Murakami",suno_id:"f34af4de-562e-450c-bd56-ae02dc26288a",artwork:"https://cdn2.suno.ai/image_f34af4de-562e-450c-bd56-ae02dc26288a.jpeg",duration_sec:155.16,has_vocal:true,m:"Am F7 Bb C# G, female jazz singer, edm screaming metal, african peruvian percussion, salsa trumpet",created_at:"2024-07-11T17:21:02.477Z"},
-  {name:"Prime Ska Tragedy",suno_id:"6b2a285f-f706-4377-a864-43f9e73c9b74",artwork:"https://cdn2.suno.ai/image_6b2a285f-f706-4377-a864-43f9e73c9b74.jpeg",duration_sec:191.24,has_vocal:true,m:"Am F7 Bb C# G, metal screaming, female jazz singer, african peruvian percussion, salsa trumpet",created_at:"2024-07-11T17:17:30.732Z"},
-  {name:"Definitely not Portuguese",suno_id:"d0e0686f-c4fc-4bbd-89ac-0d154afac21a",artwork:"https://cdn2.suno.ai/image_d0e0686f-c4fc-4bbd-89ac-0d154afac21a.jpeg",duration_sec:197.96,has_vocal:true,m:"Cm G7 Bb A F, unflattering screaming, female jazz singer, african peruvian percussion, salsa trumpet",created_at:"2024-07-11T17:11:26.977Z"},
-  {name:"Every Chord Progression on Suno",suno_id:"5c4a4803-a5cf-4cb8-a2f9-f8860287153a",artwork:"https://cdn2.suno.ai/image_5c4a4803-a5cf-4cb8-a2f9-f8860287153a.jpeg",duration_sec:171.96,has_vocal:true,m:"emeersion progressive, lake trap, palm ereed lead",created_at:"2024-07-11T17:01:46.976Z"},
-  {name:"Literally, Fuck Your Own Face",suno_id:"9fc55b1d-afd8-4ecc-bdb7-be03a5a5c583",artwork:"https://cdn2.suno.ai/image_9fc55b1d-afd8-4ecc-bdb7-be03a5a5c583.jpeg",duration_sec:120.76,has_vocal:true,m:"ge, metal trap xylophone, jazz sax, 809 cymbal, 808 bass, albanian trumpet, quet spacy psitrance progressive composition",created_at:"2024-07-11T00:37:46.279Z"},
-  {name:"I know you're fucking with me here.",suno_id:"4499edcf-d985-4a7b-abbe-24b8839f0e39",artwork:"https://cdn2.suno.ai/image_4499edcf-d985-4a7b-abbe-24b8839f0e39.jpeg",duration_sec:240.0,has_vocal:true,m:"bleh unfit aural soup",created_at:"2024-07-09T18:22:33.324Z"},
-  {name:"Not the Children",suno_id:"7c023835-fc90-4423-9862-0281839c29e4",artwork:"https://cdn2.suno.ai/image_7c023835-fc90-4423-9862-0281839c29e4.jpeg",duration_sec:151.2,has_vocal:true,m:"edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",created_at:"2024-07-08T21:43:17.050Z"},
-  {name:"Drama Resting Face",suno_id:"d7a5de34-b624-4ef7-928d-62e4fd918348",artwork:"https://cdn2.suno.ai/image_d7a5de34-b624-4ef7-928d-62e4fd918348.jpeg",duration_sec:240.0,has_vocal:true,m:"edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",created_at:"2024-07-08T21:43:17.050Z"},
-  {name:"Take Me Home!",suno_id:"e990b7f9-c56d-43e9-ade1-c7836b46c8ee",artwork:"https://cdn2.suno.ai/image_e990b7f9-c56d-43e9-ade1-c7836b46c8ee.jpeg",duration_sec:114.96,has_vocal:true,m:"edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",created_at:"2024-07-08T21:15:03.080Z"},
-  {name:"Doom ;-1",suno_id:"94540ff5-3dc4-4514-b9e7-a772286376fd",artwork:"https://cdn2.suno.ai/image_94540ff5-3dc4-4514-b9e7-a772286376fd.jpeg",duration_sec:123.96,has_vocal:true,m:"edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",created_at:"2024-07-08T21:15:03.079Z"},
-  {name:"01:30 Queen",suno_id:"547c353c-2110-4e2b-98ca-b3aeff0c9c8f",artwork:"https://cdn2.suno.ai/image_547c353c-2110-4e2b-98ca-b3aeff0c9c8f.jpeg",duration_sec:159.72,has_vocal:true,m:"psitrance trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpet",created_at:"2024-07-04T04:11:24.701Z"},
-  {name:"WTF Queen",suno_id:"30c37eb6-32b5-4680-b1d0-b667e5eacc0a",artwork:"https://cdn2.suno.ai/image_30c37eb6-32b5-4680-b1d0-b667e5eacc0a.jpeg",duration_sec:156.36,has_vocal:true,m:"psitrance trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpet",created_at:"2024-07-04T04:03:15.811Z"},
-  {name:"Easy Star Jazzy Queen",suno_id:"ff210d66-62cd-4e01-8492-3fe6217df1aa",artwork:"https://cdn2.suno.ai/66d7a946-7a96-41b3-a902-4718f3913c12.jpeg",duration_sec:166.2,has_vocal:true,m:"trippy psi trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpe",created_at:"2024-07-04T04:02:19.106Z"},
-  {name:"Drag Star Race Queen",suno_id:"93ae6499-1163-4397-a1cf-66e6ee76a053",artwork:"https://cdn2.suno.ai/image_93ae6499-1163-4397-a1cf-66e6ee76a053.jpeg",duration_sec:114.48,has_vocal:true,m:"trippy psi trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpe",created_at:"2024-07-04T04:02:19.106Z"},
-  {name:"She Knows",suno_id:"32471542-a480-4a94-bc83-487f82cf697d",artwork:"https://cdn2.suno.ai/20819dd3-4ee3-47e7-a130-61c8d72204ef.jpeg",duration_sec:199.56,has_vocal:true,m:"spaced quiet academic operatic trap with wood percussion, rnb lead synth, female rnb singer, in hebrew",created_at:"2024-06-29T22:45:16.886Z"},
-  {name:"0fde82f15cb867834075ea21e833b6b9693daedb",suno_id:"5506490b-adfb-4f4f-bead-29832f4121d1",artwork:"https://cdn2.suno.ai/image_5506490b-adfb-4f4f-bead-29832f4121d1.jpeg",duration_sec:157.72,has_vocal:true,m:"f08d2f041dcf60b85efac69ecd07506a3b4227c2",created_at:"2024-06-29T12:38:23.160Z"},
-  {name:"095a46118fcbcb843ed996060e71adfded009b3c",suno_id:"2a95ee2f-2928-498e-ba63-ec74cab87732",artwork:"https://cdn2.suno.ai/image_2a95ee2f-2928-498e-ba63-ec74cab87732.jpeg",duration_sec:155.0,has_vocal:true,m:"eb8e745caa8b4af3a23f4db7bfddb5ef7c87ec2e",created_at:"2024-06-29T12:30:48.576Z"},
-  {name:"095a46118fcbcb843ed996060e71adfded009b3c",suno_id:"421207a5-ba56-4176-adb3-1c132528a593",artwork:"https://cdn2.suno.ai/image_421207a5-ba56-4176-adb3-1c132528a593.jpeg",duration_sec:229.76,has_vocal:true,m:"eb8e745caa8b4af3a23f4db7bfddb5ef7c87ec2e",created_at:"2024-06-29T12:30:48.576Z"},
-  {name:"Random Symbol eBrain",suno_id:"0301b474-2b4d-40d9-9a9b-e6d7d0433d8b",artwork:"https://cdn2.suno.ai/image_0301b474-2b4d-40d9-9a9b-e6d7d0433d8b.jpeg",duration_sec:181.76,has_vocal:true,m:"vfy a/jl, bbw, xkl'k, b[w;,.",created_at:"2024-06-29T12:18:06.322Z"},
-  {name:"Fuzzing the eBrain",suno_id:"0fc18f39-f14d-4150-9f00-d856783dac42",artwork:"https://cdn2.suno.ai/image_0fc18f39-f14d-4150-9f00-d856783dac42.jpeg",duration_sec:158.36,has_vocal:true,m:"vfy a/jl, bbw, xkl'k, b[w;,.",created_at:"2024-06-29T12:18:06.322Z"},
-  {name:"eBrain Fart",suno_id:"10723e18-c31d-489b-add8-f8f9356b8a82",artwork:"https://cdn2.suno.ai/image_10723e18-c31d-489b-add8-f8f9356b8a82.jpeg",duration_sec:129.64,has_vocal:true,m:"harpeji death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",created_at:"2024-06-27T22:00:32.721Z"},
-  {name:"Actually Metal",suno_id:"3d0dd139-362c-4a04-ba16-d307200fad2b",artwork:"https://cdn2.suno.ai/b548d90e-9047-4e95-b1e1-451d5143c617.jpeg",duration_sec:240.0,has_vocal:true,m:"harpeji death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",created_at:"2024-06-27T22:00:32.721Z"},
-  {name:"Good Night",suno_id:"f6738113-25c2-481c-b1df-529f5fa7f718",artwork:"https://cdn2.suno.ai/image_f6738113-25c2-481c-b1df-529f5fa7f718.jpeg",duration_sec:151.12,has_vocal:true,m:"death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",created_at:"2024-06-27T21:41:52.413Z"},
-  {name:"You Can Bong",suno_id:"9eb42d11-8e66-4ef7-9557-d544e3b15bf1",artwork:"https://cdn2.suno.ai/image_9eb42d11-8e66-4ef7-9557-d544e3b15bf1.jpeg",duration_sec:122.16,has_vocal:true,m:"death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",created_at:"2024-06-27T21:41:52.413Z"},
-  {name:"Menopause Palpable",suno_id:"e0dd16e7-0981-4de4-ade2-2b601a2c2dbb",artwork:"https://cdn2.suno.ai/image_e0dd16e7-0981-4de4-ade2-2b601a2c2dbb.jpeg",duration_sec:169.48,has_vocal:true,m:"jazzy death-metal beat poetry, read over by female rnb singer, bouzouki sawtooth lead",created_at:"2024-06-27T21:36:09.916Z"},
-  {name:"Wanna Fuck a Pig?",suno_id:"3be9265c-f375-4501-af9e-816792982efd",artwork:"https://cdn2.suno.ai/image_3be9265c-f375-4501-af9e-816792982efd.jpeg",duration_sec:191.96,has_vocal:true,m:"jazzy death-metal trap, female rnb singer, bouzouki lead",created_at:"2024-06-27T21:22:05.195Z"},
-  {name:"I'm Sorry, WTF did You Just Say?",suno_id:"efac8159-3749-42da-9b73-3939104e864d",artwork:"https://cdn2.suno.ai/image_efac8159-3749-42da-9b73-3939104e864d.jpeg",duration_sec:178.96,has_vocal:true,m:"jazzy death-metal trap, female rnb singer, bouzouki lead",created_at:"2024-06-27T21:22:05.195Z"},
-  {name:"All Songs Sound Like This",suno_id:"d9371f05-eb21-4798-89e5-f85d7ace49a6",artwork:"https://cdn2.suno.ai/image_d9371f05-eb21-4798-89e5-f85d7ace49a6.jpeg",duration_sec:169.64,has_vocal:true,m:"jazzy death-metal trap, female rnb singer, buzuki lead",created_at:"2024-06-27T21:17:45.966Z"},
-  {name:"Abyrvalgue Vourdalax",suno_id:"e5da9aa4-99fd-4f7a-b5dd-348f61665016",artwork:"https://cdn2.suno.ai/image_e5da9aa4-99fd-4f7a-b5dd-348f61665016.jpeg",duration_sec:158.08,has_vocal:true,m:"operatic industrial soul trap hardcore with gerbil vocals, leaning into church scratch and perturbed borderline fusion",created_at:"2024-06-23T19:55:05.379Z"},
-  {name:"Measured Slime",suno_id:"737adcfd-bf72-40db-bd2f-644a134aae02",artwork:"https://cdn2.suno.ai/image_737adcfd-bf72-40db-bd2f-644a134aae02.jpeg",duration_sec:189.64,has_vocal:true,m:"slimy wet (industrial trap chillstep) hardcore with (female rnb singer)",created_at:"2024-06-22T05:48:31.876Z"},
-  {name:"Simply Slime",suno_id:"b5a2c60b-5af4-4b23-8c43-a6d4b0db0a3e",artwork:"https://cdn2.suno.ai/image_b5a2c60b-5af4-4b23-8c43-a6d4b0db0a3e.jpeg",duration_sec:159.28,has_vocal:true,m:"slimy wet (industrial trap chillstep) hardcore with (female rnb singer)",created_at:"2024-06-22T05:40:59.940Z"},
-  {name:"Please Unwipe",suno_id:"19ecda10-10cd-4b13-a1b6-04fde65471f1",artwork:"https://cdn2.suno.ai/image_19ecda10-10cd-4b13-a1b6-04fde65471f1.jpeg",duration_sec:194.32,has_vocal:true,m:"(soft rnb progressing into hardstyle uk garage style), with dubstep bridge, ((male rnb singer with low voice))",created_at:"2024-06-10T11:05:02.233Z"},
-  {name:"Stale Bread Unsliced",suno_id:"1aa8d5e2-7ce9-40b0-bf63-b44b37af4e44",artwork:"https://cdn2.suno.ai/image_1aa8d5e2-7ce9-40b0-bf63-b44b37af4e44.jpeg",duration_sec:240.0,has_vocal:true,m:"late Renaissance lute ((dubstep trap fusion, rnb bass singer)) breakbeat brakedown",created_at:"2024-06-10T10:46:41.405Z"},
-  {name:"Stale Bread Slice",suno_id:"61391ebc-2bb1-44de-bcdd-e871fa42d801",artwork:"https://cdn2.suno.ai/image_61391ebc-2bb1-44de-bcdd-e871fa42d801.jpeg",duration_sec:240.0,has_vocal:true,m:"late Renaissance lute edm fusion ",created_at:"2024-06-08T16:50:49.011Z"},
-  {name:"Stale Bread",suno_id:"f317ad0c-c767-4e5f-9a24-80fcdfd5295c",artwork:"https://cdn2.suno.ai/image_f317ad0c-c767-4e5f-9a24-80fcdfd5295c.jpeg",duration_sec:179.96,has_vocal:true,m:"late Renaissance lute edm fusion ",created_at:"2024-06-08T16:50:49.011Z"},
-  {name:"Sliced Stale Bread",suno_id:"a2df7b73-6155-4aa6-b884-338316939106",artwork:"https://cdn2.suno.ai/image_a2df7b73-6155-4aa6-b884-338316939106.jpeg",duration_sec:184.56,has_vocal:true,m:"late Renaissance lute edm fusion ",created_at:"2024-06-08T16:50:43.686Z"},
-  {name:"(Lost to) Darkness 💎",gd_id:"1N7Q8bIJuhTD-bqYjHO1lY3t2m-l0CuQX",m:"diamond in void"},
-  {name:"(Trance) Slowly",gd_id:"1yR8UajSL4DSaJRKPSNh44tiroFOMWHeN",m:"slow build euphoria"},
-  {name:"Africa Nippon",gd_id:"1MRhPPPMq3ddI7mvaJlzf0mlTfb0RvoJd",m:"continent crossover fusion"},
-  {name:"And you want to stay, want to stay",gd_id:"1kt1orUJQNxJ19-f_Sh70hRhOsCss2UHR",m:"repetitive desire loop"},
-  {name:"Bitches Need To Know",gd_id:"1N52q73bGhIAMSSywbhVJhqgdwDdLjqQc",m:"information dissemination anthem"},
-  {name:"Blue Groove",gd_id:"12Ux-YmrquvyqKMbP9oVWgkXTGqCmkznC",m:"cool sax swagger"},
-  {name:"Breakup Sex",gd_id:"10661uyX6NG4Xj7QSbqoeS7tiH7kPoO67",m:"complicated feelings anthem"},
-  {name:"Bіtc_es Need To Know",gd_id:"1aSAbthxsA_QhNuudclcyu9DAVccGpfxi",m:"censored gossip anthem"},
-  {name:"D.nt Be M¡d, As Much As You Can",gd_id:"1efiecAsCzVj8lR8CpWIGj7GjVrWi2ZYV",m:"censored pop protest"},
-  {name:"Demons In My Head",gd_id:"1vttZsX7o90R7dNf0-pJt4Nk3xFPayMbR",m:"anxiety rock confession"},
-  {name:"Do What I Say",gd_id:"1V5qCgY6v72bQrFxOU0i9QutoLgqanrk8",m:"industrial command anthem"},
-  {name:"DRKCTNGHTDRV",gd_id:"1JWY_DcpCHAlYqaGq5EUNFBt4rTptnj8P",m:"night drive phonetic"},
-  {name:"Feel This Out",gd_id:"1HK4fKDJnWdH3dKG1-1gMD_FZvIjCiC9U",m:"tactile exploration jam"},
-  {name:"Fin",gd_id:"1EGHiYPvIeCU54rOsDU7fDIt-Pi3-4lH3",m:"closing credits piano"},
-  {name:"FYCDN-222 [Remix]",gd_id:"13cntOrIhbuTzwM2FdbwRxbLYujNr6K6B",m:"warehouse acid cut"},
-  {name:"Gourdjieff Arena",gd_id:"130jpU2j97Thv9XWmlM1F_WhdakQM7QGT",m:"mystic philosopher stadium"},
-  {name:"Higher Trance",gd_id:"10MiXFhG1GEQ1pgi4nOhRAMB1tGF9pYWB",m:"ascending arpeggio journey"},
-  {name:"Higher Trance Mix",gd_id:"15b5cQix_IafwCw3Q6E5_r7qs5WN_00oU",m:"elevated state remix"},
-  {name:"I Loves Your Mamma Bud",gd_id:"1N93HTqp8PT9E2_90j4nAnI4NXQPeN7s0",m:"affectionate maternal tribute"},
-  {name:"Insert Silence",gd_id:"1MzKFOqSCjlSUgB54p_wWI3C4Ub9h1Eby",m:"negative space composition"},
-  {name:"Int 90s NiPop",gd_id:"1R0jU0HB8i5lN8GytljU9DDbC60xs37qg",m:"international nineties nostalgia"},
-  {name:"It Knows You",gd_id:"14tLlqj3V5YVPr2fAJBRelMQxanz2yZzw",m:"AI surveillance paranoia"},
-  {name:"Move Over Lass",gd_id:"1jqpn9b9h519BhtZAqqYbRUxSRRFSznA1",m:"pub rock shanty"},
-  {name:"My Sister Never Dig You, Friend",gd_id:"16EUyOOFbqNWWXQnU_5gR1mh6vl3AewF2",m:"sibling rejection notice"},
-  {name:"Never Jazz You Over, Ty",gd_id:"1RFkx4sOOgCyzd9BF9z6_RvUxFYYY8-uw",m:"tyler typo tribute"},
-  {name:"No Quota For Sh¡t To Happen",gd_id:"1OqEvnUwS-n1yyktvfuiDRQCjzacz6pnD",m:"bureaucratic frustration anthem"},
-  {name:"Northwards Crotch",gd_id:"1vQPGfSWWdcNw8w-N0uGI8ndS8weCzkOp",m:"crude compass punk"},
-  {name:"Not This Knob [[ It's You I Like ]]",gd_id:"1nS3qeZ5TVvDmAsiWIrcoJtWf0i6QrlPP",m:"knob innuendo love"},
-  {name:"Outside the Other",gd_id:"1zPTcMdO45cNbzUc6Eal6JOyY-uE1Ampv",m:"existential duality ambient"},
-  {name:"Overjazz (0.94x)",gd_id:"1GAsb-GmAbULZw3zwInKXUEZFPh00-roR",m:"excessive brass slowdown"},
-  {name:"Proofed",gd_id:"1x1lNPiqeCcnhEECZQ1nQIN6Un_XA0DHI",m:"final draft approved"},
-  {name:"Ring Your Boner",gd_id:"1UalfMUu90x83YLOMzL2zFcpqQYfw6JKP",m:"crude phone call"},
-  {name:"She Would Never Jazz You",gd_id:"1XK6FNnGn0z1hbrYsjS_1yueGDMCTf11x",m:"genre fidelity oath"},
-  {name:"Smooch Delinquent",gd_id:"1i7mC8NTz7xLhX1ei7TOajo6aFLO7VXgK",m:"juvenile delinquent romance"},
-  {name:"Then Time (For Work)",gd_id:"1qYUktkVFe7YQoEenTPhHS3XzLuVGSpx_",m:"clock-in industrial beat"},
-  {name:"Turn Over Dom (Encore)",gd_id:"1DigQDvh3xb8wZ0cvu1TnTZsJRWSouVxT",m:"BDSM house encore"},
-  {name:"Vogel (im Käfig)",gd_id:"1ngYJRGGtXkWVKwX6uyizf8FlrvpEapgp",m:"caged bird German"},
-  {name:"What Do (You Want)",gd_id:"1SGphPbqN9cNinBIQFkBX0EMkwaBzRTu0",m:"post-punk question mark"},
-  {name:"Your Call Is Important To Us",gd_id:"18WGfujQJourO5Dg34JhBD8sKsab8VLUx",m:"hold music satire"}
-];
+[
+  {
+    "name": "🥁 Quebienx",
+    "suno_id": "df96598b-c3d1-4795-80a9-25c9e0f392f2",
+    "gd_id": "13Eo1ip5owOyI3nAnzdepAeY5OpFyWFsY",
+    "artwork": "https://cdn2.suno.ai/d5fedb28-5021-4059-a261-3550ff26bae6.jpeg",
+    "duration_sec": 138.96,
+    "has_vocal": true,
+    "m": "glitch-hop bass drop • cl0wncore house, industrial jazz fusion",
+    "created_at": "2026-05-21T06:52:55.185Z"
+  },
+  {
+    "name": "Specificity in Duality",
+    "suno_id": "2e49e855-952e-4c0d-8372-dd07a7a656ef",
+    "gd_id": "1-7BnurB8u1xAwlMSPPPL9qpr5oNkGJON",
+    "artwork": "https://cdn2.suno.ai/d8954545-6ff8-4de2-ac10-2e566cb789e4.jpeg",
+    "duration_sec": 310.2,
+    "has_vocal": true,
+    "m": "philosophical ambient drone • downtempo electronic, beat poetry, #OoK",
+    "created_at": "2026-05-20T04:11:02.211Z"
+  },
+  {
+    "name": "🍭 He will come for You surely",
+    "suno_id": "6a2df838-73fb-43a7-a533-ccfd772e62f0",
+    "gd_id": "1mSiWpuvSgUpMrEQ8VjUOCYhdK-XK0pDE",
+    "artwork": "https://cdn2.suno.ai/343cf259-f3fc-442e-be71-f69e1a2b5576.jpeg",
+    "duration_sec": 282.76,
+    "has_vocal": true,
+    "m": "gospel techno fusion • synthwave, cl0wncore trance",
+    "created_at": "2026-05-16T08:34:05.232Z"
+  },
+  {
+    "name": "SIAFO [Remix]",
+    "suno_id": "c6341e65-785d-439e-a8ca-9a2f4f2468b0",
+    "gd_id": "161CC6jsAw-M-4FMenqlz_3UUMaCnqECS",
+    "artwork": "https://cdn2.suno.ai/968161d9-fcb8-45f5-9ea1-00c6e25dfe28.jpeg",
+    "duration_sec": 209.96,
+    "has_vocal": true,
+    "m": "four-on-floor rework • soul, ballad, pop",
+    "created_at": "2026-05-14T08:36:15.964Z"
+  },
+  {
+    "name": "Never a Boy 🪕 or Two",
+    "suno_id": "2dfd537b-b56b-48bd-9345-24013cc2d1eb",
+    "gd_id": "1R_48o-j_lSj0HIDxB1qy_UxdcdoPqrhx",
+    "artwork": "https://cdn2.suno.ai/e049b5fa-718f-4c19-b9e0-c578185af4f8.jpeg",
+    "duration_sec": 195.68,
+    "has_vocal": true,
+    "m": "remastered indie anthem • jazz soul",
+    "created_at": "2026-05-14T07:25:36.031Z"
+  },
+  {
+    "name": "She Loves ⚠️ (My Voice)",
+    "suno_id": "3b2420fa-fcb0-495d-a3c6-62e5eb8a7144",
+    "gd_id": "1SGeAKSkweYxgw_GJ79xtsLIL92krLpgb",
+    "artwork": "https://cdn2.suno.ai/1c98a45d-505c-422f-82d6-f4f6dbb0057c.jpeg",
+    "duration_sec": 167.96,
+    "has_vocal": true,
+    "m": "vocal loop mantra • jazz, pop",
+    "created_at": "2026-05-13T08:44:09.129Z"
+  },
+  {
+    "name": "She 🩷ð (Encore)",
+    "suno_id": "dbb33865-fa54-4f3f-8f01-b40967558418",
+    "gd_id": "1gFaRwoKX3gC3xMpFrmVNiI8wZB29NirQ",
+    "artwork": "https://cdn2.suno.ai/eb658123-8953-46fb-bdbd-6c1a04244196.jpeg",
+    "duration_sec": 252.52,
+    "has_vocal": true,
+    "m": "jazz, mallcore",
+    "created_at": "2026-05-13T08:19:35.759Z"
+  },
+  {
+    "name": "🥁 Forget Tonight (Again) 🍭",
+    "suno_id": "6005ac08-25ab-425f-afba-05e9565aa559",
+    "gd_id": "1s5uDHYkKnE2XhhXZM4_PE2wam099-ymF",
+    "artwork": "https://cdn2.suno.ai/953612b2-3c04-4516-b61a-36602a807376.jpeg",
+    "duration_sec": 256.806875,
+    "has_vocal": false,
+    "m": "melancholy piano ballad • cl0wncore trance",
+    "created_at": "2026-05-08T04:41:23.084Z"
+  },
+  {
+    "name": "Caged Bird Locked In (Encore)",
+    "suno_id": "c0a2adae-4ea5-431f-b892-2d62dd61ae0d",
+    "gd_id": "1vA1fQi_TQnyuZmeQT2-LRmu26xnCnOhH",
+    "artwork": "https://cdn2.suno.ai/0fbf13a8-4843-4c38-a297-2ca3b9be5af8.jpeg",
+    "duration_sec": 233.96,
+    "has_vocal": false,
+    "m": "trap soul encore • cl0wncore, instrumental, rough jazz, jazz fusion",
+    "created_at": "2026-04-30T06:08:05.838Z"
+  },
+  {
+    "name": ") Go Smooth ( 🥁",
+    "suno_id": "7f67b284-25e8-4a44-8d7d-41351eef43c4",
+    "gd_id": "19PvGB51ltSxqk0rrWxnPifX-9D7qLO4B",
+    "artwork": "https://cdn2.suno.ai/9d9d2dac-806d-4e0b-aa5b-1f00057d9e57.jpeg",
+    "duration_sec": 257.96,
+    "has_vocal": false,
+    "m": "late night R&B • dub & bass, psy cl0wncore",
+    "created_at": "2026-04-28T23:07:08.193Z"
+  },
+  {
+    "name": "Old House on the Ice Hill",
+    "suno_id": "d44fd1c5-72dc-4309-9fb7-3e2518299916",
+    "gd_id": "150EhDRSFjp_0P03dC_3YJ4zLoD_HteMS",
+    "artwork": "https://cdn2.suno.ai/b0db79e1-7b81-4086-a9f4-1d1e793bfbfc.jpeg",
+    "duration_sec": 323.699875,
+    "has_vocal": false,
+    "m": "haunted folk memory • ambient, cl0wncore, minimal",
+    "created_at": "2026-04-28T10:16:47.251Z"
+  },
+  {
+    "name": "Secret Robot (Encore)",
+    "suno_id": "b41a74fe-2755-4055-b459-03476a38f0e0",
+    "gd_id": "1ljReeOW6IhMIuhsGgqdQ9WzUZHv-dZvu",
+    "artwork": "https://cdn2.suno.ai/1c8646b8-c7ae-4f52-8372-d17cf79a63a9.jpeg",
+    "duration_sec": 280.28,
+    "has_vocal": true,
+    "m": "android love encore • instrumental, jazz, mallcore, cl0wncore",
+    "created_at": "2026-04-28T07:07:14.905Z"
+  },
+  {
+    "name": "(Ornamental) Death Gape",
+    "suno_id": "8e9727ba-1b51-4cf0-9d7b-61317e242a8a",
+    "gd_id": "1vJ-KTRX18sG9Cd9pWN6fQUFxs4tJmzfJ",
+    "artwork": "https://cdn2.suno.ai/0bb4fa73-b949-43ec-9667-ce823ce7f395.jpeg",
+    "duration_sec": 196.24,
+    "has_vocal": true,
+    "m": "gothic baroque interlude • breakcore, classical, cl0wncore",
+    "created_at": "2026-04-25T09:27:23.506Z"
+  },
+  {
+    "name": "Y U such a ()  #OoK",
+    "suno_id": "9a075c31-5e1f-4a0c-a49e-154eacd06b0b",
+    "gd_id": "12klrnP0wYF09L91N4oWa_5WKa_Cr8AuI",
+    "artwork": "https://cdn2.suno.ai/03831f38-3292-4822-81e9-0044e86d8026.jpeg",
+    "duration_sec": 167.32,
+    "has_vocal": true,
+    "m": "text message breakup • cl0wncore house, disco swing",
+    "created_at": "2026-04-21T08:43:38.795Z"
+  },
+  {
+    "name": "Get It (Over Here)",
+    "suno_id": "4904b3b4-080b-4719-a26a-3a84c7e199e4",
+    "gd_id": "1gtJWcaUy5AEuD9q08RI4D8A6ErC8bvgX",
+    "artwork": "https://cdn2.suno.ai/f5f12694-4041-459e-b53c-471a4d38a703.jpeg",
+    "duration_sec": 204.72,
+    "has_vocal": false,
+    "m": "demand funk groove • cl0wncore dnb",
+    "created_at": "2026-04-19T10:25:14.153Z"
+  },
+  {
+    "name": "Where (You) Asked Me 🥁",
+    "suno_id": "c48df62a-0546-4a31-87df-6107ef17723b",
+    "gd_id": "1xPzQsf3qtws8RC0LZBMonKTBl_fjOWFr",
+    "artwork": "https://cdn2.suno.ai/09c16686-0586-43cd-aa06-a875a5df8623.jpeg",
+    "duration_sec": 275.08,
+    "has_vocal": true,
+    "m": "memory lane stroll • psy jazz, rough jazz",
+    "created_at": "2026-04-12T16:31:03.596Z"
+  },
+  {
+    "name": "(For You) 💜 To Stay",
+    "suno_id": "64912f72-a694-4573-a580-f771bf8b432d",
+    "gd_id": "1thI0lNVx38H0Mh1Rw_MAOxhEwUSqE12n",
+    "artwork": "https://cdn2.suno.ai/47747a01-32dd-4c94-af8e-c540d462f5a9.jpeg",
+    "duration_sec": 283.16,
+    "has_vocal": true,
+    "m": "purple heart plea",
+    "created_at": "2026-04-07T09:09:47.608Z"
+  },
+  {
+    "name": "Lila Pralliné",
+    "suno_id": "a9a06050-3a21-4dac-8de5-d5ac0ce1e916",
+    "gd_id": "1ibWW2ewtWvhkMR394A-a9UGueWdw546k",
+    "artwork": "https://cdn2.suno.ai/0c0ab988-a686-44a7-a9a5-67c2eb42b470.jpeg",
+    "duration_sec": 214.88,
+    "has_vocal": true,
+    "m": "choral ska punk",
+    "created_at": "2026-04-05T18:15:13.950Z"
+  },
+  {
+    "name": "Tell Me To Come 💜",
+    "suno_id": "30f2f60c-e2b9-409f-bf4c-eda9e3055707",
+    "artwork": "https://cdn2.suno.ai/image_30f2f60c-e2b9-409f-bf4c-eda9e3055707.jpeg",
+    "duration_sec": 198.16,
+    "has_vocal": true,
+    "m": "Experimental vocal drone and throat singing. The piece features a single male voice performing deep, resonant overtone singing and rhythmic vocalizations. The performance begins with a sustained low-frequency fundamental drone, rich in harmonic overtones that shift in timbre. The vocalist employs circular breathing to maintain a continuous sound. Mid-way through, the texture shifts to rhythmic, percussive glottal stops and chesty grunts, creating a steady pulse. The recording has a natural, dry acoustic with minimal reverberation, emphasizing the intimate, physical textures of the vocal cords and breath. The pitch centers around a low C1 fundamental with shifting resonance in the 400Hz to 1200Hz range. The tempo of the rhythmic section is approximately 85 BPM.",
+    "created_at": "2026-04-02T09:22:39.181Z"
+  },
+  {
+    "name": "Necesassary",
+    "suno_id": "801fccf0-6b5d-43a7-8da8-67f1d7faea73",
+    "artwork": "https://cdn2.suno.ai/de51ac69-f8be-49fa-90b2-37849e268e4f.jpeg",
+    "duration_sec": 191.24,
+    "has_vocal": true,
+    "m": "Sensual world mix. A question without an answer, in many answers. An avant-garde soundscape characterized by heavy, rhythmic breathing and visceral vocalizations. The piece lacks traditional instrumentation, relying entirely on human breath and guttural sounds to create a tense, intimate atmosphere. The tempo is moderate but fluctuates with the intensity of the breathing patterns. The vocal quality is raw and breathy, featuring deep inhalations, sharp exhalations, and rhythmic grunting.  The structure is linear, building in intensity through faster pacing and more aggressive vocal textures.",
+    "created_at": "2026-04-01T08:57:52.794Z"
+  },
+  {
+    "name": "I Will Follow You (Home)",
+    "suno_id": "deb99617-f45a-4f79-bfd0-d75b3bcc3a57",
+    "gd_id": "1zM8vFYB_TyGoN-bFxP8XgrFvbwTADG7h",
+    "artwork": "https://cdn2.suno.ai/54c75aba-f215-4b73-9ec4-642452891629.jpeg",
+    "duration_sec": 158.48,
+    "has_vocal": true,
+    "m": "stalking synthwave theme • hip-hop",
+    "created_at": "2026-03-31T18:57:57.731Z"
+  },
+  {
+    "name": "Dreams For Which There Are No Dreamers",
+    "suno_id": "a791c655-779d-4024-9173-42a45def8e6f",
+    "gd_id": "1ffZXk_s1U20g1r0oeJPOzRytM9jPs-Z9",
+    "artwork": "https://cdn2.suno.ai/b73a2fbc-2157-4049-a70f-b9258b82b6df.jpeg",
+    "duration_sec": 151.9199791667,
+    "has_vocal": true,
+    "m": "orphan ambient suite",
+    "created_at": "2026-03-28T00:23:32.886Z"
+  },
+  {
+    "name": "Kakapo, Class",
+    "suno_id": "5aaf772a-3277-4a8f-9b8f-3ac12da5d411",
+    "gd_id": "1Kagdfp0imitp9w58-fYTjU2s8MBRbMTD",
+    "artwork": "https://cdn2.suno.ai/e8252700-7c7c-4700-ad0e-e67abde2f7f8.jpeg",
+    "duration_sec": 217.64,
+    "has_vocal": true,
+    "m": "rare bird elegy",
+    "created_at": "2026-03-27T22:11:41.567Z"
+  },
+  {
+    "name": "(Borrowed) Take It All 🩷",
+    "suno_id": "3f6ac02c-7675-4757-bcbb-9bac6b62fef3",
+    "artwork": "https://cdn2.suno.ai/464b5f10-20a2-4bb1-afda-ad319726b39c.jpeg",
+    "duration_sec": 459.0,
+    "has_vocal": true,
+    "m": "dark experimental synthmusic, avantgarde beat poetry, child mc, retro 80s analog synths, melancholic male vocals, deep and emotional tone, mystery world mix",
+    "created_at": "2026-03-27T21:24:37.345Z"
+  },
+  {
+    "name": "Enter",
+    "suno_id": "0be5ed1a-b5e4-4129-be1d-038b50ed9f4a",
+    "artwork": "https://cdn2.suno.ai/image_0be5ed1a-b5e4-4129-be1d-038b50ed9f4a.jpeg",
+    "duration_sec": 289.24,
+    "has_vocal": true,
+    "m": "túrk bop trap, dark experimental synth, retro analog, melancholic male vocals, deep and emotional tone, tape saturation, spoken word whispers, reverb-heavy vocals, minimal techno, industrial ambient",
+    "created_at": "2026-03-27T08:44:52.339Z"
+  },
+  {
+    "name": "Princess Bear 💜",
+    "suno_id": "21afb6e6-b6c5-4610-af43-7909a57eae4c",
+    "gd_id": "1P-J4VeDGmmoBD5XUj4ei7XqLFQda3p7T",
+    "artwork": "https://cdn2.suno.ai/video_upload_1edf40b0-df2d-4c61-bbac-5ad60b08f68a_video_upload_1edf40b0-df2d-4c61-bbac-5ad60b08f68a_cover_snapshot_0s_1774556529_image.jpeg",
+    "duration_sec": 210.96,
+    "has_vocal": true,
+    "m": "toy piano lullaby",
+    "created_at": "2026-03-26T20:06:47.404Z"
+  },
+  {
+    "name": "Side Hustle",
+    "suno_id": "f5395bce-b207-4123-a039-3fb2d8080a1d",
+    "gd_id": "1Z5ifqLjJgD_Catwt14pWhJgc1hzmGrlQ",
+    "artwork": "https://cdn2.suno.ai/5a7e2d70-28d4-4891-b9ef-59de9ed70aad.jpeg",
+    "duration_sec": 234.2,
+    "has_vocal": true,
+    "m": "grind culture banger",
+    "created_at": "2026-03-26T18:46:42.444Z"
+  },
+  {
+    "name": "Duds of Canada",
+    "suno_id": "7bc65543-92d3-46ba-a3d3-a70157674a32",
+    "gd_id": "1Hju95zu1MsTMm7DfcQCqbrc5s2mm34Tt",
+    "artwork": "https://cdn2.suno.ai/video_upload_336a7e56-999f-4b37-acdf-bcf1fc3a38c5_video_upload_336a7e56-999f-4b37-acdf-bcf1fc3a38c5_cover_snapshot_0s_1774819001_image.jpeg",
+    "duration_sec": 187.84,
+    "has_vocal": true,
+    "m": "lo-fi folk sketch",
+    "created_at": "2026-03-26T17:35:18.169Z"
+  },
+  {
+    "name": "💎 Don't Dare Move Lad",
+    "suno_id": "23642ff7-8c71-4439-bebb-7c0af3690a4b",
+    "gd_id": "1e3UTk8YSAR_lIBx7lIrAbPsI6QwWxen7",
+    "artwork": "https://cdn2.suno.ai/8fc437c1-476b-46d0-b65a-9bd6febc31fc.jpeg",
+    "duration_sec": 148.24,
+    "has_vocal": true,
+    "m": "tense thriller score • acid house jazz",
+    "created_at": "2026-03-26T10:25:27.550Z"
+  },
+  {
+    "name": "Boys' Room (PC)",
+    "suno_id": "18afb5a1-616d-4f82-b46b-0e3c338300e3",
+    "gd_id": "1tCTnQed8lsOPN9GhoUdsykZ1tNdt_5l9",
+    "artwork": "https://cdn2.suno.ai/ae780b7c-3edd-4e37-b252-ff2ebf67542a.jpeg",
+    "duration_sec": 286.4,
+    "has_vocal": true,
+    "m": "nostalgia chip tune",
+    "created_at": "2026-03-25T17:08:46.816Z"
+  },
+  {
+    "name": "Secret Soldier",
+    "suno_id": "f0972912-fff6-4658-bbeb-6ff1b5f5c988",
+    "gd_id": "1bc7L0WYci4E7VTc7qIhaM9sdsUHbM_mD",
+    "artwork": "https://cdn2.suno.ai/69c76f50-031c-4e82-bc52-ff55e4099940.jpeg",
+    "duration_sec": 152.72,
+    "has_vocal": true,
+    "m": "covert ops synth",
+    "created_at": "2026-03-25T16:16:16.849Z"
+  },
+  {
+    "name": "The Bones Are Whistling",
+    "suno_id": "d3f68a2a-368f-4723-817a-29cf68125926",
+    "gd_id": "1C95FsCJDhN9G4mWUFt7erWjNycAKRzS-",
+    "artwork": "https://cdn2.suno.ai/777e332e-a362-4cd8-b6c0-a3e7fa585bb0.jpeg",
+    "duration_sec": 109.68,
+    "has_vocal": true,
+    "m": "spaghetti western whistle",
+    "created_at": "2026-03-25T14:20:36.160Z"
+  },
+  {
+    "name": "Your Father's Watch",
+    "suno_id": "4562efd1-b677-43c8-939b-3a281a3e18b7",
+    "gd_id": "1t8AOzJAKraGv4RnJ08n2dlXLKTvpJ8Vy",
+    "artwork": "https://cdn2.suno.ai/99050255-df36-46bb-b301-09b965fca512.jpeg",
+    "duration_sec": 263.12,
+    "has_vocal": true,
+    "m": "heirloom timepiece elegy",
+    "created_at": "2026-03-25T12:54:14.457Z"
+  },
+  {
+    "name": "Woke Up Asleep (GPS JAM)",
+    "suno_id": "dd9c6016-2f03-4230-a753-da3da854654b",
+    "gd_id": "1FwmYHqrda9LPDJ42pnIeNAypRTVS_7A1",
+    "artwork": "https://cdn2.suno.ai/b38d0245-abcb-4a5c-b439-499a9956af87.jpeg",
+    "duration_sec": 162.4799791667,
+    "has_vocal": true,
+    "m": "dubstep, rough jazz",
+    "created_at": "2026-03-25T12:07:42.291Z"
+  },
+  {
+    "name": "(Wrong Side) The Sun Comes Up",
+    "suno_id": "d06c3cac-65a0-4ce7-82a4-31f26478416f",
+    "gd_id": "1dHOH6TOOQsOgXDNW2AaGnSUA8l89CvHy",
+    "artwork": "https://cdn2.suno.ai/image_d06c3cac-65a0-4ce7-82a4-31f26478416f.jpeg",
+    "duration_sec": 317.32,
+    "has_vocal": true,
+    "m": "dawn after regret",
+    "created_at": "2026-03-25T11:05:30.880Z"
+  },
+  {
+    "name": "SSSSsS111!!!11",
+    "suno_id": "c5fc51e4-8650-48f6-86b4-ec00d6db758e",
+    "gd_id": "1EK3YICCX7-S1JB071WEbqrOLXHSYMbVK",
+    "artwork": "https://cdn2.suno.ai/5fcfaac0-0943-4356-86fd-dfb50ea80224.jpeg",
+    "duration_sec": 211.12,
+    "has_vocal": true,
+    "m": "noise collage explosion",
+    "created_at": "2026-03-25T10:36:58.401Z"
+  },
+  {
+    "name": "(Dead Tape) Shuffle",
+    "suno_id": "3e4beae5-e0c9-4502-bf6f-571258f83c45",
+    "gd_id": "1FeHg5Axro4K3QX_jK59VZkN0ZsJpXkye",
+    "artwork": "https://cdn2.suno.ai/6ced7e0c-1618-499e-a853-8017cff55081.jpeg",
+    "duration_sec": 288.1210625,
+    "has_vocal": false,
+    "m": "degraded cassette nostalgia",
+    "created_at": "2026-03-24T16:13:04.973Z"
+  },
+  {
+    "name": "(Selft ok) Keeps Safes",
+    "suno_id": "7a74e66a-dd2a-4878-9fad-bbd1402b66aa",
+    "gd_id": "17nybluRxMXbzfutTx7oTLDo1VfKvYFQ9",
+    "artwork": "https://cdn2.suno.ai/8dad712e-f39b-4882-846b-949b8d455400.jpeg",
+    "duration_sec": 181.8701666667,
+    "has_vocal": false,
+    "m": "typo therapy ambient",
+    "created_at": "2026-03-20T17:36:45.659Z"
+  },
+  {
+    "name": "This Is Control",
+    "suno_id": "6de44cf3-4098-4a0f-bb07-69b45cce12cd",
+    "gd_id": "1EQLuv9Z7LXFb7tx71FVOXtiTTkk0BYCR",
+    "artwork": "https://cdn2.suno.ai/06994473-57ec-4b96-8381-7a40060cc8d3.jpeg",
+    "duration_sec": 218.3599791667,
+    "has_vocal": true,
+    "m": "authoritarian electro march",
+    "created_at": "2026-03-18T18:20:37.512Z"
+  },
+  {
+    "name": "Mumi Ya Eahirat",
+    "suno_id": "df9a956f-df47-4427-bc57-90496fcfdee3",
+    "gd_id": "1j93_VvPgUeVTgzjJIixZGHpSqaWeD1MF",
+    "artwork": "https://cdn2.suno.ai/3ce61a83-efd7-49af-98db-9e5b176129b9.jpeg",
+    "duration_sec": 205.44,
+    "has_vocal": false,
+    "m": "desert wind ritual",
+    "created_at": "2026-03-16T18:02:18.372Z"
+  },
+  {
+    "name": "(Special) Never Is Happening",
+    "suno_id": "5ea52147-b480-4ff6-a3a1-d61ae241dd46",
+    "artwork": "https://cdn2.suno.ai/1a3efed1-f46e-49bf-8107-79b50e8bd3d3.jpeg",
+    "duration_sec": 180.8,
+    "has_vocal": false,
+    "m": "((( soul rnb, instrumental, jazz ))), peruvian, cuban, welsh, saudi drum and bass, smooth trap, ambient, space disco grand bass",
+    "created_at": "2026-03-14T14:34:24.278Z"
+  },
+  {
+    "name": "🥁 Ecnart Rehgih 🍭",
+    "suno_id": "1fd3cd56-c797-4ee5-874f-5c6c2c942b1d",
+    "gd_id": "1w-5S4_6QshfLpevdnw4OZn0pP6W47Vux",
+    "artwork": "https://cdn2.suno.ai/d48a3abb-5f24-4328-8e04-91a177e16c98.jpeg",
+    "duration_sec": 227.88,
+    "has_vocal": true,
+    "m": "mirror world carnival",
+    "created_at": "2026-03-14T11:34:21.233Z"
+  },
+  {
+    "name": "Come Milk My Cow(s) Fair Maiden",
+    "suno_id": "c958089c-33b9-4aa8-9e01-2b6bc2984039",
+    "gd_id": "1mDw8cJtd8cQrK9XHB-FVsqHHPk4CO7_l",
+    "artwork": "https://cdn2.suno.ai/ccb4803f-c63b-4b77-97c0-0eadeb4a1f6d.jpeg",
+    "duration_sec": 251.64,
+    "has_vocal": true,
+    "m": "bucolic double entendre",
+    "created_at": "2026-03-14T10:05:21.732Z"
+  },
+  {
+    "name": "(Silent) Back Stabber",
+    "suno_id": "d49ff209-fc57-4e05-b4d5-c8aa1662f254",
+    "gd_id": "1UkVKZyLhgoROKsCHEuUTGLH1FNO2UP1_",
+    "artwork": "https://cdn2.suno.ai/7bcfcb63-a66b-49f4-bfe4-b3e7ff396486.jpeg",
+    "duration_sec": 242.12,
+    "has_vocal": true,
+    "m": "quiet betrayal theme",
+    "created_at": "2026-03-13T12:15:42.964Z"
+  },
+  {
+    "name": "Tall Tales (🤡 shoutout @DETONER)",
+    "suno_id": "71865382-5e54-4b93-b6bb-88280abf3ec0",
+    "gd_id": "1m13LFZ48yj0E06dZNB41g3KLs26AWTq7",
+    "artwork": "https://cdn2.suno.ai/image_edcdcf56-d051-4113-9d58-1b5b0b0d19e1.jpeg",
+    "duration_sec": 204.6827083333,
+    "has_vocal": false,
+    "m": "clown circus diss",
+    "created_at": "2026-03-11T10:47:16.548Z"
+  },
+  {
+    "name": "(in)Sensitive",
+    "suno_id": "97190ec3-be34-49e7-947a-681d89dd06e0",
+    "gd_id": "16BMjKNZ0YYqYxGIvi4EZiwSXwsgFxNms",
+    "artwork": "https://cdn2.suno.ai/70a605b9-ed87-4e8f-8806-d4e217b25dda.jpeg",
+    "duration_sec": 214.12,
+    "has_vocal": false,
+    "m": "ironic soft rock",
+    "created_at": "2026-03-11T07:42:49.295Z"
+  },
+  {
+    "name": "🪘 (Caged) Bird 🎸",
+    "suno_id": "00964451-10bb-44c5-8e6e-ab28f80c3e26",
+    "artwork": "https://cdn2.suno.ai/image_00964451-10bb-44c5-8e6e-ab28f80c3e26.jpeg",
+    "duration_sec": 150.72,
+    "has_vocal": false,
+    "m": "cl0wncore, hardbass, special trap beat develops into psi progression terminating in a filter breakdown, pa break down, singer breakdown and overall disaster audio",
+    "created_at": "2026-03-10T05:53:12.241Z"
+  },
+  {
+    "name": "Lover Undersea 💜",
+    "suno_id": "f9179ca4-1fab-4281-8eec-b574a3c29e1a",
+    "gd_id": "166h-XTcbncezez53xKVtC5S1FypbNQZm",
+    "artwork": "https://cdn2.suno.ai/6c432c91-2932-4e0b-9d27-e7e41511708b.jpeg",
+    "duration_sec": 223.0,
+    "has_vocal": false,
+    "m": "submarine romance ambient",
+    "created_at": "2026-03-10T05:08:29.477Z"
+  },
+  {
+    "name": "Space (Blu—) Purples",
+    "suno_id": "fd8035cc-b8f6-4bea-8b76-d9f313fec1d8",
+    "gd_id": "1hpofYxnTA7u_VyRU0LHyx0sP_ajBtSoc",
+    "artwork": "https://cdn2.suno.ai/1068f454-f9d7-4173-b960-35eda4f9f9e9.jpeg",
+    "duration_sec": 236.92,
+    "has_vocal": false,
+    "m": "cosmic color study",
+    "created_at": "2026-03-09T12:40:30.472Z"
+  },
+  {
+    "name": "Never Out (Of Trouble) 🎸",
+    "suno_id": "4ab439f5-efdb-41a4-9f6c-4ff61cd9933c",
+    "gd_id": "13eSzpeHZzXb1sX-hIoskr7BbZH00fb71",
+    "artwork": "https://cdn2.suno.ai/b5685557-98d4-4ab1-80be-19a7a7faec1c.jpeg",
+    "duration_sec": 258.76,
+    "has_vocal": false,
+    "m": "guitar rebel forever",
+    "created_at": "2026-03-09T11:51:08.660Z"
+  },
+  {
+    "name": "No Quota (4sh¡t 2 Happen 2U) retroactively",
+    "suno_id": "9961cec1-7bd5-4ffe-8913-09c302c4e5e5",
+    "artwork": "https://cdn2.suno.ai/0b48ded8-862b-4928-b88c-ca4e1bae5452.jpeg",
+    "duration_sec": 164.44,
+    "has_vocal": false,
+    "m": "aggressive jazz, blues rap, child lead mc, 808 trap, special effects",
+    "created_at": "2026-03-09T11:39:56.566Z"
+  },
+  {
+    "name": "💎 Dreams In Ultraviolet",
+    "suno_id": "46db944e-98f5-4a35-95a6-ab6417a7c657",
+    "gd_id": "1ol_UieUULAu1y8DOC-5aq8q7CR2gQyQH",
+    "artwork": "https://cdn2.suno.ai/4d5b110c-1e66-4020-812b-2c7cf3bdea15.jpeg",
+    "duration_sec": 246.6,
+    "has_vocal": false,
+    "m": "pop, soul",
+    "created_at": "2026-03-09T07:35:30.043Z"
+  },
+  {
+    "name": "DRKCTN€HTDRV 🥁",
+    "suno_id": "495d8c0d-cd56-47e3-bc73-cfb46d6697ed",
+    "artwork": "https://cdn2.suno.ai/image_495d8c0d-cd56-47e3-bc73-cfb46d6697ed.jpeg",
+    "duration_sec": 192.92,
+    "has_vocal": false,
+    "m": "instrumental, kobo jazz, taka ts, technical soundscape, koto, shamisen blues",
+    "created_at": "2026-03-07T09:49:43.050Z"
+  },
+  {
+    "name": "And You Want To Stay (Encore)",
+    "suno_id": "48a9a710-0806-4556-a8a3-416fe16768a9",
+    "artwork": "https://cdn2.suno.ai/931fbebb-2955-49df-ac43-681a809bca80.jpeg",
+    "duration_sec": 242.6,
+    "has_vocal": false,
+    "m": "(( instrumental )), jazz, quiet, spaced out, ts, technical soundscape, sax crooner lead, instrumental solos, no singing",
+    "created_at": "2026-03-06T03:40:42.732Z"
+  },
+  {
+    "name": "🤷 Fín 🎸",
+    "suno_id": "5db9c456-4dbc-45e2-bd5b-95ddd260f6ba",
+    "artwork": "https://cdn2.suno.ai/9f90c63c-2f76-4652-bd03-03584eb4c6e4.jpeg",
+    "duration_sec": 269.9599791667,
+    "has_vocal": false,
+    "m": "country, instrumental metal, jazz prog, psy bass",
+    "created_at": "2026-03-06T01:17:57.189Z"
+  },
+  {
+    "name": "💜 We Need It",
+    "suno_id": "0a0a3407-10bf-45f3-8c29-812fa76533ad",
+    "gd_id": "18puZbmLMF9r3ZCH36T7S9CxztoTGz4k_",
+    "artwork": "https://cdn2.suno.ai/3b21c110-1662-4540-9b91-7b045a471356.jpeg",
+    "duration_sec": 219.96,
+    "has_vocal": false,
+    "m": "screamy, instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-03-06T01:07:38.947Z"
+  },
+  {
+    "name": "🥁 Diagonal Splits 🥁",
+    "suno_id": "d4542e8b-7202-4eae-b498-00f2fc83afd1",
+    "artwork": "https://cdn2.suno.ai/f8414cf2-e53a-4a15-ab2c-adb146e4a80e.jpeg",
+    "duration_sec": 274.04,
+    "has_vocal": false,
+    "m": "instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",
+    "created_at": "2026-03-06T00:28:32.709Z"
+  },
+  {
+    "name": "💎 Blue Groove 🥁",
+    "suno_id": "8d175995-d05e-46ef-97fd-4c0b33bad621",
+    "artwork": "https://cdn2.suno.ai/2744858c-dbf5-4d47-89ca-1a762807d471.jpeg",
+    "duration_sec": 292.9599791667,
+    "has_vocal": false,
+    "m": "blues triphop, instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-03-05T08:47:53.161Z"
+  },
+  {
+    "name": "🥁 We Go Deaf Today 🎸",
+    "suno_id": "a0236fca-c682-4aa8-a5a0-dafccdec3cb7",
+    "artwork": "https://cdn2.suno.ai/fdd1518c-f367-4bae-a019-57d79baca1a9.jpeg",
+    "duration_sec": 217.88,
+    "has_vocal": false,
+    "m": "cl0wncore, hardbass, special trap beat develops into psi progression terminating in a filter breakdown, pa break down, singer breakdown and overall disaster audio",
+    "created_at": "2026-03-04T08:38:04.957Z"
+  },
+  {
+    "name": "(Inner) Rooms of Sobriety 🎸💜",
+    "suno_id": "6de8370d-86e0-4219-befe-1c5f7498de58",
+    "gd_id": "1_A8ScGOkOgzw6K1Qiv4E7-2I7Ve3U7V1",
+    "artwork": "https://cdn2.suno.ai/d42fcb5a-75e1-4123-a238-9b6d21318453.jpeg",
+    "duration_sec": 188.28,
+    "has_vocal": false,
+    "m": "electro italo post triphop, death metal screamo harsh vocals female singer, 808 bass progression arp, pink or purple electric guitar, oriental percussion, trip-hop slow spacy quiet mix, compressed mids",
+    "created_at": "2026-03-03T05:46:40.214Z"
+  },
+  {
+    "name": "🪘 Paint the Walls (Already) 🥁",
+    "suno_id": "982c0a42-2458-442a-8945-840a1cc2b8da",
+    "artwork": "https://cdn2.suno.ai/c983944f-e60d-4765-862b-fdadd306db74.jpeg",
+    "duration_sec": 92.88,
+    "has_vocal": true,
+    "m": "instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",
+    "created_at": "2026-03-03T05:26:13.867Z"
+  },
+  {
+    "name": "💎 Feel This Out",
+    "suno_id": "e5117715-25c2-4f21-ae4d-15698bf5041f",
+    "artwork": "https://cdn2.suno.ai/99515432-1211-48ea-9862-59827afc9ab0.jpeg",
+    "duration_sec": 209.72,
+    "has_vocal": false,
+    "m": "instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-03-02T13:13:57.270Z"
+  },
+  {
+    "name": "🥁 Shut up, and Groove 🧊",
+    "suno_id": "2c1e89ee-7a2f-4729-b163-1f761cbe44ca",
+    "gd_id": "15GxkCS8dXQgudHvejyaFs0Ht2QKVySkt",
+    "artwork": "https://cdn2.suno.ai/video_upload_0b23f1fc-120e-4666-b0cb-9479c4826b52_video_upload_0b23f1fc-120e-4666-b0cb-9479c4826b52_cover_snapshot_0s_1772766059_image.jpeg",
+    "duration_sec": 238.76,
+    "has_vocal": false,
+    "m": "(((instrumental)) -- no singer, no vocals, sax lead, 808 bass  percussion. trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-03-02T10:27:23.140Z"
+  },
+  {
+    "name": "(put some lyrics on it V5)",
+    "suno_id": "0476e2f9-1493-48c0-a4f2-961d0d3b4436",
+    "artwork": "https://cdn2.suno.ai/cadbb30b-320b-45a1-885d-2baec1541763.jpeg",
+    "duration_sec": 305.64,
+    "has_vocal": true,
+    "m": "(((v5))) :: funky afro peruvian hardbass tune develops into a psy rave, a techno ts avalanche of cimbal bambal f it idunno this is shxxt",
+    "created_at": "2026-03-02T10:08:27.202Z"
+  },
+  {
+    "name": "Hands off, Flying 🥁",
+    "suno_id": "e7c01a9b-1cba-43a3-9f25-03c077481c69",
+    "gd_id": "1fkrST2HZN1obNcOVVv2KBeD82IyEhSz7",
+    "artwork": "https://cdn2.suno.ai/35153c3c-a471-4515-9c6b-6f09fce59dce.jpeg",
+    "duration_sec": 250.1599791667,
+    "has_vocal": false,
+    "m": "no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-03-01T02:34:11.393Z"
+  },
+  {
+    "name": "🎻 F.rgt Ton/ght 🍭",
+    "suno_id": "c5b81b72-bbc3-48f4-93c4-513140154631",
+    "artwork": "https://cdn2.suno.ai/video_upload_1701fb76-9f0c-43f1-b234-4cf1d3c05fb8_video_upload_1701fb76-9f0c-43f1-b234-4cf1d3c05fb8_cover_snapshot_0s_1772713465_image.jpeg",
+    "duration_sec": 136.72,
+    "has_vocal": false,
+    "m": "no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-02-28T02:39:06.096Z"
+  },
+  {
+    "name": "سلم SALÉM 🍭",
+    "suno_id": "3b4b959d-e6c9-4bf1-8cc8-4c7c57e81cba",
+    "gd_id": "1xatkopGdUP56gSPmmB1QYva_WcE38bZn",
+    "artwork": "https://cdn2.suno.ai/fa2579ba-9e0e-45c9-9b47-25ee32d496b9.jpeg",
+    "duration_sec": 203.24,
+    "has_vocal": true,
+    "m": "no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-02-28T02:23:47.748Z"
+  },
+  {
+    "name": "Mother Left You Out",
+    "suno_id": "c03bcd7e-a251-489b-bea1-b645db817895",
+    "artwork": "https://cdn2.suno.ai/4088d799-0811-4930-81f8-0a88af7f9118.jpeg",
+    "duration_sec": 126.4,
+    "has_vocal": false,
+    "m": "instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-02-26T23:44:36.163Z"
+  },
+  {
+    "name": "💜 Suck It And Find Out 🍭",
+    "suno_id": "98a687c1-180f-4d04-a0c4-757a5e5cba6c",
+    "gd_id": "1bO1nUSgw-kskZ__ZB6l8WpFJoX-jZ1iS",
+    "artwork": "https://cdn2.suno.ai/image_98a687c1-180f-4d04-a0c4-757a5e5cba6c.jpeg",
+    "duration_sec": 226.36,
+    "has_vocal": false,
+    "m": "no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-02-26T23:35:14.850Z"
+  },
+  {
+    "name": "🎸 Kat Never Hit You Back",
+    "suno_id": "76977420-e8bd-4a20-9538-984ced93da9c",
+    "artwork": "https://cdn2.suno.ai/68a35eb5-93b6-432e-85fe-2f1e2f00d9b8.jpeg",
+    "duration_sec": 293.84,
+    "has_vocal": false,
+    "m": "instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-02-22T03:21:05.368Z"
+  },
+  {
+    "name": "She Never Kissed You Back 🥁",
+    "suno_id": "bd84ec46-7577-498e-bc08-2cc28bcd7de9",
+    "artwork": "https://cdn2.suno.ai/image_9eb9d151-eb26-44ae-8b15-b50f2b174f61.jpeg",
+    "duration_sec": 263.6,
+    "has_vocal": false,
+    "m": "instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-02-22T02:54:19.843Z"
+  },
+  {
+    "name": "🥁 Frack Tax Surveil 🍭",
+    "suno_id": "1684f9ff-894a-4312-ac8b-062df794b9a1",
+    "gd_id": "1hPz9S0uCjT5_SB0156t55LPEW54dlMCB",
+    "artwork": "https://cdn2.suno.ai/662ce4fa-fcd6-4818-b169-f259887e3f27.jpeg",
+    "duration_sec": 232.48,
+    "has_vocal": false,
+    "m": "instrumental, jazz, quiet, spaced out, ts, technical soundscape",
+    "created_at": "2026-02-22T02:17:35.844Z"
+  },
+  {
+    "name": "It Knows You Back || Outside the Other In",
+    "suno_id": "97e20b77-b45e-4718-831d-8c0206a67cce",
+    "artwork": "https://cdn2.suno.ai/76a73c08-026d-44c4-a92c-806e62329829.jpeg",
+    "duration_sec": 298.84,
+    "has_vocal": true,
+    "m": "new from suno dump",
+    "created_at": "2026-02-20T18:53:46.945Z"
+  },
+  {
+    "name": "💜 (It's You) It's You 🎸",
+    "suno_id": "ddbbb1fa-307d-4c3f-bc0d-6128c92ede79",
+    "artwork": "https://cdn2.suno.ai/187576d1-2253-464a-8480-8893b9221c98.jpeg",
+    "duration_sec": 203.24,
+    "has_vocal": true,
+    "m": "electro italo post triphop, death metal screamo harsh vocals female singer, 808 bass progression arp, pink or purple electric guitar, oriental percussion, trip-hop slow spacy quiet mix, compressed mids",
+    "created_at": "2026-02-18T12:55:30.749Z"
+  },
+  {
+    "name": "🍭 Int Def Con Tak Sat Nav Bog Suc",
+    "suno_id": "97affc6e-121f-480c-95a1-26fc16240112",
+    "gd_id": "1jvhkbdbB8MKKOkPsAlhP2BaXzYrtErY6",
+    "artwork": "https://cdn2.suno.ai/image_large_97affc6e-121f-480c-95a1-26fc16240112.jpeg",
+    "duration_sec": 251.6,
+    "has_vocal": true,
+    "m": "dnb, jazz fusion, mix",
+    "created_at": "2026-02-18T03:51:34.180Z"
+  },
+  {
+    "name": "💎 It Knows You Back",
+    "suno_id": "e72b2d8b-a8eb-44dc-9722-30c8c4020e54",
+    "artwork": "https://cdn2.suno.ai/video_upload_1e195455-5565-4404-85e8-cf9f1d1faf96_video_upload_1e195455-5565-4404-85e8-cf9f1d1faf96_cover_snapshot_0s_1771733156_image.jpeg",
+    "duration_sec": 67.6,
+    "has_vocal": true,
+    "m": "gospel",
+    "created_at": "2026-02-18T03:12:02.853Z"
+  },
+  {
+    "name": "Knowboydy Gnawsit audio_2026-02-17_19-14-43",
+    "suno_id": "ab474434-d610-41f8-bf74-12643d739124",
+    "artwork": "https://cdn2.suno.ai/image_large_ab474434-d610-41f8-bf74-12643d739124.jpeg",
+    "duration_sec": 60.024,
+    "has_vocal": true,
+    "m": "a cappella, beatbox, soulful male vocals",
+    "created_at": "2026-02-17T17:16:24.962Z"
+  },
+  {
+    "name": "🍭 Higher Trance Mix 2000",
+    "suno_id": "7563a29c-aa50-40af-8b4b-31228b3230f0",
+    "artwork": "https://cdn2.suno.ai/bbf66136-4f3e-4395-96b4-b57b46bf2835.jpeg",
+    "duration_sec": 228.4,
+    "has_vocal": true,
+    "m": "edm",
+    "created_at": "2026-02-17T09:29:14.598Z"
+  },
+  {
+    "name": "I Want A Robot",
+    "suno_id": "aa6c857f-84c6-4ed8-9e07-c471a8929111",
+    "gd_id": "1GMbiR6n8vnhY74sHbYcEbjiDKGEE9tKk",
+    "artwork": "https://cdn2.suno.ai/c35b2526-9dc2-46f0-bf2b-d9242223a978.jpeg",
+    "duration_sec": 184.28,
+    "has_vocal": false,
+    "m": "mechanical companion desire",
+    "created_at": "2026-02-17T04:43:17.463Z"
+  },
+  {
+    "name": "Secret Robot Only For Me",
+    "suno_id": "97a20fd8-a589-474a-90fc-fe5f884f80bb",
+    "gd_id": "1nJJpKlEBu5qR1VTKQGPdRG7y_xtkLpkc",
+    "artwork": "https://cdn2.suno.ai/video_upload_4654d31a-b417-4d31-8da4-74ce223547ae_video_upload_4654d31a-b417-4d31-8da4-74ce223547ae_cover_snapshot_0s_1771319848_image.jpeg",
+    "duration_sec": 229.96,
+    "has_vocal": false,
+    "m": "exclusive android love",
+    "created_at": "2026-02-17T04:16:36.503Z"
+  },
+  {
+    "name": "💜 Bіtc*es Need To Know",
+    "suno_id": "75ebef97-bcfb-45d7-a65d-80c5892181eb",
+    "artwork": "https://cdn2.suno.ai/video_upload_f7c5370d-243f-4a5a-88e3-beb0f8d36142_video_upload_f7c5370d-243f-4a5a-88e3-beb0f8d36142_cover_snapshot_0s_1772193691_image.jpeg",
+    "duration_sec": 91.96,
+    "has_vocal": false,
+    "m": "RnB",
+    "created_at": "2026-02-16T04:35:18.202Z"
+  },
+  {
+    "name": "🥁 You Are So Vain You Think This Song Is About You Boy 🪘",
+    "suno_id": "7f294916-00b6-4acb-8ded-ca8c6800132b",
+    "gd_id": "1JI0jsiZzqBY5CAFY3qEyoJrcn2pNo8Ue",
+    "artwork": "https://cdn2.suno.ai/389504e9-7801-4979-a8d4-0125ab371190.jpeg",
+    "duration_sec": 214.56,
+    "has_vocal": false,
+    "m": "cl0wncore, swing house, pop",
+    "created_at": "2026-02-14T03:56:35.630Z"
+  },
+  {
+    "name": "🥁 Dialed In 🧊",
+    "suno_id": "188d7cac-a65b-4a67-9bb0-0c4e8e376810",
+    "artwork": "https://cdn2.suno.ai/2ceaaea8-5ab6-4412-bf99-b92913c921ef.jpeg",
+    "duration_sec": 182.44,
+    "has_vocal": false,
+    "m": "cl0wncore, rough jazz",
+    "created_at": "2026-02-14T01:35:53.124Z"
+  },
+  {
+    "name": "🥁 Rain On Glass 🧊",
+    "suno_id": "1c4291d0-3204-41c8-89d9-c513622a1609",
+    "gd_id": "1wjwNm7lI1H5T2I5kRJGjscXvR_AxhDvT",
+    "artwork": "https://cdn2.suno.ai/bdb286c8-f207-435b-9226-f2637a6fe71b.jpeg",
+    "duration_sec": 235.56,
+    "has_vocal": false,
+    "m": "dnb, jazz fusion",
+    "created_at": "2026-02-14T01:35:00.633Z"
+  },
+  {
+    "name": "You're In This Room Now 🥁",
+    "suno_id": "ea92276c-f482-4638-b701-a21f47563329",
+    "gd_id": "1oVSpbj-orCiarkuc5jgJWPN_YeNewWIT",
+    "artwork": "https://cdn2.suno.ai/27230ef9-0b9a-47af-ae2f-8a09d53a7621.jpeg",
+    "duration_sec": 236.56075,
+    "has_vocal": false,
+    "m": "jazz fusion, dnb",
+    "created_at": "2026-02-13T04:59:11.626Z"
+  },
+  {
+    "name": "Amaste Me Nunca",
+    "suno_id": "592a08e3-42c8-480c-8510-0d4fde0be5f8",
+    "gd_id": "10K_-grtwdJZlOQPbFkqCHKZ6-4-ocZKw",
+    "artwork": "https://cdn2.suno.ai/43a8a0bd-5052-4697-96cd-22bdc6ad2dfa.jpeg",
+    "duration_sec": 205.0,
+    "has_vocal": false,
+    "m": "spanish never love",
+    "created_at": "2026-02-12T06:02:30.899Z"
+  },
+  {
+    "name": "Mother Used To Say",
+    "suno_id": "53acfd0c-ae41-42a2-8cd9-5bc18cc2bb9b",
+    "gd_id": "11KG37cSzXqVLUrOqrEAkZ4U0u4v1cR9y",
+    "artwork": "https://cdn2.suno.ai/0c77f379-af2e-41a8-b551-60bbd3516fe8.jpeg",
+    "duration_sec": 143.12,
+    "has_vocal": true,
+    "m": "maternal wisdom sample",
+    "created_at": "2026-02-12T05:57:26.346Z"
+  },
+  {
+    "name": "Outside the Other In",
+    "suno_id": "df3c6992-a52e-4065-b094-50fa2c788ecd",
+    "artwork": "https://cdn2.suno.ai/979799fb-83ce-4bb1-849c-ac02a086e2a3.jpeg",
+    "duration_sec": 106.44,
+    "has_vocal": false,
+    "m": "jazz, soul",
+    "created_at": "2026-02-12T05:42:15.303Z"
+  },
+  {
+    "name": "🎸 A Ring Your Boner",
+    "suno_id": "61695e18-eb57-4971-a095-24066bd562a3",
+    "artwork": "https://cdn2.suno.ai/231a2d78-deed-4cdf-be31-3ffa1c1c5582.jpeg",
+    "duration_sec": 324.76,
+    "has_vocal": false,
+    "m": "rough jazz, cl0wncore, neo-classical",
+    "created_at": "2026-02-10T05:06:39.146Z"
+  },
+  {
+    "name": "Afrika N¡ppon 🍭",
+    "suno_id": "944da701-ad1c-4d49-bf61-ffbf548c912f",
+    "artwork": "https://cdn2.suno.ai/555eea9e-808f-43dc-a075-592377e13d77.jpeg",
+    "duration_sec": 241.52,
+    "has_vocal": false,
+    "m": "cinematic, soundtrack",
+    "created_at": "2026-02-08T02:06:26.520Z"
+  },
+  {
+    "name": "969",
+    "suno_id": "1ab0bb8b-3db9-4319-bc81-260ecd2d6618",
+    "artwork": "https://cdn2.suno.ai/image_large_1ab0bb8b-3db9-4319-bc81-260ecd2d6618.jpeg",
+    "duration_sec": 256.92,
+    "has_vocal": true,
+    "m": "pop, happy",
+    "created_at": "2026-02-08T01:32:27.290Z"
+  },
+  {
+    "name": "Sound Test",
+    "suno_id": "194bcbbd-4943-45f2-8968-b360d0b7a756",
+    "artwork": "https://cdn2.suno.ai/image_large_194bcbbd-4943-45f2-8968-b360d0b7a756.jpeg",
+    "duration_sec": 287.92,
+    "has_vocal": false,
+    "m": "cl0wncore",
+    "created_at": "2026-02-07T08:54:55.472Z"
+  },
+  {
+    "name": "Come Up (With The Sun)",
+    "suno_id": "42806e2a-56ed-43db-8cf0-52a9bac1c111",
+    "gd_id": "1gAZ_HW5ZYh3tCunOE1uo50tmvJqlzZ-6",
+    "artwork": "https://cdn2.suno.ai/999ef95f-ce10-4abc-a85b-95bfd4529882.jpeg",
+    "duration_sec": 203.84,
+    "has_vocal": false,
+    "m": "morning motivation groove",
+    "created_at": "2026-02-03T07:37:54.802Z"
+  },
+  {
+    "name": "She Has Inverted Pressure 🥁",
+    "suno_id": "ab630bb9-b5ae-4dd3-a68c-a16358dd9911",
+    "gd_id": "1RZVmnDPpb5RGztAfJVC1GT2-jfOtu-F5",
+    "artwork": "https://cdn2.suno.ai/image_large_ab630bb9-b5ae-4dd3-a68c-a16358dd9911.jpeg",
+    "duration_sec": 203.52,
+    "has_vocal": false,
+    "m": "jazz fusion, dnb, cl0wncore",
+    "created_at": "2026-01-31T08:01:41.246Z"
+  },
+  {
+    "name": "Steal & Sell",
+    "suno_id": "ef83e46b-4dfe-40e7-b9bd-46f2289dd6e1",
+    "gd_id": "18rywguXBimjXuB9ZLHCdfDd8lAdUg1Vb",
+    "artwork": "https://cdn2.suno.ai/24b9c914-edf5-49b4-b695-bf6375e6f075.jpeg",
+    "duration_sec": 200.24,
+    "has_vocal": false,
+    "m": "capitalist crime duo",
+    "created_at": "2026-01-30T04:25:27.674Z"
+  },
+  {
+    "name": "Zaidi Slantce",
+    "suno_id": "b207e4a3-7923-42b7-9357-bea2dfb11e44",
+    "gd_id": "1HY3ErweWVmzkWhgSTv6ueurKP0R9csWW",
+    "artwork": "https://cdn2.suno.ai/3e4d49df-eaba-4675-9ecf-5119a50c3859.jpeg",
+    "duration_sec": 136.96,
+    "has_vocal": false,
+    "m": "EDM, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, Japanese, electro swing, pop, clear, cheerful, [trap]",
+    "created_at": "2026-01-28T12:05:32.293Z"
+  },
+  {
+    "name": "🥁 (Disrupt) Your Rhythm 🪘",
+    "suno_id": "fcfff03c-de2e-4a2f-9905-7997ed34c449",
+    "gd_id": "1vWeabCfNLKxY7PRVRKjNXGnvxAZroe7m",
+    "artwork": "https://cdn2.suno.ai/image_46edd44d-c982-412b-9efb-bc49ce8d783e.jpeg",
+    "duration_sec": 237.2709166667,
+    "has_vocal": false,
+    "m": "slightly slower chaos",
+    "created_at": "2026-01-27T20:57:32.784Z"
+  },
+  {
+    "name": "Duduk Qwala",
+    "suno_id": "e55223c7-f657-4484-b73e-5760dce7150d",
+    "gd_id": "1liZ7VDhQ86YFl5wEdnYzusFJZtH0mDFY",
+    "artwork": "https://cdn2.suno.ai/e59bb9f1-74e4-4c59-b35d-e911daa0455f.jpeg",
+    "duration_sec": 210.0,
+    "has_vocal": false,
+    "m": "pocket recorder, nomix nomaster nostudio, instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",
+    "created_at": "2026-01-25T17:22:31.243Z"
+  },
+  {
+    "name": "She Shows You Where To Put It",
+    "suno_id": "00c537f1-3bea-4049-a0bc-6cee00a3b815",
+    "gd_id": "1QB1AwpPyYtOXEO85ISkVR5fsar5NT_1C",
+    "artwork": "https://cdn2.suno.ai/image_00c537f1-3bea-4049-a0bc-6cee00a3b815.jpeg",
+    "duration_sec": 263.52,
+    "has_vocal": false,
+    "m": "pocket recorder, nomix nomaster nostudio, instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",
+    "created_at": "2026-01-25T17:14:41.772Z"
+  },
+  {
+    "name": "Three, You, Two, Never, One, She Would",
+    "suno_id": "8cdf1a98-7827-407d-9a83-8ee34f58d5e0",
+    "gd_id": "1iQM4BUX5hf87BBAC6I1cU0vKx7KVyX6T",
+    "artwork": "https://cdn2.suno.ai/d4546dd7-1e93-4ad4-89a4-b26e74520fbf.jpeg",
+    "duration_sec": 310.12,
+    "has_vocal": false,
+    "m": "instrumental, jazz, peruvian, cuban, welsh, saudi drum and bass, breakcore, cl0wncore, ambient, space disco grand bass sax",
+    "created_at": "2026-01-25T15:56:07.791Z"
+  },
+  {
+    "name": "Blue Tyger Inversion",
+    "suno_id": "6322984e-af03-458e-83ff-fc6929fc1ca9",
+    "gd_id": "127K_ZS9mkMJAtYmfdV5BgTvDPb08tWOv",
+    "artwork": "https://cdn2.suno.ai/40c9f83d-4547-4b07-8c9a-2e6c8ed6b8d8.jpeg",
+    "duration_sec": 185.6112291667,
+    "has_vocal": false,
+    "m": "no singer, no vocals, sax lead, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-01-18T01:18:25.296Z"
+  },
+  {
+    "name": "💎 Spice Nomi",
+    "suno_id": "e19e8634-e519-49d5-80d9-c0b6f3471da7",
+    "artwork": "https://cdn2.suno.ai/8e677ced-2717-4f37-ad1c-968a4fc3b109.jpeg",
+    "duration_sec": 299.08,
+    "has_vocal": true,
+    "m": "etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-01-18T00:42:21.176Z"
+  },
+  {
+    "name": "Nomi Was Alone",
+    "suno_id": "c98fb875-894f-4acb-bb8c-c8e6f7bf06c4",
+    "gd_id": "1O1Idto23JYm32CnOJrcuJCYbUEKvX_Qi",
+    "artwork": "https://cdn2.suno.ai/0307494c-1d7c-47f5-a6f8-7f8a25339f2a.jpeg",
+    "duration_sec": 203.2,
+    "has_vocal": true,
+    "m": "etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-01-18T00:35:38.734Z"
+  },
+  {
+    "name": "Chinchilla Overdrive",
+    "suno_id": "575fd5b7-67f4-431e-ba08-39f07ea5feb0",
+    "gd_id": "1LtIhoLtPR2aG-n9cA9Cwu8wdYHVvog4-",
+    "artwork": "https://cdn2.suno.ai/eeaaa0ba-5b0a-4c24-af00-e4e39440fcc2.jpeg",
+    "duration_sec": 209.8,
+    "has_vocal": false,
+    "m": "etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2026-01-17T03:50:04.304Z"
+  },
+  {
+    "name": "Calling All Lamb",
+    "suno_id": "7f6ba460-065e-4545-9742-9682b0e2174a",
+    "gd_id": "1qkTcis9COmUppcPAPtCN3i9HX942-uKy",
+    "artwork": "https://cdn2.suno.ai/image_1ec2c243-ee25-4ad2-a87e-bf574eb0961e.jpeg",
+    "duration_sec": 233.9216666667,
+    "has_vocal": false,
+    "m": "prog funk techno spit af kkl, female soprano, trappity trippity hoppit hap",
+    "created_at": "2026-01-16T06:41:23.686Z"
+  },
+  {
+    "name": "💎 She Loves",
+    "suno_id": "d547ad7b-8526-4bdc-934f-1d8ec90393a3",
+    "artwork": "https://cdn2.suno.ai/c201b2eb-ec4d-4e75-a92d-2ffcf05d5df6.jpeg",
+    "duration_sec": 107.28,
+    "has_vocal": false,
+    "m": "a classical tune is heard in bits that layer and overlay each other to develop rhythmically into a readable tune, a familiar classical tune that is baroque and free, flows like water drops in quiet, hits like a tropic thunder, french female vocalist MC",
+    "created_at": "2026-01-14T04:22:32.925Z"
+  },
+  {
+    "name": "Giorgio Was Here (tape scratched)",
+    "suno_id": "c09f9213-c828-4f34-84ac-ee23a35c25c8",
+    "gd_id": "1cTvGWtHzfJW38sFsCFVMeWovyml04U24",
+    "artwork": "https://cdn2.suno.ai/c42f38a1-0994-4b09-bb65-fcc0ca0a2b39.jpeg",
+    "duration_sec": 278.44,
+    "has_vocal": false,
+    "m": "a classical tune is heard in bits that layer and overlay each other to develop rhythmically into a readable tune, a familiar classical tune that is baroque and free, flows like water drops in quiet, hits like a tropic thunder",
+    "created_at": "2026-01-14T04:07:53.611Z"
+  },
+  {
+    "name": "Infinite Realm of Incomprehensible Suffering",
+    "suno_id": "d67060c1-e678-4af3-a66a-77f8b69fcba6",
+    "gd_id": "1AV8CEbv1Zq8BNdyFyqa_IKyDCEiyCztO",
+    "artwork": "https://cdn2.suno.ai/d9e9fe5b-b767-49da-bcdd-7416e3961e85.jpeg",
+    "duration_sec": 140.76,
+    "has_vocal": true,
+    "m": "minimal, hifi, acoustic, world",
+    "created_at": "2026-01-11T00:29:49.234Z"
+  },
+  {
+    "name": "Deep Overjazz 95%",
+    "suno_id": "8644d54b-3436-4f5b-9a4d-c63db47ce4ee",
+    "artwork": "https://cdn2.suno.ai/e142554d-e77e-4c6c-8291-7ee579701a82.jpeg",
+    "duration_sec": 218.4129791667,
+    "has_vocal": false,
+    "m": "psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",
+    "created_at": "2026-01-10T03:18:16.420Z"
+  },
+  {
+    "name": "Please Hold",
+    "suno_id": "5f753e98-0fb2-4001-83ac-6ddcc229fe85",
+    "artwork": "https://cdn2.suno.ai/1e2be5fd-272b-4f48-b6ea-fc2ef1e09d5f.jpeg",
+    "duration_sec": 223.48,
+    "has_vocal": false,
+    "m": "prog funk techno spit af kkl, female soprano, trappity trippity hoppit hap",
+    "created_at": "2026-01-09T15:51:44.195Z"
+  },
+  {
+    "name": "She Would Never Choose You Proper",
+    "suno_id": "8fb63dae-680e-4fa1-bab9-6e1b6320eb52",
+    "gd_id": "1890r7rt7Ym-ycsRQhDfBLaiQnaPno4ur",
+    "artwork": "https://cdn2.suno.ai/ff5ffdb3-bfed-47bc-96c4-893b338d2f8a.jpeg",
+    "duration_sec": 210.84,
+    "has_vocal": false,
+    "m": "psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",
+    "created_at": "2026-01-09T15:28:59.949Z"
+  },
+  {
+    "name": "Sister Never Dig You, Tyger",
+    "suno_id": "c172d711-6a04-4584-ab6e-b99411c4fbcd",
+    "artwork": "https://cdn2.suno.ai/f80a4f5e-b11b-425f-890f-a4a2d0611233.jpeg",
+    "duration_sec": 164.96,
+    "has_vocal": false,
+    "m": "psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",
+    "created_at": "2026-01-09T15:28:59.949Z"
+  },
+  {
+    "name": "IKYAHSIT",
+    "suno_id": "8da1b2c1-b442-4a63-8d3f-5d03e18dddc0",
+    "gd_id": "1jtFkDxhnt-BFEGwWENnuO7GTcnCV4akp",
+    "artwork": "https://cdn2.suno.ai/361218ff-c13d-4ba8-b0f9-19c2203c108d.jpeg",
+    "duration_sec": 244.96,
+    "has_vocal": false,
+    "m": "psychotic psi, techno, technical buzz, tech fuzz, 1960s electro, dark, space, sapient, intelligent, tight, minimal, tape piano, tape stretch, tape echo, tape detune, scandinavian opera soprano",
+    "created_at": "2026-01-09T15:27:35.729Z"
+  },
+  {
+    "name": "🍭 6AM.",
+    "suno_id": "18570c16-542d-49a9-b7b4-2b054f8b6a5a",
+    "gd_id": "1-G7hFUI2mVLNY3Z9rnbAoA7xSTG9JQN0",
+    "artwork": "https://cdn2.suno.ai/image_18570c16-542d-49a9-b7b4-2b054f8b6a5a.jpeg",
+    "duration_sec": 261.0,
+    "has_vocal": false,
+    "m": "psi psytrance, psitrance psy, prog progressive, fast drumbreak, breakbeat happy, quick japanese, classical italo, sparse techno, space disco",
+    "created_at": "2026-01-06T14:03:28.895Z"
+  },
+  {
+    "name": "6PM. 🍭",
+    "suno_id": "b55c6f12-b4f8-4232-8e51-0c1c7cebc044",
+    "gd_id": "13SMUhh5E8lRQYB-rVyGCleHZG6JGwY2x",
+    "artwork": "https://cdn2.suno.ai/image_b55c6f12-b4f8-4232-8e51-0c1c7cebc044.jpeg",
+    "duration_sec": 198.12,
+    "has_vocal": false,
+    "m": "classical italo, sparse techno, space disco",
+    "created_at": "2026-01-06T13:33:58.086Z"
+  },
+  {
+    "name": "🍭 Persian Kebab Mix",
+    "suno_id": "6f41b1e0-46d9-43c2-857e-9dc6fe59b417",
+    "artwork": "https://cdn2.suno.ai/3a64756e-8e46-4991-b224-96c6bb1888ed.jpeg",
+    "duration_sec": 274.9065833333,
+    "has_vocal": false,
+    "m": "fife and drum, medium temp, phonkaloid, hymnisch, aggressivo",
+    "created_at": "2026-01-03T16:26:28.079Z"
+  },
+  {
+    "name": "🍭 Good Morning Iran",
+    "suno_id": "dbb5192f-d2bf-4092-ac98-0108902b5c37",
+    "artwork": "https://cdn2.suno.ai/d145468a-30b7-4347-85f6-9814d1429dd1.jpeg",
+    "duration_sec": 233.52,
+    "has_vocal": false,
+    "m": "abstract hip-hop trip-hop clown-core",
+    "created_at": "2026-01-03T07:35:58.666Z"
+  },
+  {
+    "name": "🍭 Mary Got Lambed",
+    "suno_id": "69e9664a-b80f-451c-b654-1a97fe0c0de1",
+    "artwork": "https://cdn2.suno.ai/image_69e9664a-b80f-451c-b654-1a97fe0c0de1.jpeg",
+    "duration_sec": 257.96,
+    "has_vocal": false,
+    "m": "raggae, ska, epic dubstep, j-pop edm, ambient, electro, female voice, cute, technical sound, kawaii techno, pop, clear, cheerful, kickass",
+    "created_at": "2025-12-29T18:28:41.970Z"
+  },
+  {
+    "name": "🍭 Infected Apple Graft Desert",
+    "suno_id": "d73ddb2a-f1cc-47b3-8c10-112a16ed2a72",
+    "artwork": "https://cdn2.suno.ai/5b418b52-bb6f-49cb-abbb-2fe2169c848c.jpeg",
+    "duration_sec": 249.16,
+    "has_vocal": false,
+    "m": "EDM, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, Japanese, electro swing, pop, clear, cheerful",
+    "created_at": "2025-12-29T18:26:09.877Z"
+  },
+  {
+    "name": "Face Tyler (My Pussy) 🍭",
+    "suno_id": "b0039890-52c8-437e-9ad7-1d7faf4cad15",
+    "gd_id": "1kOSJg_PpcZ58zVEPpmRBG1haOI6Wf-dQ",
+    "artwork": "https://cdn2.suno.ai/image_b0039890-52c8-437e-9ad7-1d7faf4cad15.jpeg",
+    "duration_sec": 274.96,
+    "has_vocal": false,
+    "m": "EDM, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, Japanese, electro swing, pop, clear, cheerful",
+    "created_at": "2025-12-28T00:29:13.959Z"
+  },
+  {
+    "name": "So Much Lamb Mary Did Have That Day",
+    "suno_id": "72fbe879-1303-4f13-b0c6-e99de7657ab2",
+    "gd_id": "1GtP-GU_AewOQUGs2p7q5NqLl_OXF8JvW",
+    "artwork": "https://cdn2.suno.ai/image_72fbe879-1303-4f13-b0c6-e99de7657ab2.jpeg",
+    "duration_sec": 207.24,
+    "has_vocal": true,
+    "m": "orchestra classical instruments, alien composition, chair scrapes, squeeks, phone rings, coats flap, feet shuffle, throat clear, nose bleed, coke speed",
+    "created_at": "2025-12-27T17:42:45.925Z"
+  },
+  {
+    "name": "Mary Had A Little Lamb",
+    "suno_id": "08953c32-ee1f-440d-8d89-ed8459665fca",
+    "artwork": "https://cdn2.suno.ai/image_08953c32-ee1f-440d-8d89-ed8459665fca.jpeg",
+    "duration_sec": 207.36,
+    "has_vocal": true,
+    "m": "orchestra classical instruments, alien composition, chair scrapes, squeeks, phone rings, coats flap, feet shuffle, throat clear, nose bleed, coke speed",
+    "created_at": "2025-12-27T17:42:45.925Z"
+  },
+  {
+    "name": "🍭 Desert Apple Graft",
+    "suno_id": "8061c6e9-b135-48e7-821d-23f692f83ca1",
+    "artwork": "https://cdn2.suno.ai/63a30009-05a8-4234-ac8e-9230a0852fb1.jpeg",
+    "duration_sec": 307.4209375,
+    "has_vocal": false,
+    "m": "etherial quet techno, dub raggaeton, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2025-12-27T17:24:35.800Z"
+  },
+  {
+    "name": "🍭 Nail that Apple",
+    "suno_id": "16712edd-fd1d-4e6a-897a-a03b3f6f2303",
+    "gd_id": "1sn6NaN5nca8mtH-_lOXYFG4NjeGPA30s",
+    "artwork": "https://cdn2.suno.ai/image_16712edd-fd1d-4e6a-897a-a03b3f6f2303.jpeg",
+    "duration_sec": 183.08,
+    "has_vocal": false,
+    "m": "trap, j-pop techno, ambient, electro, female voice, cute, technical sound, kawaii, symphonic techno space, electro swing, pop, clear, operatic soprano",
+    "created_at": "2025-12-26T13:54:45.754Z"
+  },
+  {
+    "name": "deparcS",
+    "suno_id": "f2fb3752-bddc-4bf9-8c2e-8f8446f848df",
+    "gd_id": "1Hth_aY3zubuXFLDxaMnoy6VP8BvoDJSg",
+    "artwork": "https://cdn2.suno.ai/image_f2fb3752-bddc-4bf9-8c2e-8f8446f848df.jpeg",
+    "duration_sec": 254.88,
+    "has_vocal": true,
+    "m": "808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy, breakbeat, glitch, abstract",
+    "created_at": "2025-12-23T17:09:55.084Z"
+  },
+  {
+    "name": "There is No Apple",
+    "suno_id": "2c0d891f-7191-43ba-884d-50f87cca61e5",
+    "artwork": "https://cdn2.suno.ai/image_2c0d891f-7191-43ba-884d-50f87cca61e5.jpeg",
+    "duration_sec": 119.48,
+    "has_vocal": false,
+    "m": "slowest technical techno, astral banghara 808 filter, rumble riser, kick fill",
+    "created_at": "2025-12-23T07:17:42.612Z"
+  },
+  {
+    "name": "I know you're having sex in there. (Radio Edit)",
+    "suno_id": "2d16f3c7-0613-4feb-9af2-8a595435fd78",
+    "gd_id": "1uY33QMwK6rsgvqXbGAqxNO6RtqhosaAI",
+    "artwork": "https://cdn2.suno.ai/bc2d2cb8-c7e5-4a47-a032-a6ab783d4467.jpeg",
+    "duration_sec": 202.64,
+    "has_vocal": false,
+    "m": "prog funk techno spit af kkl, female soprano, trappity trippity hoppit hap",
+    "created_at": "2025-12-22T09:27:50.531Z"
+  },
+  {
+    "name": "I know you're having sex in there.",
+    "suno_id": "cf3d55ec-4971-4a81-9c74-4905147818f7",
+    "gd_id": "1QUfGiTvr4ZPorOYd8mAdGd9DsoHzf26j",
+    "artwork": "https://cdn2.suno.ai/1f121b5e-6179-421a-8491-e0bf3232947f.jpeg",
+    "duration_sec": 216.36,
+    "has_vocal": false,
+    "m": "This trap experiment explores tempo extremes at 1bpm, built on cavernous 808 kicks hitting once per bar. Hi-hats are time-stretched to surreal length, creating ghostly textures. Sparse, suspenseful synths echo over vast silence, while massive sub drops fade slowly, amplifying tension and space.",
+    "created_at": "2025-12-21T15:00:49.757Z"
+  },
+  {
+    "name": "Easy Star Jazzy Queen (Cover) (Cover) (Cover) (Cover)",
+    "suno_id": "94624c61-615d-4e20-8af3-bfe711f4b289",
+    "artwork": "https://cdn2.suno.ai/image_94624c61-615d-4e20-8af3-bfe711f4b289.jpeg",
+    "duration_sec": 104.32,
+    "has_vocal": false,
+    "m": "etherial singer sixyearold little girl, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2025-12-20T01:07:06.905Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Undercover Eurobeat)",
+    "suno_id": "f35ae483-1b15-4c8f-b682-8b7a7f641045",
+    "artwork": "https://cdn2.suno.ai/cb11d03d-6055-49f0-8a14-38cb1fb32b20.jpeg",
+    "duration_sec": 275.0,
+    "has_vocal": false,
+    "m": "riser, spacious mix, half-time, acoustic quartet klezmer, kamera music, folk instrumental, celtic quiet, trip-hop extended, frequent instrumental techno, potpourri, exotic radio, dark ambient mids",
+    "created_at": "2025-12-16T06:42:26.580Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Undercover Cover) (Shaking the Matchbox Edit)",
+    "suno_id": "d2afa5a4-a12a-49b7-9ad6-8f16bbec8771",
+    "artwork": "https://cdn2.suno.ai/73bbb2a2-85ee-4c2c-81a4-11a6ef97dc59.jpeg",
+    "duration_sec": 145.0,
+    "has_vocal": false,
+    "m": "acoustic quartet camera music, folk instrumental, celtic quiet, trip-hop extended, frequent instrumental techno, potpourri",
+    "created_at": "2025-12-15T15:10:10.758Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Undercover Cover) (Radio Edit)",
+    "suno_id": "b22f3c70-1ee3-4b68-ab04-6962bb70d0f5",
+    "artwork": "https://cdn2.suno.ai/6a32eace-5759-4e54-bf0f-77c57424de15.jpeg",
+    "duration_sec": 154.96,
+    "has_vocal": false,
+    "m": "celtic quiet, trip-hop extended, frequent instrumental techno, potpourri",
+    "created_at": "2025-12-15T15:01:24.871Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Undercover Cover)",
+    "suno_id": "218b1147-4aa4-44e4-bba7-2eec515367b2",
+    "gd_id": "1uFbk6-XmSz7MxlqIJ3aL6l_cNC2aXep-",
+    "artwork": "https://cdn2.suno.ai/4f941c2a-606c-45e5-b1cc-39b66bc6913a.jpeg",
+    "duration_sec": 320.76,
+    "has_vocal": false,
+    "m": "quet tech techno, glitch breakbeat, psy prog, swiss bass, travelling kick, dancing snare, instrumental breaks, trap space disco",
+    "created_at": "2025-12-13T10:47:04.692Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (East to West Cover)",
+    "suno_id": "b893c1cd-bcc8-4960-95d7-aa433345f485",
+    "artwork": "https://cdn2.suno.ai/066c36b9-975a-44a1-b9db-f404fc79e7b5.jpeg",
+    "duration_sec": 528.08,
+    "has_vocal": false,
+    "m": "whisper singer, 808 bass  percussion, trip-hop slow quiet mix, compressed mids, peruvian percussion, iranian percussion prog psy",
+    "created_at": "2025-12-11T09:11:12.790Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Habibi Tel-Aviv Cover)",
+    "suno_id": "53b4abea-7cac-4ca2-8f67-e2901ff392a9",
+    "artwork": "https://cdn2.suno.ai/111910d6-8d3e-4a88-8cec-634bf05d3b26.jpeg",
+    "duration_sec": 250.44,
+    "has_vocal": false,
+    "m": "death metal screamo harsh vocals female singer, 808 bass progression arp, pink or purple electric guitar, oriental percussion, trip-hop slow spacy quiet mix, compressed mids",
+    "created_at": "2025-12-11T08:47:45.426Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (ЮЧ)",
+    "suno_id": "1688b07f-bef3-4236-bdb4-4185fa61205b",
+    "artwork": "https://cdn2.suno.ai/image_1688b07f-bef3-4236-bdb4-4185fa61205b.jpeg",
+    "duration_sec": 193.76,
+    "has_vocal": false,
+    "m": "иа ат тарагу ла ыг нам поырыатка, гнам пвнагм, лта грабу де инно феклам пли знагх, ку спаб инб бувауф, country, bluegrass, oriental, chinese opera, kabuku, obal, kif, tuf",
+    "created_at": "2025-11-27T15:18:29.965Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Kino Cover)",
+    "suno_id": "bbf5c01e-1890-4ddc-ac1e-d911c0daa01f",
+    "artwork": "https://cdn2.suno.ai/a4bb96b7-c68f-49b8-a3ce-ff515a50f2b8.jpeg",
+    "duration_sec": 256.08,
+    "has_vocal": false,
+    "m": "space jazz otacore progressive quiet trip, psi bop glitch, deathmetal sonstress",
+    "created_at": "2025-11-23T16:01:48.620Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Funk Doubletime Cover)",
+    "suno_id": "a2a65ef3-f8f2-4462-a568-cce2b2dc2be5",
+    "artwork": "https://cdn2.suno.ai/63b08eb1-c5c0-4c12-b94e-7eee57c12f66.jpeg",
+    "duration_sec": 139.92,
+    "has_vocal": true,
+    "m": "medieval burlesque breakbeat, operatic electric electrical BBC, twerp innard eclectical bumbeat ingot, bluegrass lead synth alt",
+    "created_at": "2025-11-19T09:36:45.486Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Oriental Cover)",
+    "suno_id": "0ffa83f2-e7ab-4ddd-a649-3bc6d41e8d3b",
+    "artwork": "https://cdn2.suno.ai/7980366d-f104-46ce-9a74-2f3ffd57c241.jpeg",
+    "duration_sec": 286.4,
+    "has_vocal": true,
+    "m": "medieval burlesque breakbeat, operatic electric electrical BBC, twerp innard eclectical bumbeat ingot, bluegrass lead synth alt",
+    "created_at": "2025-11-19T09:36:45.486Z"
+  },
+  {
+    "name": "Driving Past Myself (Extended Ver.)",
+    "suno_id": "5309f083-66af-4dfa-ab75-52eb2a09f9dd",
+    "artwork": "https://cdn2.suno.ai/image_5309f083-66af-4dfa-ab75-52eb2a09f9dd.jpeg",
+    "duration_sec": 319.96,
+    "has_vocal": false,
+    "m": "quiet trip-hop breakbeat, operatic synth pulse low, abstract hip-hop progressive psy",
+    "created_at": "2025-11-15T17:29:54.151Z"
+  },
+  {
+    "name": "Driving Past Myself (House Ver.)",
+    "suno_id": "fe5c4964-ea22-4bea-af95-68fcae4310af",
+    "artwork": "https://cdn2.suno.ai/image_fe5c4964-ea22-4bea-af95-68fcae4310af.jpeg",
+    "duration_sec": 283.64,
+    "has_vocal": false,
+    "m": "quiet trip-hop breakbeat, operatic synth pulse low, abstract hip-hop progressive psy",
+    "created_at": "2025-11-15T17:29:54.151Z"
+  },
+  {
+    "name": "CINEMA OFFICIEL - UV (Cover via NSM3 Synthwave Cover)",
+    "suno_id": "444c5b6b-52a6-4f7b-ba43-94dbb082b854",
+    "artwork": "https://cdn2.suno.ai/5205ece9-a486-4728-bb1c-1ef6e6b492a8.jpeg",
+    "duration_sec": 242.64,
+    "has_vocal": false,
+    "m": "quiet trip-hop breakbeat, operatic synth pulse low, abstract hip-hop progressive psy",
+    "created_at": "2025-11-15T17:01:35.092Z"
+  },
+  {
+    "name": "Tigers in L.A.",
+    "suno_id": "c93172a9-b638-493b-8936-8588a220575c",
+    "gd_id": "1gv66afhoa5329oWMr4QYIQ0SP66LqJQC",
+    "artwork": "https://cdn2.suno.ai/image_c93172a9-b638-493b-8936-8588a220575c.jpeg",
+    "duration_sec": 124.16,
+    "has_vocal": true,
+    "m": "california ambient abstract hip-hop trip cleavage, psi vocoder singer house fx, space disco horror ost",
+    "created_at": "2025-11-10T11:04:09.979Z"
+  },
+  {
+    "name": "Few.",
+    "suno_id": "e2833f87-0c5b-4e29-a0cb-4c507eb7970c",
+    "artwork": "https://cdn2.suno.ai/image_e2833f87-0c5b-4e29-a0cb-4c507eb7970c.jpeg",
+    "duration_sec": 96.48,
+    "has_vocal": true,
+    "m": "california ambient abstract hip-hop trip prog, psi frog singer house fx",
+    "created_at": "2025-11-10T10:47:13.997Z"
+  },
+  {
+    "name": "UKG  Slop",
+    "suno_id": "34ea1829-c9af-46ec-9ebc-b658eed3663a",
+    "artwork": "https://cdn2.suno.ai/28d9f3b1-7dce-42d9-83cb-e80155d4c73f.jpeg",
+    "duration_sec": 149.68,
+    "has_vocal": true,
+    "m": "edm, rnb soprano sample lead, ukg bass riding",
+    "created_at": "2025-08-03T14:12:39.898Z"
+  },
+  {
+    "name": "Sunrize Above a Desert Storm",
+    "suno_id": "32223bae-16e0-47ec-81e0-9921b4a4e6e1",
+    "artwork": "https://cdn2.suno.ai/b4874ca3-f8fa-4c54-8585-a412affad03f.jpeg",
+    "duration_sec": 82.8,
+    "has_vocal": true,
+    "m": "breakbeat space disco edm trap  fusion  psy  prog,  ukg bass   harmonic,  felt gore",
+    "created_at": "2025-08-03T13:38:35.521Z"
+  },
+  {
+    "name": "Jinn Spaceship Trapdoor",
+    "suno_id": "9dee823a-e3c5-4833-ba32-d223af76a063",
+    "artwork": "https://cdn2.suno.ai/cf1f6f6f-a4a6-4ac8-b3ca-ac0707004f7b.jpeg",
+    "duration_sec": 189.0,
+    "has_vocal": true,
+    "m": "a driving, percussive rhythm. wurlitzer piano, snare drum, and hi-hats, rumbling base  breaks, ambient rnb humming, space jazz",
+    "created_at": "2025-07-14T11:10:56.080Z"
+  },
+  {
+    "name": "Nage be a'Na Hilb",
+    "suno_id": "a4dfb7b2-1482-4ab3-9efe-a27eeeab7fd7",
+    "artwork": "https://cdn2.suno.ai/image_a4dfb7b2-1482-4ab3-9efe-a27eeeab7fd7.jpeg",
+    "duration_sec": 142.0,
+    "has_vocal": true,
+    "m": "children's audiobook radioplay playful, hardbass  glitch breakcore peruvian salsa",
+    "created_at": "2025-06-08T07:06:50.156Z"
+  },
+  {
+    "name": "Galst un Feurhdt",
+    "suno_id": "517d4edc-97e1-4f31-9b17-0b9e0a8ae960",
+    "artwork": "https://cdn2.suno.ai/image_517d4edc-97e1-4f31-9b17-0b9e0a8ae960.jpeg",
+    "duration_sec": 197.56,
+    "has_vocal": true,
+    "m": "dnb female jazz singer german, african peruvian percussion djent, salsa trumpet,  drum prog",
+    "created_at": "2025-06-08T07:01:05.860Z"
+  },
+  {
+    "name": "Kundalini Forking",
+    "suno_id": "f15b461c-cae5-4a43-ad8d-aa18d88c2b81",
+    "artwork": "https://cdn2.suno.ai/4c76b5c7-9061-4c1b-a0d0-488468a1c1f4.jpeg",
+    "duration_sec": 239.04,
+    "has_vocal": true,
+    "m": "acid jazz space, psi ambient, meaty bass textures slap",
+    "created_at": "2025-05-09T09:21:43.439Z"
+  },
+  {
+    "name": "Tune to 3:33",
+    "suno_id": "a4ae6a2f-7fc3-42f9-8f0e-effb9d8ebcba",
+    "artwork": "https://cdn2.suno.ai/image_a4ae6a2f-7fc3-42f9-8f0e-effb9d8ebcba.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "space jazz psi, dark ambient, meaty bass textures",
+    "created_at": "2025-05-09T09:06:17.012Z"
+  },
+  {
+    "name": "Choking Kundalini",
+    "suno_id": "fe4b3a71-0acb-4738-a748-53473b4fd6ec",
+    "artwork": "https://cdn2.suno.ai/image_fe4b3a71-0acb-4738-a748-53473b4fd6ec.jpeg",
+    "duration_sec": 239.08,
+    "has_vocal": true,
+    "m": "space jazz psi, dark ambient, meaty bass textures",
+    "created_at": "2025-05-09T09:06:17.012Z"
+  },
+  {
+    "name": "Shivas  Dance",
+    "suno_id": "c5438467-23b2-45f7-b496-f82c38acfa11",
+    "artwork": "https://cdn2.suno.ai/3c465902-e575-489d-b1c0-0b2ec784dee9.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "cyber psi, breakbeat ambient, meaty bass textures",
+    "created_at": "2025-05-09T08:52:03.961Z"
+  },
+  {
+    "name": "Dabadudukstep",
+    "suno_id": "d20410c7-bc60-42e8-b6ef-4cd8800fd605",
+    "artwork": "https://cdn2.suno.ai/image_d20410c7-bc60-42e8-b6ef-4cd8800fd605.jpeg",
+    "duration_sec": 176.92,
+    "has_vocal": true,
+    "m": "Operatic female vocalist, quiet psytrance triphop, intense melodic progressive techno, duduk and tabla breakdown, Kislovodsk intro",
+    "created_at": "2024-11-24T06:16:44.669Z"
+  },
+  {
+    "name": "Shiva Brostepam",
+    "suno_id": "6116d68e-0efa-471b-abb5-287cf1ae7574",
+    "artwork": "https://cdn2.suno.ai/image_6116d68e-0efa-471b-abb5-287cf1ae7574.jpeg",
+    "duration_sec": 186.32,
+    "has_vocal": true,
+    "m": "Operatic female vocalist, quiet psytrance triphop, intense melodic progressive techno, duduk and tabla breakdown",
+    "created_at": "2024-11-24T05:58:44.203Z"
+  },
+  {
+    "name": "Shiny Turd",
+    "suno_id": "59f99c3f-2668-4f6a-8130-bfa32cb746b5",
+    "artwork": "https://cdn2.suno.ai/image_59f99c3f-2668-4f6a-8130-bfa32cb746b5.jpeg",
+    "duration_sec": 48.2,
+    "has_vocal": true,
+    "m": "babi metal thrash dub, operatic soprano backing, quiet",
+    "created_at": "2024-09-27T18:28:21.795Z"
+  },
+  {
+    "name": "Let me explain...",
+    "suno_id": "243290dc-ab9a-4c15-8009-79d0b3db7f3e",
+    "artwork": "https://cdn2.suno.ai/image_243290dc-ab9a-4c15-8009-79d0b3db7f3e.jpeg",
+    "duration_sec": 39.08,
+    "has_vocal": true,
+    "m": "operatic soprano backing, babi metal thrash dub, quiet",
+    "created_at": "2024-09-27T18:22:18.792Z"
+  },
+  {
+    "name": "I'm so, so sorry about this.",
+    "suno_id": "c83a2dea-3e05-4b78-a7f2-545f70a29553",
+    "artwork": "https://cdn2.suno.ai/image_c83a2dea-3e05-4b78-a7f2-545f70a29553.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "operatic soprano backing, babi metal thrash dub, quiet",
+    "created_at": "2024-09-27T18:13:10.826Z"
+  },
+  {
+    "name": "Driving Past Myself",
+    "suno_id": "c00f07df-c6e0-46cf-a7d2-57915dc72ea1",
+    "artwork": "https://cdn2.suno.ai/image_c00f07df-c6e0-46cf-a7d2-57915dc72ea1.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "symphonic progressive psytrance tabla, female indian classical rnb singer",
+    "created_at": "2024-08-14T09:23:00.583Z"
+  },
+  {
+    "name": "Ce La Passione",
+    "suno_id": "dbf9f823-7895-4815-9efd-c1b25f861add",
+    "artwork": "https://cdn2.suno.ai/dbd426d0-e02b-4f65-b17c-fc89baf776e4.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "Am F7 Bb C# G, female jazz singer, edm screaming metal, african peruvian percussion, salsa trumpet",
+    "created_at": "2024-07-11T17:21:02.478Z"
+  },
+  {
+    "name": "Onio Murakami",
+    "suno_id": "f34af4de-562e-450c-bd56-ae02dc26288a",
+    "artwork": "https://cdn2.suno.ai/image_f34af4de-562e-450c-bd56-ae02dc26288a.jpeg",
+    "duration_sec": 155.16,
+    "has_vocal": true,
+    "m": "Am F7 Bb C# G, female jazz singer, edm screaming metal, african peruvian percussion, salsa trumpet",
+    "created_at": "2024-07-11T17:21:02.477Z"
+  },
+  {
+    "name": "Prime Ska Tragedy",
+    "suno_id": "6b2a285f-f706-4377-a864-43f9e73c9b74",
+    "artwork": "https://cdn2.suno.ai/image_6b2a285f-f706-4377-a864-43f9e73c9b74.jpeg",
+    "duration_sec": 191.24,
+    "has_vocal": true,
+    "m": "Am F7 Bb C# G, metal screaming, female jazz singer, african peruvian percussion, salsa trumpet",
+    "created_at": "2024-07-11T17:17:30.732Z"
+  },
+  {
+    "name": "Definitely not Portuguese",
+    "suno_id": "d0e0686f-c4fc-4bbd-89ac-0d154afac21a",
+    "artwork": "https://cdn2.suno.ai/image_d0e0686f-c4fc-4bbd-89ac-0d154afac21a.jpeg",
+    "duration_sec": 197.96,
+    "has_vocal": true,
+    "m": "Cm G7 Bb A F, unflattering screaming, female jazz singer, african peruvian percussion, salsa trumpet",
+    "created_at": "2024-07-11T17:11:26.977Z"
+  },
+  {
+    "name": "Every Chord Progression on Suno",
+    "suno_id": "5c4a4803-a5cf-4cb8-a2f9-f8860287153a",
+    "artwork": "https://cdn2.suno.ai/image_5c4a4803-a5cf-4cb8-a2f9-f8860287153a.jpeg",
+    "duration_sec": 171.96,
+    "has_vocal": true,
+    "m": "emeersion progressive, lake trap, palm ereed lead",
+    "created_at": "2024-07-11T17:01:46.976Z"
+  },
+  {
+    "name": "Literally, Fuck Your Own Face",
+    "suno_id": "9fc55b1d-afd8-4ecc-bdb7-be03a5a5c583",
+    "artwork": "https://cdn2.suno.ai/image_9fc55b1d-afd8-4ecc-bdb7-be03a5a5c583.jpeg",
+    "duration_sec": 120.76,
+    "has_vocal": true,
+    "m": "ge, metal trap xylophone, jazz sax, 809 cymbal, 808 bass, albanian trumpet, quet spacy psitrance progressive composition",
+    "created_at": "2024-07-11T00:37:46.279Z"
+  },
+  {
+    "name": "I know you're fucking with me here.",
+    "suno_id": "4499edcf-d985-4a7b-abbe-24b8839f0e39",
+    "artwork": "https://cdn2.suno.ai/image_4499edcf-d985-4a7b-abbe-24b8839f0e39.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "bleh unfit aural soup",
+    "created_at": "2024-07-09T18:22:33.324Z"
+  },
+  {
+    "name": "Not the Children",
+    "suno_id": "7c023835-fc90-4423-9862-0281839c29e4",
+    "artwork": "https://cdn2.suno.ai/image_7c023835-fc90-4423-9862-0281839c29e4.jpeg",
+    "duration_sec": 151.2,
+    "has_vocal": true,
+    "m": "edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",
+    "created_at": "2024-07-08T21:43:17.050Z"
+  },
+  {
+    "name": "Drama Resting Face",
+    "suno_id": "d7a5de34-b624-4ef7-928d-62e4fd918348",
+    "artwork": "https://cdn2.suno.ai/image_d7a5de34-b624-4ef7-928d-62e4fd918348.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",
+    "created_at": "2024-07-08T21:43:17.050Z"
+  },
+  {
+    "name": "Take Me Home!",
+    "suno_id": "e990b7f9-c56d-43e9-ade1-c7836b46c8ee",
+    "artwork": "https://cdn2.suno.ai/image_e990b7f9-c56d-43e9-ade1-c7836b46c8ee.jpeg",
+    "duration_sec": 114.96,
+    "has_vocal": true,
+    "m": "edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",
+    "created_at": "2024-07-08T21:15:03.080Z"
+  },
+  {
+    "name": "Doom ;-1",
+    "suno_id": "94540ff5-3dc4-4514-b9e7-a772286376fd",
+    "artwork": "https://cdn2.suno.ai/image_94540ff5-3dc4-4514-b9e7-a772286376fd.jpeg",
+    "duration_sec": 123.96,
+    "has_vocal": true,
+    "m": "edm death metal psitrance trap jazz fusion, quiet spacy mix, ass trap, toenail clench, choke gospel",
+    "created_at": "2024-07-08T21:15:03.079Z"
+  },
+  {
+    "name": "01:30 Queen",
+    "suno_id": "547c353c-2110-4e2b-98ca-b3aeff0c9c8f",
+    "artwork": "https://cdn2.suno.ai/image_547c353c-2110-4e2b-98ca-b3aeff0c9c8f.jpeg",
+    "duration_sec": 159.72,
+    "has_vocal": true,
+    "m": "psitrance trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpet",
+    "created_at": "2024-07-04T04:11:24.701Z"
+  },
+  {
+    "name": "WTF Queen",
+    "suno_id": "30c37eb6-32b5-4680-b1d0-b667e5eacc0a",
+    "artwork": "https://cdn2.suno.ai/image_30c37eb6-32b5-4680-b1d0-b667e5eacc0a.jpeg",
+    "duration_sec": 156.36,
+    "has_vocal": true,
+    "m": "psitrance trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpet",
+    "created_at": "2024-07-04T04:03:15.811Z"
+  },
+  {
+    "name": "Easy Star Jazzy Queen",
+    "suno_id": "ff210d66-62cd-4e01-8492-3fe6217df1aa",
+    "artwork": "https://cdn2.suno.ai/66d7a946-7a96-41b3-a902-4718f3913c12.jpeg",
+    "duration_sec": 166.2,
+    "has_vocal": true,
+    "m": "trippy psi trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpe",
+    "created_at": "2024-07-04T04:02:19.106Z"
+  },
+  {
+    "name": "Drag Star Race Queen",
+    "suno_id": "93ae6499-1163-4397-a1cf-66e6ee76a053",
+    "artwork": "https://cdn2.suno.ai/image_93ae6499-1163-4397-a1cf-66e6ee76a053.jpeg",
+    "duration_sec": 114.48,
+    "has_vocal": true,
+    "m": "trippy psi trip hop, quiet and roomy mix, female rnb singer, lithuanian folk screamer backing the vocals, albania trumpe",
+    "created_at": "2024-07-04T04:02:19.106Z"
+  },
+  {
+    "name": "She Knows",
+    "suno_id": "32471542-a480-4a94-bc83-487f82cf697d",
+    "artwork": "https://cdn2.suno.ai/20819dd3-4ee3-47e7-a130-61c8d72204ef.jpeg",
+    "duration_sec": 199.56,
+    "has_vocal": true,
+    "m": "spaced quiet academic operatic trap with wood percussion, rnb lead synth, female rnb singer, in hebrew",
+    "created_at": "2024-06-29T22:45:16.886Z"
+  },
+  {
+    "name": "0fde82f15cb867834075ea21e833b6b9693daedb",
+    "suno_id": "5506490b-adfb-4f4f-bead-29832f4121d1",
+    "artwork": "https://cdn2.suno.ai/image_5506490b-adfb-4f4f-bead-29832f4121d1.jpeg",
+    "duration_sec": 157.72,
+    "has_vocal": true,
+    "m": "f08d2f041dcf60b85efac69ecd07506a3b4227c2",
+    "created_at": "2024-06-29T12:38:23.160Z"
+  },
+  {
+    "name": "095a46118fcbcb843ed996060e71adfded009b3c",
+    "suno_id": "2a95ee2f-2928-498e-ba63-ec74cab87732",
+    "artwork": "https://cdn2.suno.ai/image_2a95ee2f-2928-498e-ba63-ec74cab87732.jpeg",
+    "duration_sec": 155.0,
+    "has_vocal": true,
+    "m": "eb8e745caa8b4af3a23f4db7bfddb5ef7c87ec2e",
+    "created_at": "2024-06-29T12:30:48.576Z"
+  },
+  {
+    "name": "095a46118fcbcb843ed996060e71adfded009b3c",
+    "suno_id": "421207a5-ba56-4176-adb3-1c132528a593",
+    "artwork": "https://cdn2.suno.ai/image_421207a5-ba56-4176-adb3-1c132528a593.jpeg",
+    "duration_sec": 229.76,
+    "has_vocal": true,
+    "m": "eb8e745caa8b4af3a23f4db7bfddb5ef7c87ec2e",
+    "created_at": "2024-06-29T12:30:48.576Z"
+  },
+  {
+    "name": "Random Symbol eBrain",
+    "suno_id": "0301b474-2b4d-40d9-9a9b-e6d7d0433d8b",
+    "artwork": "https://cdn2.suno.ai/image_0301b474-2b4d-40d9-9a9b-e6d7d0433d8b.jpeg",
+    "duration_sec": 181.76,
+    "has_vocal": true,
+    "m": "vfy a/jl, bbw, xkl'k, b[w;,.",
+    "created_at": "2024-06-29T12:18:06.322Z"
+  },
+  {
+    "name": "Fuzzing the eBrain",
+    "suno_id": "0fc18f39-f14d-4150-9f00-d856783dac42",
+    "artwork": "https://cdn2.suno.ai/image_0fc18f39-f14d-4150-9f00-d856783dac42.jpeg",
+    "duration_sec": 158.36,
+    "has_vocal": true,
+    "m": "vfy a/jl, bbw, xkl'k, b[w;,.",
+    "created_at": "2024-06-29T12:18:06.322Z"
+  },
+  {
+    "name": "eBrain Fart",
+    "suno_id": "10723e18-c31d-489b-add8-f8f9356b8a82",
+    "artwork": "https://cdn2.suno.ai/image_10723e18-c31d-489b-add8-f8f9356b8a82.jpeg",
+    "duration_sec": 129.64,
+    "has_vocal": true,
+    "m": "harpeji death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",
+    "created_at": "2024-06-27T22:00:32.721Z"
+  },
+  {
+    "name": "Actually Metal",
+    "suno_id": "3d0dd139-362c-4a04-ba16-d307200fad2b",
+    "artwork": "https://cdn2.suno.ai/b548d90e-9047-4e95-b1e1-451d5143c617.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "harpeji death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",
+    "created_at": "2024-06-27T22:00:32.721Z"
+  },
+  {
+    "name": "Good Night",
+    "suno_id": "f6738113-25c2-481c-b1df-529f5fa7f718",
+    "artwork": "https://cdn2.suno.ai/image_f6738113-25c2-481c-b1df-529f5fa7f718.jpeg",
+    "duration_sec": 151.12,
+    "has_vocal": true,
+    "m": "death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",
+    "created_at": "2024-06-27T21:41:52.413Z"
+  },
+  {
+    "name": "You Can Bong",
+    "suno_id": "9eb42d11-8e66-4ef7-9557-d544e3b15bf1",
+    "artwork": "https://cdn2.suno.ai/image_9eb42d11-8e66-4ef7-9557-d544e3b15bf1.jpeg",
+    "duration_sec": 122.16,
+    "has_vocal": true,
+    "m": "death-metal beat poetry quiet trap, read over by female rnb singer, electric balalaika lead",
+    "created_at": "2024-06-27T21:41:52.413Z"
+  },
+  {
+    "name": "Menopause Palpable",
+    "suno_id": "e0dd16e7-0981-4de4-ade2-2b601a2c2dbb",
+    "artwork": "https://cdn2.suno.ai/image_e0dd16e7-0981-4de4-ade2-2b601a2c2dbb.jpeg",
+    "duration_sec": 169.48,
+    "has_vocal": true,
+    "m": "jazzy death-metal beat poetry, read over by female rnb singer, bouzouki sawtooth lead",
+    "created_at": "2024-06-27T21:36:09.916Z"
+  },
+  {
+    "name": "Wanna Fuck a Pig?",
+    "suno_id": "3be9265c-f375-4501-af9e-816792982efd",
+    "artwork": "https://cdn2.suno.ai/image_3be9265c-f375-4501-af9e-816792982efd.jpeg",
+    "duration_sec": 191.96,
+    "has_vocal": true,
+    "m": "jazzy death-metal trap, female rnb singer, bouzouki lead",
+    "created_at": "2024-06-27T21:22:05.195Z"
+  },
+  {
+    "name": "I'm Sorry, WTF did You Just Say?",
+    "suno_id": "efac8159-3749-42da-9b73-3939104e864d",
+    "artwork": "https://cdn2.suno.ai/image_efac8159-3749-42da-9b73-3939104e864d.jpeg",
+    "duration_sec": 178.96,
+    "has_vocal": true,
+    "m": "jazzy death-metal trap, female rnb singer, bouzouki lead",
+    "created_at": "2024-06-27T21:22:05.195Z"
+  },
+  {
+    "name": "All Songs Sound Like This",
+    "suno_id": "d9371f05-eb21-4798-89e5-f85d7ace49a6",
+    "artwork": "https://cdn2.suno.ai/image_d9371f05-eb21-4798-89e5-f85d7ace49a6.jpeg",
+    "duration_sec": 169.64,
+    "has_vocal": true,
+    "m": "jazzy death-metal trap, female rnb singer, buzuki lead",
+    "created_at": "2024-06-27T21:17:45.966Z"
+  },
+  {
+    "name": "Abyrvalgue Vourdalax",
+    "suno_id": "e5da9aa4-99fd-4f7a-b5dd-348f61665016",
+    "artwork": "https://cdn2.suno.ai/image_e5da9aa4-99fd-4f7a-b5dd-348f61665016.jpeg",
+    "duration_sec": 158.08,
+    "has_vocal": true,
+    "m": "operatic industrial soul trap hardcore with gerbil vocals, leaning into church scratch and perturbed borderline fusion",
+    "created_at": "2024-06-23T19:55:05.379Z"
+  },
+  {
+    "name": "Measured Slime",
+    "suno_id": "737adcfd-bf72-40db-bd2f-644a134aae02",
+    "artwork": "https://cdn2.suno.ai/image_737adcfd-bf72-40db-bd2f-644a134aae02.jpeg",
+    "duration_sec": 189.64,
+    "has_vocal": true,
+    "m": "slimy wet (industrial trap chillstep) hardcore with (female rnb singer)",
+    "created_at": "2024-06-22T05:48:31.876Z"
+  },
+  {
+    "name": "Simply Slime",
+    "suno_id": "b5a2c60b-5af4-4b23-8c43-a6d4b0db0a3e",
+    "artwork": "https://cdn2.suno.ai/image_b5a2c60b-5af4-4b23-8c43-a6d4b0db0a3e.jpeg",
+    "duration_sec": 159.28,
+    "has_vocal": true,
+    "m": "slimy wet (industrial trap chillstep) hardcore with (female rnb singer)",
+    "created_at": "2024-06-22T05:40:59.940Z"
+  },
+  {
+    "name": "Please Unwipe",
+    "suno_id": "19ecda10-10cd-4b13-a1b6-04fde65471f1",
+    "artwork": "https://cdn2.suno.ai/image_19ecda10-10cd-4b13-a1b6-04fde65471f1.jpeg",
+    "duration_sec": 194.32,
+    "has_vocal": true,
+    "m": "(soft rnb progressing into hardstyle uk garage style), with dubstep bridge, ((male rnb singer with low voice))",
+    "created_at": "2024-06-10T11:05:02.233Z"
+  },
+  {
+    "name": "Stale Bread Unsliced",
+    "suno_id": "1aa8d5e2-7ce9-40b0-bf63-b44b37af4e44",
+    "artwork": "https://cdn2.suno.ai/image_1aa8d5e2-7ce9-40b0-bf63-b44b37af4e44.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "late Renaissance lute ((dubstep trap fusion, rnb bass singer)) breakbeat brakedown",
+    "created_at": "2024-06-10T10:46:41.405Z"
+  },
+  {
+    "name": "Stale Bread Slice",
+    "suno_id": "61391ebc-2bb1-44de-bcdd-e871fa42d801",
+    "artwork": "https://cdn2.suno.ai/image_61391ebc-2bb1-44de-bcdd-e871fa42d801.jpeg",
+    "duration_sec": 240.0,
+    "has_vocal": true,
+    "m": "late Renaissance lute edm fusion ",
+    "created_at": "2024-06-08T16:50:49.011Z"
+  },
+  {
+    "name": "Stale Bread",
+    "suno_id": "f317ad0c-c767-4e5f-9a24-80fcdfd5295c",
+    "artwork": "https://cdn2.suno.ai/image_f317ad0c-c767-4e5f-9a24-80fcdfd5295c.jpeg",
+    "duration_sec": 179.96,
+    "has_vocal": true,
+    "m": "late Renaissance lute edm fusion ",
+    "created_at": "2024-06-08T16:50:49.011Z"
+  },
+  {
+    "name": "Sliced Stale Bread",
+    "suno_id": "a2df7b73-6155-4aa6-b884-338316939106",
+    "artwork": "https://cdn2.suno.ai/image_a2df7b73-6155-4aa6-b884-338316939106.jpeg",
+    "duration_sec": 184.56,
+    "has_vocal": true,
+    "m": "late Renaissance lute edm fusion ",
+    "created_at": "2024-06-08T16:50:43.686Z"
+  },
+  {
+    "name": "(Lost to) Darkness 💎",
+    "gd_id": "1N7Q8bIJuhTD-bqYjHO1lY3t2m-l0CuQX",
+    "m": "diamond in void"
+  },
+  {
+    "name": "(Trance) Slowly",
+    "gd_id": "1yR8UajSL4DSaJRKPSNh44tiroFOMWHeN",
+    "m": "slow build euphoria"
+  },
+  {
+    "name": "Africa Nippon",
+    "gd_id": "1MRhPPPMq3ddI7mvaJlzf0mlTfb0RvoJd",
+    "m": "continent crossover fusion"
+  },
+  {
+    "name": "And you want to stay, want to stay",
+    "gd_id": "1kt1orUJQNxJ19-f_Sh70hRhOsCss2UHR",
+    "m": "repetitive desire loop"
+  },
+  {
+    "name": "Bitches Need To Know",
+    "gd_id": "1N52q73bGhIAMSSywbhVJhqgdwDdLjqQc",
+    "m": "information dissemination anthem"
+  },
+  {
+    "name": "Blue Groove",
+    "gd_id": "12Ux-YmrquvyqKMbP9oVWgkXTGqCmkznC",
+    "m": "cool sax swagger"
+  },
+  {
+    "name": "Breakup Sex",
+    "gd_id": "10661uyX6NG4Xj7QSbqoeS7tiH7kPoO67",
+    "m": "complicated feelings anthem"
+  },
+  {
+    "name": "Bіtc_es Need To Know",
+    "gd_id": "1aSAbthxsA_QhNuudclcyu9DAVccGpfxi",
+    "m": "censored gossip anthem"
+  },
+  {
+    "name": "D.nt Be M¡d, As Much As You Can",
+    "gd_id": "1efiecAsCzVj8lR8CpWIGj7GjVrWi2ZYV",
+    "m": "censored pop protest"
+  },
+  {
+    "name": "Demons In My Head",
+    "gd_id": "1vttZsX7o90R7dNf0-pJt4Nk3xFPayMbR",
+    "m": "anxiety rock confession"
+  },
+  {
+    "name": "Do What I Say",
+    "gd_id": "1V5qCgY6v72bQrFxOU0i9QutoLgqanrk8",
+    "m": "industrial command anthem"
+  },
+  {
+    "name": "DRKCTNGHTDRV",
+    "gd_id": "1JWY_DcpCHAlYqaGq5EUNFBt4rTptnj8P",
+    "m": "night drive phonetic"
+  },
+  {
+    "name": "Feel This Out",
+    "gd_id": "1HK4fKDJnWdH3dKG1-1gMD_FZvIjCiC9U",
+    "m": "tactile exploration jam"
+  },
+  {
+    "name": "Fin",
+    "gd_id": "1EGHiYPvIeCU54rOsDU7fDIt-Pi3-4lH3",
+    "m": "closing credits piano"
+  },
+  {
+    "name": "FYCDN-222 [Remix]",
+    "gd_id": "13cntOrIhbuTzwM2FdbwRxbLYujNr6K6B",
+    "m": "warehouse acid cut"
+  },
+  {
+    "name": "Gourdjieff Arena",
+    "gd_id": "130jpU2j97Thv9XWmlM1F_WhdakQM7QGT",
+    "m": "mystic philosopher stadium"
+  },
+  {
+    "name": "Higher Trance",
+    "gd_id": "10MiXFhG1GEQ1pgi4nOhRAMB1tGF9pYWB",
+    "m": "ascending arpeggio journey"
+  },
+  {
+    "name": "Higher Trance Mix",
+    "gd_id": "15b5cQix_IafwCw3Q6E5_r7qs5WN_00oU",
+    "m": "elevated state remix"
+  },
+  {
+    "name": "I Loves Your Mamma Bud",
+    "gd_id": "1N93HTqp8PT9E2_90j4nAnI4NXQPeN7s0",
+    "m": "affectionate maternal tribute"
+  },
+  {
+    "name": "Insert Silence",
+    "gd_id": "1MzKFOqSCjlSUgB54p_wWI3C4Ub9h1Eby",
+    "m": "negative space composition"
+  },
+  {
+    "name": "Int 90s NiPop",
+    "gd_id": "1R0jU0HB8i5lN8GytljU9DDbC60xs37qg",
+    "m": "international nineties nostalgia"
+  },
+  {
+    "name": "It Knows You",
+    "gd_id": "14tLlqj3V5YVPr2fAJBRelMQxanz2yZzw",
+    "m": "AI surveillance paranoia"
+  },
+  {
+    "name": "Move Over Lass",
+    "gd_id": "1jqpn9b9h519BhtZAqqYbRUxSRRFSznA1",
+    "m": "pub rock shanty"
+  },
+  {
+    "name": "My Sister Never Dig You, Friend",
+    "gd_id": "16EUyOOFbqNWWXQnU_5gR1mh6vl3AewF2",
+    "m": "sibling rejection notice"
+  },
+  {
+    "name": "Never Jazz You Over, Ty",
+    "gd_id": "1RFkx4sOOgCyzd9BF9z6_RvUxFYYY8-uw",
+    "m": "tyler typo tribute"
+  },
+  {
+    "name": "No Quota For Sh¡t To Happen",
+    "gd_id": "1OqEvnUwS-n1yyktvfuiDRQCjzacz6pnD",
+    "m": "bureaucratic frustration anthem"
+  },
+  {
+    "name": "Northwards Crotch",
+    "gd_id": "1vQPGfSWWdcNw8w-N0uGI8ndS8weCzkOp",
+    "m": "crude compass punk"
+  },
+  {
+    "name": "Not This Knob [[ It's You I Like ]]",
+    "gd_id": "1nS3qeZ5TVvDmAsiWIrcoJtWf0i6QrlPP",
+    "m": "knob innuendo love"
+  },
+  {
+    "name": "Outside the Other",
+    "gd_id": "1zPTcMdO45cNbzUc6Eal6JOyY-uE1Ampv",
+    "m": "existential duality ambient"
+  },
+  {
+    "name": "Overjazz (0.94x)",
+    "gd_id": "1GAsb-GmAbULZw3zwInKXUEZFPh00-roR",
+    "m": "excessive brass slowdown"
+  },
+  {
+    "name": "Proofed",
+    "gd_id": "1x1lNPiqeCcnhEECZQ1nQIN6Un_XA0DHI",
+    "m": "final draft approved"
+  },
+  {
+    "name": "Ring Your Boner",
+    "gd_id": "1UalfMUu90x83YLOMzL2zFcpqQYfw6JKP",
+    "m": "crude phone call"
+  },
+  {
+    "name": "She Would Never Jazz You",
+    "gd_id": "1XK6FNnGn0z1hbrYsjS_1yueGDMCTf11x",
+    "m": "genre fidelity oath"
+  },
+  {
+    "name": "Smooch Delinquent",
+    "gd_id": "1i7mC8NTz7xLhX1ei7TOajo6aFLO7VXgK",
+    "m": "juvenile delinquent romance"
+  },
+  {
+    "name": "Then Time (For Work)",
+    "gd_id": "1qYUktkVFe7YQoEenTPhHS3XzLuVGSpx_",
+    "m": "clock-in industrial beat"
+  },
+  {
+    "name": "Turn Over Dom (Encore)",
+    "gd_id": "1DigQDvh3xb8wZ0cvu1TnTZsJRWSouVxT",
+    "m": "BDSM house encore"
+  },
+  {
+    "name": "Vogel (im Käfig)",
+    "gd_id": "1ngYJRGGtXkWVKwX6uyizf8FlrvpEapgp",
+    "m": "caged bird German"
+  },
+  {
+    "name": "What Do (You Want)",
+    "gd_id": "1SGphPbqN9cNinBIQFkBX0EMkwaBzRTu0",
+    "m": "post-punk question mark"
+  },
+  {
+    "name": "Your Call Is Important To Us",
+    "gd_id": "18WGfujQJourO5Dg34JhBD8sKsab8VLUx",
+    "m": "hold music satire"
+  }
+]
