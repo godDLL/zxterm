@@ -56,6 +56,7 @@ html,body{height:100%;font-family:'Space Grotesk',sans-serif;background:#e6e6e6;
 .tn{font-size:0.7rem;width:22px;text-align:center;color:#999;font-variant-numeric:tabular-nums;flex-shrink:0;margin-left:12px}
 .tn.instr{border:1px solid #0a0a0a;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;min-width:20px}
 .pli.on .tn.instr{border-color:#e6e6e6}
+.pli-pad{height:2.2rem;flex-shrink:0}
 
 .ti{flex:1;min-width:0;display:flex;align-items:center}
 .track-left{display:flex;align-items:center;flex:1;min-width:0;gap:8px}
@@ -230,7 +231,7 @@ const DEFAULT_ART='https://goddll.github.io/zxterm/tracks-bg_default.jpg';const 
 
 function cleanNameHeader(n){if(!n)return'';let r='',h=!1;for(let c of n){let cp=c.codePointAt(0),cat='',name='';try{cat=String.fromCodePoint(cp).charCodeAt(0)<128?'':String.fromCodePoint(cp);name=String.fromCodePoint(cp).charCodeAt(0)<128?'':c}catch(e){}if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=/\u2764|\u2763|\u2665|\u2661|\u1F493-\u1F49F|\u1F5A4|\u1F90D|\u1F90E|\u1F9E1/.test(c)||/HEART/.test(name);if(isHeart){r+='\u{1F5A4}';h=!1}else{r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\s+/g,' ').trim();return r}
 function cleanNamePlaylist(n){if(!n)return'';let r='',h=!1;for(let c of n){let cp=c.codePointAt(0);if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=(cp===0x2764||cp===0x2763||cp===0x2665||cp===0x2661||cp===0x1F493||cp===0x1F494||cp===0x1F495||cp===0x1F496||cp===0x1F497||cp===0x1F498||cp===0x1F499||cp===0x1F49A||cp===0x1F49B||cp===0x1F49C||cp===0x1F49D||cp===0x1F49E||cp===0x1F49F||cp===0x1F5A4||cp===0x1F90D||cp===0x1F90E||cp===0x1F9E1);if(isHeart){r+='\u{1F5A4}';h=!1}else if(cp>127&&!(cp>=0x30&&cp<=0x39||cp>=0x41&&cp<=0x5A||cp>=0x61&&cp<=0x7A||cp===0x20||cp===0x27||cp===0x2D||cp===0x26)){continue}else{r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\s+/g,' ').trim();return r}
-function load(x){
+function load(x,autoPlay=false){
   const tr=q[x];if(!tr)return;
   const wasPlaying=!audioPlayer.paused||(q[i]&&!isSuno(q[i]));
   i=x;sub('Loading...');
@@ -242,7 +243,7 @@ function load(x){
     const sp=sunoPage(tr);
     if(sp){sunoLinkBtn.href=sp;sunoLinkBtn.style.display='flex'}else{sunoLinkBtn.style.display='none'}
     stopGdriveSkip();
-    if(firstInteraction||wasPlaying){audioPlayer.play().catch(()=>{});firstInteraction=false;}
+    if(firstInteraction||wasPlaying||autoPlay){audioPlayer.play().catch(()=>{});firstInteraction=false;}
   }else{
     audioPlayer.pause();audioPlayer.src='';
     audioWrap.style.display='none';
@@ -255,8 +256,8 @@ function load(x){
   setTimeout(()=>{const it=l.querySelector('.on');if(it)it.scrollIntoView({behavior:'smooth',block:'nearest'})},50)
 }
 function play(x){load(x)}
-function next(){if(!q.length)return;if(i===-1){i=0}else{i=(i+1)%q.length}load(i)}
-function prev(){if(!q.length)return;if(i===-1){i=q.length-1}else{i=(i-1+q.length)%q.length}load(i)}
+function next(){if(!q.length)return;if(i===-1){i=0}else{i=(i+1)%q.length}load(i,true)}
+function prev(){if(!q.length)return;if(i===-1){i=q.length-1}else{i=(i-1+q.length)%q.length}load(i,true)}
 
 function shuf(){
   sh=!sh;shb.classList.toggle('on',sh);
@@ -269,10 +270,10 @@ function shuf(){
 function playFromRow(e,x){if(e.target.closest('.star-btn,.tm,.dur'))return;play(x)}
 function draw(){
   if(!q.length){let msg='No tracks configured.';if(showingStarsOnly&&showingInstrumentalsOnly)msg='No starred instrumental tracks.';else if(showingStarsOnly)msg='No starred tracks.';else if(showingInstrumentalsOnly)msg='No instrumental tracks.';l.innerHTML='<div class="empty">'+msg+'</div>';return}
-  l.innerHTML=q.map((tr,x)=>{
+  l.innerHTML='<div class="pli-pad"></div>'+q.map((tr,x)=>{
     const on=x===i,starred=isStarred(tr.suno_id||tr.gd_id),id=tr.suno_id||tr.gd_id,dur=tr.duration_sec?'<span class="dur">'+fmtDur(tr.duration_sec)+'</span>':'',isInstr=tr.has_vocal===false,numClass=isInstr?'tn instr':'tn';
     return'<div class="pli '+(on?'on ':'')+'" data-i="'+x+'" onclick="playFromRow(event,'+x+')"><span class="'+numClass+'">'+(x+1)+'</span><div class="ti"><div class="track-left"><button class="star-btn '+(starred?'starred':'')+'" data-id="'+id+'" onclick="toggleStar(this,event)">'+(starred?'★':'☆')+'</button><div style="flex:1;min-width:0;display:flex;align-items:center;"><div class="tnm">'+htm(cleanNamePlaylist(tr.name))+'</div></div></div></div><div class="tm">'+htm(tr.m)+'</div>'+dur+'</div>'
-  }).join('')
+  }).join('')+'<div class="pli-pad"></div>'
 }
 
 function getAudioUrl(tr){return tr.suno_id?'https://cdn1.suno.ai/'+tr.suno_id+'.mp3':null}
@@ -289,7 +290,7 @@ audioPlayer.addEventListener('error',e=>{console.error('Audio error:',e);if(q[i]
 let gdriveSkipTimer=null,gdriveCountdownInterval=null,gdriveSkipActive=false,gdriveTrackLoadTime=0;
 function resetGdriveSkip(){if(!gdriveSkipActive)return;gdriveSkipActive=false;clearTimeout(gdriveSkipTimer);clearInterval(gdriveCountdownInterval);gdriveSkipTimer=null;gdriveCountdownInterval=null;s.textContent='Stopped.';}
 function checkGdriveSkip(){if(gdriveSkipActive&&q[i]&&!isSuno(q[i]))next()}
-function updateSkipDisplay(){if(!gdriveSkipActive||!q[i]||isSuno(q[i])){clearInterval(gdriveCountdownInterval);gdriveCountdownInterval=null;return}const rem=Math.max(0,Math.ceil((10000-(Date.now()-gdriveTrackLoadTime))/1000));if(rem<=0){s.textContent='Skipping...';clearInterval(gdriveCountdownInterval);gdriveCountdownInterval=null;return}s.textContent='Streaming from Google Drive • skip in '+rem+'s'}
+function updateSkipDisplay(){if(!gdriveSkipActive||!q[i]||isSuno(q[i])){clearInterval(gdriveCountdownInterval);gdriveCountdownInterval=null;return}const rem=Math.max(0,Math.ceil((10000-(Date.now()-gdriveTrackLoadTime))/1000));if(rem<=0){s.textContent='Skipping...';clearInterval(gdriveCountdownInterval);gdriveCountdownInterval=null;return}s.textContent='Streaming from Google Drive • skip in  '+rem}
 function startGdriveSkip(){clearTimeout(gdriveSkipTimer);clearInterval(gdriveCountdownInterval);gdriveSkipActive=true;gdriveTrackLoadTime=Date.now();gdriveSkipTimer=setTimeout(checkGdriveSkip,10000);gdriveCountdownInterval=setInterval(updateSkipDisplay,200);updateSkipDisplay()}
 function stopGdriveSkip(){clearTimeout(gdriveSkipTimer);clearInterval(gdriveCountdownInterval);gdriveSkipTimer=null;gdriveCountdownInterval=null;gdriveSkipActive=false;}
 document.addEventListener('mousemove',resetGdriveSkip);
@@ -349,6 +350,6 @@ coverArt.addEventListener('wheel',(e)=>{e.preventDefault();const d=e.deltaY>0?-0
 coverArt.addEventListener('click',()=>{if(i===-1&&q.length){load(0);return}if(q[i]&&isSuno(q[i])){if(audioPlayer.paused){audioPlayer.play().catch(()=>{})}else{audioPlayer.pause()}}else if(q[i]&&!isSuno(q[i])){sub('Google Drive preview cannot be paused');setTimeout(()=>sub('Streaming from Google Drive • skip in '+Math.max(0,Math.ceil((10000-(Date.now()-gdriveTrackLoadTime))/1000))+'s'),1200)}});
 
 </script>
-<div class="shortcuts-modal" id="shortcutsModal"><div class="shortcuts-box" onclick="event.stopPropagation()"><h2>Keyboard Shortcuts</h2><div class="dismiss">click or scroll on the artwork<br>to adjust volume or pause<br>&nbsp;</div><table><tr><td><span class="keycap">Space</span><span class="keycap">.</span><span class="keycap">c</span></td><td>Next track</td></tr><tr><td><span class="keycap">,</span><span class="keycap">z</span></td><td>Previous track</td></tr><tr><td><span class="keycap">/</span><span class="keycap">v</span></td><td>Shuffle toggle</td></tr><tr><td><span class="keycap">b</span><span class="keycap">\</span></td><td>Toggle playlist</td></tr><tr><td><span class="keycap">x</span><span class="keycap">Enter</span></td><td>Pause / Play (Suno)</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">?</span></td><td>Show this help</td></tr></table><div class="dismiss">click anywhere or press any key to dismiss</div></div></div>
+<div class="shortcuts-modal" id="shortcutsModal"><div class="shortcuts-box" onclick="event.stopPropagation()"><h2>Keyboard Shortcuts</h2><div class="dismiss">click or scroll on the artwork<br>to adjust volume or pause<br>&nbsp;</div><table><tr><td><span class="keycap">Space</span><span class="keycap">.</span><span class="keycap">c</span></td><td>Next track</td></tr><tr><td><span class="keycap">,</span><span class="keycap">z</span></td><td>Previous track</td></tr><tr><td><span class="keycap">/</span><span class="keycap">v</span></td><td>Shuffle toggle</td></tr><tr><td><span class="keycap">x</span><span class="keycap">Enter</span></td><td>Pause / Play (Suno)</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">?</span></td><td>Show this help</td></tr></table><div class="dismiss">click anywhere or press any key to dismiss</div></div></div>
 </body>
 </html>
