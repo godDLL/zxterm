@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <title>aTribute MUSIC Player</title>
+<link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEv0lEQVR4nMWXXW/aShCGn12vvwMhyQkU1EqtFFW57///H7moqlYkDaKFArbB2N7dc0HYlgM0SU90zlzZ3q933pl5dyw+fPhg+R9NvuRmnufh+z5CiP8egBCCq6srrq+v8X0fz/Ow9nFyXwyAlBKlFEEQkKYp79+/ZzAYuPFjYF4MQBAEKKWw1tLv90mShHa77caPheVJAI6h33631tLpdFBKARBFEQCTyfedOYdMPQXAMfTb71EUcXl5ibV2Z24QhI/u8WQGrLUopeh2u8Rx7A6TUtLpdFz2G2NYLpcAnJ6eOlaO2W9HgyCg1+thrWU+nyOl5M2bN9zf31OWJUopPM+j1WoBYIxhNBq5tXEck6Yp8/n8KANHAXiex9u3b93mvV6Pqqqw1qK1JgxDpJQEQeBi3jQNrVaLNE2BDe3bdavV6iCIoyHwfR+wNE3jEigIAoQQhGFIFEXEcczFxcXD3M34FrAQAmst7Xab6+tr+v3+wYQ8yIAQgqZpGA5vOT09pdvt4vs+xhiklLTbbbTWdDodoijay3Apf/plrcXzPOI4Pujo0RCEYUiSJCilqOt6R2J933ee/3r4YrGgKHImkylhGNJut7i4+AulFJ1Oh263y7dv33ZCcRDA5eUl/f4rpPSQUjIcDpnNZgwGA5qmoWmaHc+FEHz69Ik0Tel0ztDaEMcxWmtGoxFxHHNyckLTNI8zkKYpr1+/djGETTmNx2OMMZtFv5SWEIKbmxtOTlJ6vR4Ag8GA8Xjs3suyZD6fU5blHoC9JDw/Pwd+1n5ZloRhyLt371ydby8aIQSj0QilFK9e9d26rT5s9cD3fbrdLoPBYK8SdhiQUpKmqZtU1zVKKYQQ1HVNXdfAJtutteR5jtaaq6sr8jxHCEGSxAix8Ws0GtFut4jjBM/zHmfAWosxG9rX6zVVVVHXNVJKoiiiqtaEYeioL4rCCVWapkgpmUymZFnGarViuVxyfz8iz3OiKOLHjx97FaN+pc0YQ11XwEbVkiRxItI0DUr5BEGA1pr5fEYQBHie5/IljmOklOR5RlEUaK0B+Pr1K0mSkCSJC8sOgC3lQghmsxmtVgtjDHmeY62lrmu01pyfn7NcLsnzHCklJycxq9WKMAxdXgRBQFXVVFWFMcY5p7XG87y9EOxVQZZlTKdTzs7OiOOYpmmc0hmjqarKyW8URQ+sbQD6vo/WmizLaJrGOWatZTgcuhw6mgOw0fP5fE4QBGRZhtYarTdyLKX3QLt0zYeUEiEEZblCa/0gRsVeth86/CCALQuTyQTf9wnDEGs3pfRT80OEEDt5k6YnLmzb2D/Fjl5Gw+HQKdf21quq6uE5xBiDMYaiKAjDCCklZVkynU5fpiveyuhqVTrPhRAEQQBsmpP1ek0URXieR13X3N3dPcv73wIAKIqC6XTiVNH3faSUWGtZLBZUVeWAfP78maIogOP93yH7bUdkjOH79+8kSfIgRBVN0zg53tb/ly9fyLLMvb/oj4kxhru7O1d+W6+3/f/t7S2LxWJHS55jT2pK67rm48ePlGXpmhClFLe3t4zH450G5Ln2pLYcYLVacXNzQ6vVQgjBcrlkvV4/2+M/BgCbypjNZv/qwH/ai/4d/4n9DclngW2CPwqDAAAAAElFTkSuQmCC">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html,body{height:100%;font-family:'Space Grotesk',sans-serif;background:#e6e6e6;color:#0a0a0a;-webkit-font-smoothing:antialiased}
@@ -13,7 +14,7 @@ html,body{height:100%;font-family:'Space Grotesk',sans-serif;background:#e6e6e6;
 /* Left: Cover Art, controls, links */
 .left{width:45%;background:#dcdcdc;display:flex;flex-direction:column;align-items:stretch;padding:24px 28px;border-right:1px solid #0a0a0a;overflow-y:auto;position:relative;min-height:0}
 .brand-top{align-self:flex-start;margin-bottom:2rem;background:#ff8c00;border:1px solid #0a0a0a;color:#0a0a0a;padding:5px 14px;font-family:inherit;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer}
-.cover{width:100%;aspect-ratio:1;background:#c8c8c8;background-size:cover;background-position:center;border:1px solid #0a0a0a;align-self:center;margin-bottom:0.5rem;cursor:ns-resize}
+.cover{width:100%;aspect-ratio:1;background-color:#c8c8c8;background-image:url(https://goddll.github.io/zxterm/tracks-bg_default.jpg);background-size:cover;background-position:center;border:1px solid #0a0a0a;align-self:center;margin-bottom:0.5rem;cursor:pointer}
 
 /* Right: Playlist */
 .right{width:55%;display:flex;flex-direction:column;padding:0;overflow:hidden;min-height:0}
@@ -122,7 +123,7 @@ html,body{height:100%;font-family:'Space Grotesk',sans-serif;background:#e6e6e6;
 
     <div class="cover" id="coverArt"></div>
     <div class="header">
-      <div class="title" id="t"><em>loading...</em></div>
+      <div class="title" id="t"><em>select a track or press</em> [Space]</div>
       <div class="subtitle" id="s">Select a track</div>
     </div>
     <div class="player">
@@ -150,9 +151,9 @@ html,body{height:100%;font-family:'Space Grotesk',sans-serif;background:#e6e6e6;
       </div>
     </div>
     <div class="bottom-info" style="justify-content:center">
-        <a onclick="downloadSelf()">download</a>
-        last updated May 23, 2026
-        <a href="https://kimi.com" target="_blank" class="kimi-link" title="Kimi can code. Hi, it's Kimi! It was fun!">made with Kimi</a>
+        <a onclick="downloadSelf()" title="Download this file!">download</a>
+        last updated May 24, 2026
+        <a href="https://kimi.com" target="_blank" class="kimi-link" title="Kimi can code. It was fun!">made with Kimi</a>
         <button class="help-btn" title="Keyboard shortcuts" onclick="showShortcuts()">&nbsp;?&nbsp;</button>
     </div>
   </div>
@@ -202,11 +203,9 @@ async function loadTracks(){
     }));
     sub('Loaded '+data.length+' tracks');
     if(data.length>0){
-      setT(data[0].name);
-      setBgArtwork(DEFAULT_ART);
       buildQueue();
       draw();
-      if(q.length){const tr=q[0];i=0;if(isSuno(tr)){audioWrap.style.display='block';audioPlayer.src=getAudioUrl(tr);audioPlayer.load();sunoLinkBtn.href=sunoPage(tr);sunoLinkBtn.style.display='flex';stopGdriveSkip()}else{gdPlayer.style.display='block';gdPlayer.src=gdUrl(tr.gd_id);audioWrap.style.display='none';sunoLinkBtn.style.display='none';startGdriveSkip()}setT(tr.name);draw()}
+      sub(data.length+' tracks loaded');
     }
   }catch(e){
     console.error('loadTracks',e);
@@ -216,7 +215,7 @@ async function loadTracks(){
 }
 
 loadTracks();
-let q=[],i=0,sh=false;
+let q=[],i=-1,sh=false,firstInteraction=true;
 const gdPlayer=document.getElementById('gdPlayer'),audioPlayer=document.getElementById('audioPlayer'),audioWrap=document.getElementById('audioWrap'),l=document.getElementById('l'),s=document.getElementById('s'),shb=document.getElementById('sh'),t=document.getElementById('t'),sunoLinkBtn=document.getElementById('sunoLinkBtn'),coverArt=document.getElementById('coverArt');
 audioPlayer.volume=0.5001;
 
@@ -227,33 +226,37 @@ function shf(a){const b=[...a];for(let j=b.length-1;j>0;j--){const k=Math.floor(
 let breatheTimer=null;
 function sub(m){s.textContent=m;if(breatheTimer){clearTimeout(breatheTimer);breatheTimer=null;}s.classList.remove('breathe');void s.offsetWidth;if(m&&m.startsWith('Streaming')){s.classList.add('breathe');breatheTimer=setTimeout(()=>{s.classList.remove('breathe');breatheTimer=null},60000)}else{s.classList.add('status-blink');setTimeout(()=>s.classList.remove('status-blink'),220)}}
 
-const DEFAULT_ART='https://goddll.github.io/zxterm/tracks-bg_default.jpg';const NO_COVER_ART='https://goddll.github.io/zxterm/tracks-no_cover.jpg';function setBgArtwork(url){if(!url){coverArt.style.backgroundImage='url('+NO_COVER_ART+')';return}const img=new Image();img.onload=()=>{coverArt.style.backgroundImage='url('+url+')'};img.onerror=()=>{coverArt.style.backgroundImage='url('+NO_COVER_ART+')'};img.src=url}
+const DEFAULT_ART='https://goddll.github.io/zxterm/tracks-bg_default.jpg';const NO_COVER_ART='https://goddll.github.io/zxterm/tracks-no_cover.jpg';let currentBgUrl=null;function setBgArtwork(url){currentBgUrl=url;if(!url){coverArt.style.backgroundImage='url('+NO_COVER_ART+'), url('+DEFAULT_ART+')';return}const img=new Image();img.onload=()=>{if(currentBgUrl===url)coverArt.style.backgroundImage='url('+url+'), url('+DEFAULT_ART+')'};img.onerror=()=>{if(currentBgUrl===url)coverArt.style.backgroundImage='url('+NO_COVER_ART+'), url('+DEFAULT_ART+')'};img.src=url}
 
 function cleanNameHeader(n){if(!n)return'';let r='',h=!1;for(let c of n){let cp=c.codePointAt(0),cat='',name='';try{cat=String.fromCodePoint(cp).charCodeAt(0)<128?'':String.fromCodePoint(cp);name=String.fromCodePoint(cp).charCodeAt(0)<128?'':c}catch(e){}if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=/\u2764|\u2763|\u2665|\u2661|\u1F493-\u1F49F|\u1F5A4|\u1F90D|\u1F90E|\u1F9E1/.test(c)||/HEART/.test(name);if(isHeart){r+='\u{1F5A4}';h=!1}else{r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\s+/g,' ').trim();return r}
 function cleanNamePlaylist(n){if(!n)return'';let r='',h=!1;for(let c of n){let cp=c.codePointAt(0);if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=(cp===0x2764||cp===0x2763||cp===0x2665||cp===0x2661||cp===0x1F493||cp===0x1F494||cp===0x1F495||cp===0x1F496||cp===0x1F497||cp===0x1F498||cp===0x1F499||cp===0x1F49A||cp===0x1F49B||cp===0x1F49C||cp===0x1F49D||cp===0x1F49E||cp===0x1F49F||cp===0x1F5A4||cp===0x1F90D||cp===0x1F90E||cp===0x1F9E1);if(isHeart){r+='\u{1F5A4}';h=!1}else if(cp>127&&!(cp>=0x30&&cp<=0x39||cp>=0x41&&cp<=0x5A||cp>=0x61&&cp<=0x7A||cp===0x20||cp===0x27||cp===0x2D||cp===0x26)){continue}else{r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\s+/g,' ').trim();return r}
 function load(x){
-  const tr=q[x];if(!tr)return;i=x;sub('Loading...');
+  const tr=q[x];if(!tr)return;
+  const wasPlaying=!audioPlayer.paused||(q[i]&&!isSuno(q[i]));
+  i=x;sub('Loading...');
   if(isSuno(tr)){
     gdPlayer.style.display='none';gdPlayer.src='';
     audioWrap.style.display='block';
     audioPlayer.src=getAudioUrl(tr);audioPlayer.load();
-    setBgArtwork(tr.artwork||null)
+    setBgArtwork(tr.artwork||null);
     const sp=sunoPage(tr);
     if(sp){sunoLinkBtn.href=sp;sunoLinkBtn.style.display='flex'}else{sunoLinkBtn.style.display='none'}
-    stopGdriveSkip()
+    stopGdriveSkip();
+    if(firstInteraction||wasPlaying){audioPlayer.play().catch(()=>{});firstInteraction=false;}
   }else{
     audioPlayer.pause();audioPlayer.src='';
     audioWrap.style.display='none';
     gdPlayer.style.display='block';gdPlayer.src=gdUrl(tr.gd_id);
-    setBgArtwork(NO_COVER_ART);sunoLinkBtn.style.display='none'
-    startGdriveSkip()
+    setBgArtwork(NO_COVER_ART);sunoLinkBtn.style.display='none';
+    startGdriveSkip();
+    firstInteraction=false;
   }
   setT(tr.name);draw();
   setTimeout(()=>{const it=l.querySelector('.on');if(it)it.scrollIntoView({behavior:'smooth',block:'nearest'})},50)
 }
 function play(x){load(x)}
-function next(){if(!q.length)return;i=(i+1)%q.length;load(i)}
-function prev(){if(!q.length)return;i=(i-1+q.length)%q.length;load(i)}
+function next(){if(!q.length)return;if(i===-1){i=0}else{i=(i+1)%q.length}load(i)}
+function prev(){if(!q.length)return;if(i===-1){i=q.length-1}else{i=(i-1+q.length)%q.length}load(i)}
 
 function shuf(){
   sh=!sh;shb.classList.toggle('on',sh);
@@ -277,8 +280,9 @@ function isSuno(tr){return!!tr.suno_id}
 function sunoPage(tr){return tr.suno_id?'https://suno.com/song/'+tr.suno_id:null}
 
 gdPlayer.addEventListener('load',()=>{if(gdriveSkipActive)updateSkipDisplay()});
-audioPlayer.addEventListener('loadedmetadata',()=>{if(q[i]&&isSuno(q[i]))sub('Streaming from Suno')});
-audioPlayer.addEventListener('canplay',()=>{if(q[i]&&isSuno(q[i])){audioPlayer.play().then(()=>sub('Streaming from Suno')).catch(()=>sub('Click play or [X] to stream music'))}});
+audioPlayer.addEventListener('loadedmetadata',()=>{if(q[i]&&isSuno(q[i]))sub('Loaded from Suno')});
+audioPlayer.addEventListener('canplay',()=>{if(q[i]&&isSuno(q[i]))sub('Ready to play — press cover or [X]')});
+audioPlayer.addEventListener('playing',()=>{if(q[i]&&isSuno(q[i]))sub('Streaming from Suno')});
 audioPlayer.addEventListener('ended',next);
 audioPlayer.addEventListener('error',e=>{console.error('Audio error:',e);if(q[i]&&isSuno(q[i])){const src=audioPlayer.src;audioPlayer.src='';setTimeout(()=>{audioPlayer.src=src;audioPlayer.load()},500);sub('Retrying Suno stream...')}});
 
@@ -308,7 +312,7 @@ function downloadSelf(){
   const a=document.createElement('a');a.href=url;a.download='atribute-music-player.html';document.body.appendChild(a);a.click();document.body.removeChild(a);URL.revokeObjectURL(url)
 }
 
-buildQueue();draw();if(q.length)load(0);
+buildQueue();draw();
 
 function showShortcuts(){const m=document.getElementById('shortcutsModal');m.classList.add('on');document.addEventListener('keydown',hideShortcutsOnKey,{once:true});setTimeout(()=>document.addEventListener('click',hideShortcutsOnClick,{once:true}),0)}
 function hideShortcuts(){const m=document.getElementById('shortcutsModal');m.classList.remove('on');}
@@ -325,6 +329,7 @@ document.addEventListener('keydown',(e)=>{
   if(k===','||k==='<'||k==='z'||k==='Z'){prev();return}
   if(k==='/'||k==='v'||k==='V'){shuf();return}
   if(k==='x'||k==='X'||k==='Enter'||k==='Return'){
+    if(i===-1&&q.length){load(0);return}
     if(q[i]&&isSuno(q[i])){
       if(audioPlayer.paused){audioPlayer.play().catch(()=>{})}
       else{audioPlayer.pause()}
@@ -341,8 +346,9 @@ document.addEventListener('keydown',(e)=>{
 });
 
 coverArt.addEventListener('wheel',(e)=>{e.preventDefault();const d=e.deltaY>0?-0.09:0.11;audioPlayer.volume=Math.max(0,Math.min(1,Math.round((audioPlayer.volume+d)*100)/100));sub('Volume '+Math.round(audioPlayer.volume*100)+'%')});
+coverArt.addEventListener('click',()=>{if(i===-1&&q.length){load(0);return}if(q[i]&&isSuno(q[i])){if(audioPlayer.paused){audioPlayer.play().catch(()=>{})}else{audioPlayer.pause()}}else if(q[i]&&!isSuno(q[i])){sub('Google Drive preview cannot be paused');setTimeout(()=>sub('Streaming from Google Drive • skip in '+Math.max(0,Math.ceil((10000-(Date.now()-gdriveTrackLoadTime))/1000))+'s'),1200)}});
 
 </script>
-<div class="shortcuts-modal" id="shortcutsModal"><div class="shortcuts-box" onclick="event.stopPropagation()"><h2>Keyboard Shortcuts</h2><table><tr><td><span class="keycap">Space</span><span class="keycap">.</span><span class="keycap">c</span></td><td>Next track</td></tr><tr><td><span class="keycap">,</span><span class="keycap">z</span></td><td>Previous track</td></tr><tr><td><span class="keycap">/</span><span class="keycap">v</span></td><td>Shuffle toggle</td></tr><tr><td><span class="keycap">b</span><span class="keycap">\</span></td><td>Toggle playlist</td></tr><tr><td><span class="keycap">x</span><span class="keycap">Enter</span></td><td>Pause / Play (Suno)</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">?</span></td><td>Show this help</td></tr></table><div class="dismiss">click anywhere or press any key to dismiss</div></div></div>
+<div class="shortcuts-modal" id="shortcutsModal"><div class="shortcuts-box" onclick="event.stopPropagation()"><h2>Keyboard Shortcuts</h2><div class="dismiss">click or scroll on the artwork<br>to adjust volume or pause<br>&nbsp;</div><table><tr><td><span class="keycap">Space</span><span class="keycap">.</span><span class="keycap">c</span></td><td>Next track</td></tr><tr><td><span class="keycap">,</span><span class="keycap">z</span></td><td>Previous track</td></tr><tr><td><span class="keycap">/</span><span class="keycap">v</span></td><td>Shuffle toggle</td></tr><tr><td><span class="keycap">b</span><span class="keycap">\</span></td><td>Toggle playlist</td></tr><tr><td><span class="keycap">x</span><span class="keycap">Enter</span></td><td>Pause / Play (Suno)</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">[</span><span class="keycap">]</span><span class="keycap">−</span><span class="keycap">=</span></td><td>Volume +11% / –9%</td></tr><tr><td><span class="keycap">?</span></td><td>Show this help</td></tr></table><div class="dismiss">click anywhere or press any key to dismiss</div></div></div>
 </body>
 </html>
