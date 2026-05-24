@@ -1,11 +1,25 @@
-[
+[  
+  {
+    "name": "Hit Her (More Than That)",
+    "suno_id": "a839b97a-90c2-48d0-b7a0-3c9db0ffb006",
+    "gd_id": "1I4W7s2h0syRBGBxhm8qWzvv-yBE_OzoQ",
+    "has_vocal": true,
+    "m": ""
+  },
+  {
+    "name": "Forever Lost (The Number)",
+    "suno_id": "f6d04e29-32b0-436c-a894-baac20a1a247",
+    "gd_id": "16i5iBYOjnJnNlHHhNPorPGvyCVGDzw4g",
+    "has_vocal": false,
+    "m": ""
+  },
   {
     "name": "(Gut Her) On The Beard Also",
     "suno_id": "c6baa969-96a0-47cb-966d-ad1df5caa3f9",
     "gd_id": "1lHZ9IYzjLKL0v0-iJIpeZBLJsLMEuPDY",
     "artwork": "0d809ab5-3b24-4c80-a00c-687cd121b9ed.jpeg",
     "has_vocal": false,
-    "m": "glitch-hop bass drop • cl0wncore house, industrial jazz fusion"
+    "m": ""
   },
   {
     "name": "Whisper Underneath 🥁",
@@ -13,7 +27,7 @@
     "gd_id": "1yJI-3xTi_RECzQWX6gWDjSjsGl2lkrFr",
     "artwork": "258394c5-a637-46c9-9d99-4bb67b7e070e.jpeg",
     "has_vocal": true,
-    "m": "glitch-hop bass drop • cl0wncore house, industrial jazz fusion"
+    "m": ""
   },
   {
     "name": "🥁 Quebienx",
@@ -21,7 +35,7 @@
     "gd_id": "13Eo1ip5owOyI3nAnzdepAeY5OpFyWFsY",
     "artwork": "d5fedb28-5021-4059-a261-3550ff26bae6.jpeg",
     "duration_sec": 138.96,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "glitch-hop bass drop • cl0wncore house, industrial jazz fusion",
     "created_at": "2026-05-21T06:52:55.185Z"
   },
@@ -41,7 +55,7 @@
     "gd_id": "1mSiWpuvSgUpMrEQ8VjUOCYhdK-XK0pDE",
     "artwork": "343cf259-f3fc-442e-be71-f69e1a2b5576.jpeg",
     "duration_sec": 282.76,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "gospel techno fusion • synthwave, cl0wncore trance",
     "created_at": "2026-05-16T08:34:05.232Z"
   },
@@ -81,7 +95,7 @@
     "gd_id": "1gFaRwoKX3gC3xMpFrmVNiI8wZB29NirQ",
     "artwork": "eb658123-8953-46fb-bdbd-6c1a04244196.jpeg",
     "duration_sec": 252.52,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "jazz, mallcore",
     "created_at": "2026-05-13T08:19:35.759Z"
   },
@@ -131,7 +145,7 @@
     "gd_id": "1ljReeOW6IhMIuhsGgqdQ9WzUZHv-dZvu",
     "artwork": "1c8646b8-c7ae-4f52-8372-d17cf79a63a9.jpeg",
     "duration_sec": 280.28,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "android love encore • instrumental, jazz, mallcore, cl0wncore",
     "created_at": "2026-04-28T07:07:14.905Z"
   },
@@ -141,7 +155,7 @@
     "gd_id": "1vJ-KTRX18sG9Cd9pWN6fQUFxs4tJmzfJ",
     "artwork": "0bb4fa73-b949-43ec-9667-ce823ce7f395.jpeg",
     "duration_sec": 196.24,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "gothic baroque interlude • breakcore, classical, cl0wncore",
     "created_at": "2026-04-25T09:27:23.506Z"
   },
@@ -151,7 +165,7 @@
     "gd_id": "12klrnP0wYF09L91N4oWa_5WKa_Cr8AuI",
     "artwork": "03831f38-3292-4822-81e9-0044e86d8026.jpeg",
     "duration_sec": 167.32,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "text message breakup • cl0wncore house, disco swing",
     "created_at": "2026-04-21T08:43:38.795Z"
   },
@@ -277,7 +291,7 @@
     "gd_id": "1Z5ifqLjJgD_Catwt14pWhJgc1hzmGrlQ",
     "artwork": "5a7e2d70-28d4-4891-b9ef-59de9ed70aad.jpeg",
     "duration_sec": 234.2,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "grind culture banger",
     "created_at": "2026-03-26T18:46:42.444Z"
   },
@@ -287,7 +301,7 @@
     "gd_id": "1Hju95zu1MsTMm7DfcQCqbrc5s2mm34Tt",
     "artwork": "video_upload_336a7e56-999f-4b37-acdf-bcf1fc3a38c5_video_upload_336a7e56-999f-4b37-acdf-bcf1fc3a38c5_cover_snapshot_0s_1774819001_image.jpeg",
     "duration_sec": 187.84,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "lo-fi folk sketch",
     "created_at": "2026-03-26T17:35:18.169Z"
   },
@@ -307,7 +321,7 @@
     "gd_id": "1tCTnQed8lsOPN9GhoUdsykZ1tNdt_5l9",
     "artwork": "ae780b7c-3edd-4e37-b252-ff2ebf67542a.jpeg",
     "duration_sec": 286.4,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "nostalgia chip tune",
     "created_at": "2026-03-25T17:08:46.816Z"
   },
@@ -317,7 +331,7 @@
     "gd_id": "1bc7L0WYci4E7VTc7qIhaM9sdsUHbM_mD",
     "artwork": "69c76f50-031c-4e82-bc52-ff55e4099940.jpeg",
     "duration_sec": 152.72,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "covert ops synth",
     "created_at": "2026-03-25T16:16:16.849Z"
   },
@@ -337,7 +351,7 @@
     "gd_id": "1t8AOzJAKraGv4RnJ08n2dlXLKTvpJ8Vy",
     "artwork": "99050255-df36-46bb-b301-09b965fca512.jpeg",
     "duration_sec": 263.12,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "heirloom timepiece elegy",
     "created_at": "2026-03-25T12:54:14.457Z"
   },
@@ -347,7 +361,7 @@
     "gd_id": "1FwmYHqrda9LPDJ42pnIeNAypRTVS_7A1",
     "artwork": "b38d0245-abcb-4a5c-b439-499a9956af87.jpeg",
     "duration_sec": 162.4799791667,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "dubstep, rough jazz",
     "created_at": "2026-03-25T12:07:42.291Z"
   },
@@ -357,7 +371,7 @@
     "gd_id": "1dHOH6TOOQsOgXDNW2AaGnSUA8l89CvHy",
     "artwork": "image_d06c3cac-65a0-4ce7-82a4-31f26478416f.jpeg",
     "duration_sec": 317.32,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "dawn after regret",
     "created_at": "2026-03-25T11:05:30.880Z"
   },
@@ -367,7 +381,7 @@
     "gd_id": "1EK3YICCX7-S1JB071WEbqrOLXHSYMbVK",
     "artwork": "5fcfaac0-0943-4356-86fd-dfb50ea80224.jpeg",
     "duration_sec": 211.12,
-    "has_vocal": true,
+    "has_vocal": false,
     "m": "noise collage explosion",
     "created_at": "2026-03-25T10:36:58.401Z"
   },
