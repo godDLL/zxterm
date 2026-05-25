@@ -21,7 +21,8 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
 .pane-right.dimmed{background-color:#cfcdc9}
 
 /* ── FRONT: Player face ── */
-.front-inner{flex:1;display:flex;flex-direction:column;padding:2rem 24px 20px;overflow-y:auto}
+.front-inner{flex:1;display:flex;flex-direction:column;padding:2rem 24px 20px;overflow-y:auto;scrollbar-width:none}
+.front-inner::-webkit-scrollbar{display:none}
 .brand-top{align-self:flex-start;margin-bottom:1.4rem;background:#1e1e2e;border:1px solid #2a2a3e;color:#fffefb;padding:5px 14px;font-family:'Space Grotesk',sans-serif;font-size:0.65rem;text-transform:uppercase;letter-spacing:0.08em;cursor:pointer;font-weight:600;border-radius:8px}
 .brand-top:hover{background:#d95700;color:#fff;border-color:#d95700}
 .cover{width:88%;aspect-ratio:1;background-color:#e8e6e1;background-image:url(https://goddll.github.io/zxterm/tracks-bg_default.jpg);background-size:cover;background-position:center;border:1px solid #ddd8d0;border-radius:12px;align-self:center;margin-top:2vh;margin-bottom:0.8rem;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.08)}
@@ -30,7 +31,10 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
 .title{font-size:1.3rem;font-weight:600;font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;line-height:1.15;word-break:break-word;color:#1e1e2e}
 .subtitle{font-size:0.6rem;color:#8b8680;text-transform:uppercase;letter-spacing:0.1em;margin-top:4px;font-weight:500;font-family:'Inter',sans-serif}
 
-.player{margin-bottom:12px;width:100%}
+.player{margin-bottom:12px;width:100%;position:relative}
+.big-play-btn{width:100%;height:56px;border:1px solid #ddd8d0;background:#f5f3ef;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.big-play-btn:hover{background:#1e1e2e;border-color:#1e1e2e;color:#fff}
+.big-play-btn svg{fill:currentColor}
 .pf{display:block;width:100%;height:56px;border:1px solid #ddd8d0;background:#f5f3ef;border-radius:8px}
 #audioWrap{width:100%}
 #audioPlayer{display:block;width:100%;height:40px;border-radius:8px}
@@ -120,10 +124,11 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
 .back-footer a{color:#b0aba5;text-decoration:none;border-bottom:1px solid #e8e4dc;cursor:pointer;font-weight:500}
 .back-footer a:hover{color:#d95700;border-color:#d95700}
 
-.playlist::-webkit-scrollbar{width:6px}
-.playlist::-webkit-scrollbar-track{background:transparent}
-.playlist::-webkit-scrollbar-thumb{background:#e8e4dc;border-radius:3px}
+.playlist::-webkit-scrollbar{width:10px}
+.playlist::-webkit-scrollbar-track{background:#f0ece6;border-radius:5px}
+.playlist::-webkit-scrollbar-thumb{background:#c4c0ba;border-radius:5px}
 .playlist::-webkit-scrollbar-thumb:hover{background:#d95700}
+.playlist{scrollbar-width:thin;scrollbar-color:#c4c0ba #f0ece6}
 
 @keyframes titleSwap{0%{transform:translateY(-4px) scale(1.02)}100%{transform:translateY(0) scale(1)}}
 .title-swap{animation:titleSwap 280ms cubic-bezier(0.22,1,0.36,1)}
@@ -133,9 +138,10 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
 .breathe{animation:breathe 6s ease-in-out infinite}
 
 /* ── UP NEXT ── */
-.up-next{margin-top:24px;padding-top:6px;display:flex;align-items:center;gap:10px}.up-next-left{flex-shrink:0}
+.up-next{margin-top:24px;padding-top:6px;display:flex;align-items:flex-start;gap:10px}.up-next-left{flex-shrink:0;padding-top:6px}
 .up-next-label{font-size:0.6rem;color:#b0aba5;text-transform:uppercase;letter-spacing:0.12em;font-weight:600;font-family:'Inter',sans-serif}
-.up-next-card{flex:1;display:flex;align-items:center;gap:10px;padding:6px 8px;background:#faf8f5;border:1px solid #e8e4dc;border-radius:8px;cursor:pointer;transition:background .1s,border-color .1s;min-width:0}
+.up-next-list{flex:1;display:flex;flex-direction:column;gap:8px}
+.up-next-card{display:flex;align-items:center;gap:10px;padding:6px 8px;background:#faf8f5;border:1px solid #e8e4dc;border-radius:8px;cursor:pointer;transition:background .1s,border-color .1s;min-width:0}
 .up-next-card:hover{background:#fde8ec;border-color:#d95700}
 .up-next-thumb{width:54px;height:54px;border-radius:6px;background-color:#e8e6e1;background-size:cover;background-position:center;border:1px solid #ddd8d0;flex-shrink:0}
 .up-next-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:1px}
@@ -158,6 +164,8 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
   .pane-left{width:100%;max-width:none;display:block;height:auto}
   .front-inner{display:block;overflow-y:visible;flex:none;height:auto}
   .pane-right{width:100%;flex:1;min-height:50vh}
+  .back-controls{flex-wrap:wrap}
+  .back-ctrl-right{margin-left:0;width:100%;justify-content:flex-start;padding-top:6px;border-top:1px solid #e8e4dc;margin-top:6px}
   .tm{display:none}
 }
 
@@ -188,6 +196,9 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
             <div class="subtitle" id="s">Select a track</div>
           </div>
           <div class="player">
+            <button id="playBtn" class="big-play-btn" onclick="next()" title="Play [Space]">
+              <svg viewBox="0 0 24 24" width="48" height="48"><path d="M8 5v14l11-7z"/></svg>
+            </button>
             <iframe id="gdPlayer" class="pf" src="" allow="autoplay; encrypted-media" style="display:none" scrolling="no"></iframe>
             <div id="audioWrap" style="display:none;width:100%;">
               <div class="audio-row">
@@ -198,30 +209,12 @@ html,body{height:100%;font-family:'Inter',sans-serif;background:#0c0c1d;color:#1
               </div>
             </div>
           </div>
-          <div class="controls">
-            <div class="ctrl-left">
-              <button onclick="prev()">prev</button>
-              <button onclick="next()" class="next-btn">next</button>
-            </div>
-            <div class="ctrl-center">
-              <button onclick="shuf()" id="sh">shuffle</button>
-            </div>
-            <div class="ctrl-right">
-              <button onclick="toggleInstr()" id="instrBtn" title="Instrumentals only">instr</button>
-              <button onclick="toggleViewStar()" id="viewStar" title="Show starred only">star</button>
-            </div>
-          </div>
+
           <div class="up-next" id="upNext" style="display:none">
             <div class="up-next-left">
               <div class="up-next-label">Up next</div>
             </div>
-            <div class="up-next-card" onclick="const it=l.querySelector('.on');if(it)it.scrollIntoView({behavior:'smooth',block:'nearest'})">
-              <div class="up-next-thumb" id="upNextThumb"></div>
-              <div class="up-next-info">
-                <div class="up-next-name" id="upNextName"></div>
-                <div class="up-next-meta" id="upNextMeta"></div>
-              </div>
-            </div>
+            <div class="up-next-list" id="upNextList" style="flex:1;display:flex;flex-direction:column;gap:8px"></div>
           </div>
           <div style="margin-top:auto;padding-top:14px;display:flex;align-items:center;justify-content:center;gap:14px;font-family:'Inter',sans-serif;font-weight:500">
             <button class="btn brand-top" onclick="window.open('https://suno.com/@aTribute','_blank')" style="margin:0;padding:5px 14px;font-size:0.7rem;background:#d95700;border-color:#d95700;color:#fff;border-radius:8px;font-family:'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:0.06em;cursor:pointer;font-weight:600;border:1px solid #d95700">aTribute MUSIC &#8599;</button>
@@ -333,8 +326,6 @@ function updatePlayingStar(){
 function toggleViewStar(){
   const n=!st.g().fs;
   st.p({fs:n});
-  const el=document.getElementById('viewStar');
-  el.textContent=n?'starred':'star';el.classList.toggle('on',n);el.title=n?'Show all tracks':'Show starred only';
   const elb=document.getElementById('viewStarBack');
   if(elb){elb.textContent=n?'★':'☆';elb.title=n?'Show all tracks':'Show starred only';}
   rebuild();
@@ -351,8 +342,6 @@ function toggleFilter(key){
 function toggleInstr(){
   const n=!st.g().fi;
   st.p({fi:n});
-  const el=document.getElementById('instrBtn');
-  el.textContent=n?'instr ●':'instr';el.classList.toggle('on',n);el.title=n?'Show all tracks':'Instrumentals only';
   const elb=document.getElementById('instrBtnBack');
   if(elb){elb.textContent=n?'●':'○';elb.title=n?'Show all tracks':'Instrumentals only';}
   rebuild();
@@ -453,6 +442,7 @@ function rebuild(){
     else if(nq.length){ni=0;}
   }
   if(!nq.length){
+    document.getElementById('playBtn').style.display='flex';
     gdPlayer.src='';audioPlayer.pause();audioPlayer.src='';
     let m='Select a track';
     const a=[];if(st.g().fs)a.push('starred');if(st.g().fi)a.push('instrumental');if(st.g().fm)a.push('metal');if(st.g().fj)a.push('jazz');if(st.g().fg)a.push('groove');if(st.g().fc)a.push('chill');
@@ -461,6 +451,7 @@ function rebuild(){
     coverArt.style.backgroundImage='';audioWrap.style.display='none';sunoLinkBtn.style.display='none';setCoverTitle('');
   }
   st.p({q:nq,i:ni});
+  if(nq.length&&ni===-1&&!cid){document.getElementById('playBtn').style.display='flex';}
   if(nq.length&&ni===0&&cid&&nq.findIndex(tr=>(tr.suno_id||tr.gd_id)===cid)===-1){load(0);}
 }
 
@@ -519,13 +510,14 @@ function sub(m){s.textContent=m;if(breatheTimer){clearTimeout(breatheTimer);brea
 const DEFAULT_ART='https://goddll.github.io/zxterm/tracks-bg_default.jpg';const NO_COVER_ART='https://goddll.github.io/zxterm/tracks-no_cover.jpg';let currentBgUrl=null;function setBgArtwork(url){currentBgUrl=url;if(!url){coverArt.style.backgroundImage='url('+NO_COVER_ART+'), url('+DEFAULT_ART+')';return}const img=new Image();img.onload=()=>{if(currentBgUrl===url)coverArt.style.backgroundImage='url('+url+'), url('+DEFAULT_ART+')'};img.onerror=()=>{if(currentBgUrl===url)coverArt.style.backgroundImage='url('+NO_COVER_ART+'), url('+DEFAULT_ART+')'};img.src=url}
 
 function cleanNameHeader(n){if(!n)return'';let r='';for(let c of n){let cp=c.codePointAt(0),cat='',name='';try{cat=String.fromCodePoint(cp).charCodeAt(0)<128?'':String.fromCodePoint(cp);name=String.fromCodePoint(cp).charCodeAt(0)<128?'':c}catch(e){}if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=/\u2764|\u2763|\u2665|\u2661|\u1F493-\u1F49F|\u1F5A4|\u1F90D|\u1F90E|\u1F9E1/.test(c)||/HEART/.test(name);if(isHeart){r+='\u{1F5A4}'}else{r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\u2666+/gu,'\u2666').replace(/\s+/g,' ').trim();return r}
-function cleanNamePlaylist(n){if(!n)return'';let r='';for(let c of n){let cp=c.codePointAt(0);if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=(cp===0x2764||cp===0x2765||cp===0x2763||cp===0x2665||cp===0x2661||cp===0x1F493||cp===0x1F494||cp===0x1F495||cp===0x1F496||cp===0x1F497||cp===0x1F498||cp===0x1F499||cp===0x1F49A||cp===0x1F49B||cp===0x1F49C||cp===0x1F49D||cp===0x1F49E||cp===0x1F49F||cp===0x1F5A4||cp===0x1F90D||cp===0x1F90E||cp===0x1F9E1);let isDiamond=(cp===0x2666||cp===0x2662||cp===0x25C6||cp===0x25C7||cp===0x1F48E||cp===0x1F537||cp===0x1F538||cp===0x1F539||cp===0x1F53A||cp===0x1F53B||cp===0x2726||cp===0x2727||cp===0x26CB);if(isHeart){r+='\u{1F5A4}'}else if(isDiamond){r+='\u2666'}else if(/[\p{L}\p{M}\p{N}\p{P}\p{Z}]/u.test(c)){r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\u2666+/gu,'\u2666').replace(/\s+/g,' ').trim();return r}
+function cleanNamePlaylist(n){if(!n)return'';let r='';for(let c of n){let cp=c.codePointAt(0);if(cp===0xFE0E||cp===0xFE0F||cp===0x200D)continue;let isHeart=(cp===0x2764||cp===0x2765||cp===0x2763||cp===0x2665||cp===0x2661||cp===0x1F493||cp===0x1F494||cp===0x1F495||cp===0x1F496||cp===0x1F497||cp===0x1F498||cp===0x1F499||cp===0x1F49A||cp===0x1F49B||cp===0x1F49C||cp===0x1F49D||cp===0x1F49E||cp===0x1F49F||cp===0x1F5A4||cp===0x1F90D||cp===0x1F90E||cp===0x1F9E1);let isDiamond=(cp===0x2666||cp===0x2662||cp===0x25C6||cp===0x25C7||cp===0x1F48E||cp===0x1F537||cp===0x1F538||cp===0x1F539||cp===0x1F53A||cp===0x1F53B||cp===0x2726||cp===0x2727||cp===0x26CB);if(isHeart){r+='\u{1F5A4}'}else if(isDiamond){r+='\u2666'}else if(cp===0x26A0||/[\p{L}\p{M}\p{N}\p{P}\p{Z}]/u.test(c)){r+=c}}r=r.replace(/\u{1F5A4}+/gu,'\u{1F5A4}').replace(/\u2666+/gu,'\u2666').replace(/\s+/g,' ').trim();return r}
 function load(x,ap){
   const {q}=st.g();
   const tr=q[x];if(!tr)return;
   const wasPlaying=!audioPlayer.paused||(q[st.g().i]&&!isSuno(q[st.g().i])&&gdPlayer.style.display!=='none');
   st.p({i:x});
   if(isSuno(tr)){
+    document.getElementById('playBtn').style.display='none';
     gdPlayer.style.display='none';gdPlayer.src='';
     audioWrap.style.display='block';
     audioPlayer.src=getAudioUrl(tr);audioPlayer.load();
@@ -535,6 +527,7 @@ function load(x,ap){
     stopGdriveSkip();
     if(firstInteraction||wasPlaying||ap){audioPlayer.play().catch(()=>{});firstInteraction=false;}
   }else{
+    document.getElementById('playBtn').style.display='none';
     audioPlayer.pause();audioPlayer.src='';
     audioWrap.style.display='none';
     gdPlayer.style.display='block';gdPlayer.src=gdUrl(tr.gd_id);
@@ -550,8 +543,6 @@ function prev(){const {q,i}=st.g();if(!q.length)return;const ni=i===-1?q.length-
 function shuf(){
   const {sh}=st.g();
   st.p({sh:!sh});
-  const el=document.getElementById('sh');
-  el.classList.toggle('on',!sh);
   const elb=document.getElementById('shBack');
   if(elb){elb.classList.toggle('on',!sh);}
   rebuild();
@@ -564,16 +555,25 @@ function gdUrl(id){return id?'https://drive.google.com/file/d/'+id+'/preview':''
 
 function updateUpNext(){
   const {q,i}=st.g();
-  const unN=document.getElementById('upNextName'),unM=document.getElementById('upNextMeta'),unT=document.getElementById('upNextThumb'),unWrap=document.getElementById('upNext');
+  const unWrap=document.getElementById('upNext');
+  const unList=document.getElementById('upNextList');
   if(!q.length||q.length<=1){if(unWrap)unWrap.style.display='none';return;}
   if(unWrap)unWrap.style.display='';
-  const ni=(i+1)%q.length;
-  const nt=q[ni];
-  if(!nt){unN.textContent='';unM.textContent='';unT.style.backgroundImage='';return;}
-  unN.textContent=cleanNamePlaylist(nt.name)||'Untitled';
-  unM.textContent=nt.m||'';
-  const art=nt.artwork||null;
-  unT.style.backgroundImage=art?'url('+art+')':'url(https://goddll.github.io/zxterm/tracks-bg_default.jpg)';
+  if(!unList)return;
+  unList.innerHTML='';
+  for(let off=1;off<=2;off++){
+    const ni=(i+off)%q.length;
+    if(ni===i)break;
+    const nt=q[ni];
+    if(!nt)continue;
+    const card=document.createElement('div');
+    card.className='up-next-card';
+    card.onclick=()=>{const it=l.querySelector('.on');if(it)it.scrollIntoView({behavior:'smooth',block:'nearest'})};
+    const art=nt.artwork||null;
+    const thumbUrl=art?'url('+art+')':'url(https://goddll.github.io/zxterm/tracks-bg_default.jpg)';
+    card.innerHTML='<div class="up-next-thumb" style="background-image:'+thumbUrl+'"></div><div class="up-next-info"><div class="up-next-name">'+htm(cleanNamePlaylist(nt.name)||'Untitled')+'</div><div class="up-next-meta">'+htm(nt.m||'')+'</div></div>';
+    unList.appendChild(card);
+  }
 }
 
 function updateBackTitle(){
