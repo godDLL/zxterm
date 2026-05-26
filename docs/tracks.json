@@ -15,23 +15,25 @@
     "artwork": "a5317161-5bf9-4e88-ba87-34fa7a9c4717.jpeg",
     "duration_sec": 163,
     "has_vocal": false,
-    "m": "chill cl0wncore jazz, lonely moods"
+    "m": "chill cl0wncore jazz groove, lonely moods"
   },
   {
     "name": "(Gut Her) On The Beard Also",
     "suno_id": "c6baa969-96a0-47cb-966d-ad1df5caa3f9",
     "gd_id": "1lHZ9IYzjLKL0v0-iJIpeZBLJsLMEuPDY",
     "artwork": "0d809ab5-3b24-4c80-a00c-687cd121b9ed.jpeg",
+    "duration_sec": 172,
     "has_vocal": false,
-    "m": "absurdist noise folk jam"
+    "m": "groove hardcore edm"
   },
   {
     "name": "Whisper Underneath 🥁",
     "suno_id": "0f4bee81-01c7-403f-bf29-97b54c1d01eb",
     "gd_id": "1yJI-3xTi_RECzQWX6gWDjSjsGl2lkrFr",
     "artwork": "258394c5-a637-46c9-9d99-4bb67b7e070e.jpeg",
+    "duration_sec": 171,
     "has_vocal": true,
-    "m": "subterranean drum whisper pop"
+    "m": "funk groove metal punk good morning"
   },
   {
     "name": "🥁 Quebienx",
@@ -40,7 +42,7 @@
     "artwork": "d5fedb28-5021-4059-a261-3550ff26bae6.jpeg",
     "duration_sec": 138.96,
     "has_vocal": false,
-    "m": "glitchy latino warehouse bounce",
+    "m": "glitchy latino warehouse bounce jazz groove",
     "created_at": "2026-05-21T06:52:55.185Z"
   },
   {
@@ -50,7 +52,7 @@
     "artwork": "d8954545-6ff8-4de2-ac10-2e566cb789e4.jpeg",
     "duration_sec": 310.2,
     "has_vocal": true,
-    "m": "philosophical modular synth drift",
+    "m": "chill prog synth drift groove",
     "created_at": "2026-05-20T04:11:02.211Z"
   },
   {
@@ -60,7 +62,7 @@
     "artwork": "343cf259-f3fc-442e-be71-f69e1a2b5576.jpeg",
     "duration_sec": 282.76,
     "has_vocal": false,
-    "m": "apocalyptic gospel rave sermon",
+    "m": "groove trance edm",
     "created_at": "2026-05-16T08:34:05.232Z"
   },
   {
@@ -70,7 +72,7 @@
     "artwork": "968161d9-fcb8-45f5-9ea1-00c6e25dfe28.jpeg",
     "duration_sec": 209.96,
     "has_vocal": true,
-    "m": "soulful four on floor rework",
+    "m": "soul jazz teenage angst, cover/remix",
     "created_at": "2026-05-14T08:36:15.964Z"
   },
   {
@@ -80,7 +82,7 @@
     "artwork": "e049b5fa-718f-4c19-b9e0-c578185af4f8.jpeg",
     "duration_sec": 195.68,
     "has_vocal": true,
-    "m": "indie mandolin breakup stroll",
+    "m": "soul funk jazz groove, a cover",
     "created_at": "2026-05-14T07:25:36.031Z"
   },
   {
@@ -90,7 +92,7 @@
     "artwork": "1c98a45d-505c-422f-82d6-f4f6dbb0057c.jpeg",
     "duration_sec": 167.96,
     "has_vocal": true,
-    "m": "looping vocal jazz mantra",
+    "m": "metal jazz original, own voice too",
     "created_at": "2026-05-13T08:44:09.129Z"
   },
   {
@@ -100,7 +102,7 @@
     "artwork": "eb658123-8953-46fb-bdbd-6c1a04244196.jpeg",
     "duration_sec": 252.52,
     "has_vocal": false,
-    "m": "mall saxophone heartbreak encore",
+    "m": "chill jazzy mix of a few of my songs",
     "created_at": "2026-05-13T08:19:35.759Z"
   },
   {
@@ -110,7 +112,7 @@
     "artwork": "953612b2-3c04-4516-b61a-36602a807376.jpeg",
     "duration_sec": 256.806875,
     "has_vocal": false,
-    "m": "melancholy clown piano ballad",
+    "m": "groove trance, edm rework, original",
     "created_at": "2026-05-08T04:41:23.084Z"
   },
   {
@@ -120,7 +122,7 @@
     "artwork": "0fbf13a8-4843-4c38-a297-2ca3b9be5af8.jpeg",
     "duration_sec": 233.96,
     "has_vocal": false,
-    "m": "caged trap horn encore",
+    "m": "jazzy chill mix of a few song of mine",
     "created_at": "2026-04-30T06:08:05.838Z"
   },
   {
@@ -130,7 +132,7 @@
     "artwork": "9d9d2dac-806d-4e0b-aa5b-1f00057d9e57.jpeg",
     "duration_sec": 257.96,
     "has_vocal": false,
-    "m": "smooth midnight R&B glide",
+    "m": "groove hardcore edm",
     "created_at": "2026-04-28T23:07:08.193Z"
   },
   {
@@ -140,7 +142,7 @@
     "artwork": "b0db79e1-7b81-4086-a9f4-1d1e793bfbfc.jpeg",
     "duration_sec": 323.699875,
     "has_vocal": false,
-    "m": "frozen haunted cabin folk",
+    "m": "frozen chill haunted cabin folk",
     "created_at": "2026-04-28T10:16:47.251Z"
   },
   {
@@ -150,7 +152,7 @@
     "artwork": "1c8646b8-c7ae-4f52-8372-d17cf79a63a9.jpeg",
     "duration_sec": 280.28,
     "has_vocal": false,
-    "m": "synthetic romance android encore",
+    "m": "a groovy jazz cover of my own song",
     "created_at": "2026-04-28T07:07:14.905Z"
   },
   {
@@ -160,7 +162,7 @@
     "artwork": "0bb4fa73-b949-43ec-9667-ce823ce7f395.jpeg",
     "duration_sec": 196.24,
     "has_vocal": false,
-    "m": "baroque harpsichord death gape",
+    "m": "baroque harpsichord metal jazz hybrid",
     "created_at": "2026-04-25T09:27:23.506Z"
   },
   {
@@ -170,7 +172,7 @@
     "artwork": "03831f38-3292-4822-81e9-0044e86d8026.jpeg",
     "duration_sec": 167.32,
     "has_vocal": false,
-    "m": "text message disco argument",
+    "m": "groove hardcore edm",
     "created_at": "2026-04-21T08:43:38.795Z"
   },
   {
@@ -180,7 +182,7 @@
     "artwork": "f5f12694-4041-459e-b53c-471a4d38a703.jpeg",
     "duration_sec": 204.72,
     "has_vocal": false,
-    "m": "funky demand brass groove",
+    "m": "chill dnb",
     "created_at": "2026-04-19T10:25:14.153Z"
   },
   {
@@ -190,7 +192,7 @@
     "artwork": "09c16686-0586-43cd-aa06-a875a5df8623.jpeg",
     "duration_sec": 275.08,
     "has_vocal": true,
-    "m": "nostalgic jazz memory walk",
+    "m": "chill jazzy dnb",
     "created_at": "2026-04-12T16:31:03.596Z"
   },
   {
@@ -200,7 +202,7 @@
     "artwork": "47747a01-32dd-4c94-af8e-c540d462f5a9.jpeg",
     "duration_sec": 283.16,
     "has_vocal": true,
-    "m": "purple neon longing plea",
+    "m": "groove trance",
     "created_at": "2026-04-07T09:09:47.608Z"
   },
   {
@@ -210,7 +212,7 @@
     "artwork": "0c0ab988-a686-44a7-a9a5-67c2eb42b470.jpeg",
     "duration_sec": 214.88,
     "has_vocal": true,
-    "m": "french choral ska praline",
+    "m": "chill choral ska punk",
     "created_at": "2026-04-05T18:15:13.950Z"
   },
   {
