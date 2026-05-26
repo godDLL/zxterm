@@ -1,5 +1,21 @@
 [
   {
+    "name": "(Soul) Mirage",
+    "suno_id": "f8d6f9a3-e3b8-4366-bb33-df705bdb3d15",
+    "artwork": "8e6afafa-436f-4b9d-9e8e-5dc8a4ba103a.jpeg",
+    "duration_sec": 294,
+    "has_vocal": true,
+    "m": "jazzy melodic trance"
+  },
+  {
+    "name": "Forever Viva",
+    "suno_id": "418d2ff7-9a25-4d39-98bc-f150c712cb89",
+    "artwork": "9d62e3bb-8eab-4595-9812-953222d7c0a0.jpeg",
+    "duration_sec": 223,
+    "has_vocal": false,
+    "m": "melodic jazzy trance"
+  },
+  {
     "name": "Hit Her (More Than That)",
     "suno_id": "a839b97a-90c2-48d0-b7a0-3c9db0ffb006",
     "gd_id": "1I4W7s2h0syRBGBxhm8qWzvv-yBE_OzoQ",
@@ -12,7 +28,7 @@
     "name": "Forever Lost (The Number)",
     "suno_id": "f6d04e29-32b0-436c-a894-baac20a1a247",
     "gd_id": "16i5iBYOjnJnNlHHhNPorPGvyCVGDzw4g",
-    "artwork": "a5317161-5bf9-4e88-ba87-34fa7a9c4717.jpeg",
+    "artwork": "9d48327c-6f81-425f-ac66-79976045e2ef.jpeg",
     "duration_sec": 163,
     "has_vocal": false,
     "m": "chill cl0wncore jazz groove, lonely moods"
@@ -39,7 +55,7 @@
     "name": "🥁 Quebienx",
     "suno_id": "df96598b-c3d1-4795-80a9-25c9e0f392f2",
     "gd_id": "13Eo1ip5owOyI3nAnzdepAeY5OpFyWFsY",
-    "artwork": "d5fedb28-5021-4059-a261-3550ff26bae6.jpeg",
+    "artwork": "be885d94-f646-46b2-89e6-a8987c3d1e59.jpeg",
     "duration_sec": 138.96,
     "has_vocal": false,
     "m": "glitchy latino warehouse bounce jazz groove",
