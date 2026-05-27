@@ -1496,15 +1496,6 @@
     "created_at": "2025-05-09T09:21:43.439Z"
   },
   {
-    "name": "Tune to 3:33",
-    "suno_id": "a4ae6a2f-7fc3-42f9-8f0e-effb9d8ebcba",
-    "artwork": "image_a4ae6a2f-7fc3-42f9-8f0e-effb9d8ebcba.jpeg",
-    "duration_sec": 240.0,
-    "has_vocal": false,
-    "m": "tune three thirty three",
-    "created_at": "2025-05-09T09:06:17.012Z"
-  },
-  {
     "name": "Choking Kundalini",
     "suno_id": "fe4b3a71-0acb-4738-a748-53473b4fd6ec",
     "artwork": "image_fe4b3a71-0acb-4738-a748-53473b4fd6ec.jpeg",
@@ -1941,6 +1932,7 @@
   },
   {
     "name": "Breakup Sex",
+    "artwork": "b0318ce5-d093-4579-862f-3edc6972a2c9.jpeg",
     "gd_id": "10661uyX6NG4Xj7QSbqoeS7tiH7kPoO67",
     "m": "dont be mid protest"
   },
