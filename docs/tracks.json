@@ -1,11 +1,19 @@
 [  
   {
+    "name": "🥁 SUNO 🤍 doggy style",
+    "suno_id": "c3c8303d-bd20-4a19-b521-fab3d3438c8c",
+    "artwork": "8e13cb01-2fc4-47a1-8a5e-b426c4e00142.jpeg",
+    "duration_sec": 267,
+    "has_vocal": false,
+    "m": "psy trance jazz, drum and jazz"
+  },
+  {
     "name": "🥁 Zubr Starlink 🎷",
     "suno_id": "607cdddd-58b8-4843-9d7d-bf81bb8a41d4",
     "artwork": "52a0ebe5-56b7-468e-87eb-92ebd3dae63d.jpeg",
     "duration_sec": 247,
     "has_vocal": false,
-    "m": "jazzy psy trance groove"
+    "m": "jazzy psy trance groove, drum and jazz"
   },
   {
     "name": "(Soul) Mirage",
