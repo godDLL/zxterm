@@ -24,6 +24,38 @@
     "m": "trance ambient"
   },
   {
+    "name": "Your Excuse Love",
+    "suno_id": "c4a5d3c6-e73a-4716-bc37-c02bbbc27fd0",
+    "artwork": "d71594e4-75b7-49da-a32c-aab30382a467.jpeg",
+    "duration_sec": 159,
+    "has_vocal": true,
+    "m": "hip-hop, club soul"
+  },
+  {
+    "name": "Our ⚠️ Anxiety",
+    "suno_id": "4b026a30-ad4b-4354-bf19-88611623d64e",
+    "artwork": "image_large_4b026a30-ad4b-4354-bf19-88611623d64e.jpeg",
+    "duration_sec": 172,
+    "has_vocal": true,
+    "m": "club soul, synth pop"
+  },
+  {
+    "name": "B¡tc* ⚠️ Passed Me By",
+    "suno_id": "805200a6-61f4-4634-a319-51d79ecd43f2",
+    "artwork": "0b2e6837-d401-4c45-8c0f-29268404874e.jpeg",
+    "duration_sec": 202,
+    "has_vocal": true,
+    "m": "groove rock, soul psy"
+  },
+  {
+    "name": "Out On The Water",
+    "suno_id": "6a0cbf94-7fc6-4675-82c2-974288a01381",
+    "artwork": "image_large_ac9d0e6e-5f0a-4bc6-b10c-512adad08f47.jpeg",
+    "duration_sec": 292,
+    "has_vocal": false,
+    "m": "ambient psy techno"
+  },
+  {
     "name": "🎸 Inward Skyfall",
     "suno_id": "97411f62-0840-4604-8036-83b4c017a2fa",
     "artwork": "12fc6924-8bf5-4fd8-b1b6-a16fba6eafb6.jpeg",
