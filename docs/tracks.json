@@ -18,10 +18,50 @@
   {
     "name": "📌 Interstellar (Reprise) [Endoleo remix]",
     "suno_id": "2659bc33-d8b6-4a82-ab1d-7bd3b8834947",
-    "artwork": "2659bc33-d8b6-4a82-ab1d-7bd3b8834947.jpeg",
-    "duration_sec": 362,
+    "artwork": "image_large_2659bc33-d8b6-4a82-ab1d-7bd3b8834947.jpeg",
+    "duration_sec": 230,
     "has_vocal": false,
-    "m": ""
+    "m": "trance ambient"
+  },
+  {
+    "name": "🎸 Inward Skyfall",
+    "suno_id": "97411f62-0840-4604-8036-83b4c017a2fa",
+    "artwork": "12fc6924-8bf5-4fd8-b1b6-a16fba6eafb6.jpeg",
+    "duration_sec": 230,
+    "has_vocal": false,
+    "m": "groovy thrash metal"
+  },
+  {
+    "name": "What You Want (cl0wncore FTW)",
+    "suno_id": "1e20c040-984f-4bf8-a936-db6e0749958a",
+    "artwork": "e699fbe1-5895-47e9-8bce-9f9f53940eef.jpeg",
+    "duration_sec": 233,
+    "has_vocal": true,
+    "m": "psy rock, synth pop"
+  },
+  {
+    "name": "🍭 Signals (Hidden)",
+    "suno_id": "abc0356f-c662-48c9-b486-5041082cbe09",
+    "artwork": "image_large_abc0356f-c662-48c9-b486-5041082cbe09.jpeg",
+    "duration_sec": 289,
+    "has_vocal": true,
+    "m": "psy techno, rough jazz"
+  },
+  {
+    "name": "I Can't See Me (In Your Eyes)",
+    "suno_id": "f7e746f1-ba5f-46ff-94d7-a73740006e30",
+    "artwork": "4fc43811-1711-4849-aab8-88eecc86e95a.jpeg",
+    "duration_sec": 224,
+    "has_vocal": true,
+    "m": "club soul, psy rock"
+  },
+  {
+    "name": "Brass Led 🥁 Psy(chosis)",
+    "suno_id": "7a21f0da-8fdc-4080-aae7-5719a1aff7b5",
+    "artwork": "ed308f9d-a964-4ab9-b34c-119992efc727.jpeg",
+    "duration_sec": 284,
+    "has_vocal": false,
+    "m": "psy trance ambient"
   },
   {
     "name": "Soul Mirage 🍭 [[MIX]] 1999",
