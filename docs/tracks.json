@@ -24,6 +24,61 @@
     "m": "trance ambient"
   },
   {
+    "name": "Man, It's the ⚠️ Coffee",
+    "suno_id": "538ed012-88d0-4486-9e62-8b5d79b4c2cb",
+    "artwork": "9ed6d1ca-2ac2-4671-9cc3-b1aafdcce0bf.jpeg",
+    "duration_sec": 186,
+    "has_vocal": true,
+    "m": "house club soul"
+  },
+  {
+    "name": "I'm Crying (Cover)",
+    "suno_id": "fcb3426d-1f3d-494b-ad93-edcfd313eb56",
+    "artwork": "99fa23af-a885-4f3a-b21d-10f4c080272c.jpeg",
+    "duration_sec": 129,
+    "has_vocal": true,
+    "m": "carnival jazz fusion, cl0wncore soul"
+  },
+  {
+    "name": "GTA-83FM (Sirius Psy Rock)",
+    "suno_id": "37f36768-ce27-41fc-aa9c-67fee065cc57",
+    "artwork": "42576b86-01f3-44d1-bb87-b75b58cf1471.jpeg",
+    "duration_sec": 265,
+    "has_vocal": false,
+    "m": "psy rock"
+  },
+  {
+    "name": "Make Your Mother (Hiss)",
+    "suno_id": "32d6550f-c4ee-4cb1-8563-847bc1141cd8",
+    "duration_sec": 107,
+    "has_vocal": true,
+    "m": "hip-hop soul club"
+  },
+  {
+    "name": "Jewish Melody (Knoll Dharma)",
+    "suno_id": "f3446cc5-546f-4c70-b43a-35215592accd",
+    "artwork": "933bcee1-5ac9-49cf-a60b-69645a48e3ba.jpeg",
+    "duration_sec": 270,
+    "has_vocal": false,
+    "m": "acoustic techno"
+  },
+  {
+    "name": "5-4-3-2-1 Smooth",
+    "suno_id": "98ccf8ff-8a94-4c95-b6e9-a81a198d9b5a",
+    "artwork": "b6ba245b-0c08-4ab1-aa04-8574e8e6b47c.jpeg",
+    "duration_sec": 332,
+    "has_vocal": true,
+    "m": "jazz fusion"
+  },
+  {
+    "name": "Make No (Waves)",
+    "suno_id": "0ae7adf9-b70a-4dc9-b9f8-ab1afdd55231",
+    "artwork": "d10fe889-4c36-40c8-8f60-b4fa00ef2492.jpeg",
+    "duration_sec": 201,
+    "has_vocal": false,
+    "m": "psy rock blues"
+  },
+  {
     "name": "Your Excuse Love",
     "suno_id": "c4a5d3c6-e73a-4716-bc37-c02bbbc27fd0",
     "artwork": "d71594e4-75b7-49da-a32c-aab30382a467.jpeg",
