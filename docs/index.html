@@ -67,13 +67,15 @@ const cache = new Map();                   // url -> promise of ArrayBuffer
 let stream = null;                         // what is feeding the player now
 
 const fmt = s => isFinite(s) ? `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}` : '0:00';
-const abs = (t, path) => new URL(path, base).href + '?v=' + (t.v || '');
-const when = t => Date.parse(t.created || t.added) || 0;
-const kindOf = t => t.files.mp3 ? 'mp3' : 'm4a';
-const urlsOf = (t, ext) => {
-  const f = t.files[ext], dir = `m/${t.id}/`;
-  return { init: f.init ? abs(t, `${dir}init.${ext}`) : null,
-           parts: f.parts.map((_, i) => abs(t, `${dir}${String(i).padStart(3, '0')}.${ext}`)) };
+const abs = (t, path) => new URL(path, base).href;
+const PART = 40;                            // seconds; the uploader cuts to match
+const when = t => Date.parse(t.d) || 0;     // fields: id, t title, a artist, d date, c categories, s seconds, k kind, p parts
+const extOf = t => t.k === 'mp3' ? 'mp3' : 'm4a';
+const mimeOf = t => ({ mp3: 'audio/mpeg', opus: 'audio/mp4; codecs="opus"', m4a: 'audio/mp4; codecs="mp4a.40.2"' })[t.k];
+const urlsOf = t => {
+  const ext = extOf(t), dir = `m/${t.id}/`;
+  return { init: ext === 'm4a' ? abs(t, `${dir}init.m4a`) : null,
+           parts: Array.from({ length: t.p }, (_, i) => abs(t, `${dir}${String(i).padStart(3, '0')}.${ext}`)) };
 };
 
 /* ---------- cover ---------- */
@@ -211,16 +213,16 @@ async function openStream(s, mine) {
 
 function show() {
   const t = cur;
-  $('#title').textContent = t.title;
-  $('#sub').textContent = [t.artist, t.genre].filter(Boolean).join(' · ');
+  $('#title').textContent = t.t;
+  $('#sub').textContent = t.a;
   $('#note').textContent = '';
   setArt(t);
   $('#suno').hidden = false;
   $('#suno').href = 'https://suno.com/song/' + t.id;
-  document.title = t.title + ' · Skating Matador';
+  document.title = t.t + ' · ' + t.a;
   document.querySelectorAll('li').forEach(li => li.classList.toggle('on', li.dataset.id === t.id));
   if ('mediaSession' in navigator) cover(t).then(src => {
-    if (t === cur) navigator.mediaSession.metadata = new MediaMetadata({ title: t.title, artist: t.artist, artwork: [{ src }] });
+    if (t === cur) navigator.mediaSession.metadata = new MediaMetadata({ title: t.t, artist: t.a, artwork: [{ src }] });
   });
 }
 
@@ -232,14 +234,14 @@ function fail(e, autoplay) {
 
 async function load(autoplay) {
   if (!cur) return;
-  const mine = ++token, t = cur, f = t.files[kindOf(t)];
+  const mine = ++token, t = cur;
   media.pause();
   if (stream) URL.revokeObjectURL(stream.src);
   stream = null;
   loaded = t.id;
   show();
   $('#play').textContent = '…';
-  const s = { mime: f.mime, starts: f.parts, urls: urlsOf(t, kindOf(t)), duration: t.duration, have: new Set(), autoplay };
+  const s = { mime: mimeOf(t), starts: Array.from({ length: t.p }, (_, i) => i * PART), urls: urlsOf(t), duration: t.s, have: new Set(), autoplay };
   try {
     await openStream(s, mine);
     if (mine !== token) return;
@@ -250,7 +252,7 @@ async function load(autoplay) {
     if (autoplay) await media.play().catch(() => {});
     const nt = queue[(queue.indexOf(t) + 1) % queue.length];
     if (nt) {
-      const next = urlsOf(nt, kindOf(nt));
+      const next = urlsOf(nt);
       for (const url of [next.init, next.parts[0]]) if (url) grab(url).catch(() => {});
       cover(nt);
     }
@@ -270,10 +272,10 @@ function list() {
   const q = $('#q').value.toLowerCase(), ol = $('#list');
   ol.textContent = '';
   for (const t of queue) {
-    if (q && ![t.title, t.genre].join(' ').toLowerCase().includes(q)) continue;
+    if (q && !t.t.toLowerCase().includes(q)) continue;
     const li = document.createElement('li'), a = document.createElement('span'), b = document.createElement('span');
     li.dataset.id = t.id;
-    a.textContent = t.title; b.textContent = t.duration ? fmt(t.duration) : ''; b.className = 't';
+    a.textContent = t.t; b.textContent = t.s ? fmt(t.s) : ''; b.className = 't';
     const star = document.createElement('button');
     star.className = 'star'; star.textContent = starred(t) ? '★' : '☆';
     star.setAttribute('aria-label', 'favourite'); star.setAttribute('aria-pressed', starred(t));
@@ -338,7 +340,7 @@ fetch(TRACKS_URL, { cache: 'no-cache' })
   .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
   .then(j => {
     base = j.base || location.href;
-    tracks = (j.tracks || []).filter(t => t.files && (t.files.mp3 || t.files.m4a)).sort((a, b) => when(b) - when(a));
+    tracks = (j.tracks || []).filter(t => t.p).sort((a, b) => when(b) - when(a));
     if (!tracks.length) throw new Error('no tracks in tracks.json');
     rebuild();
   })
