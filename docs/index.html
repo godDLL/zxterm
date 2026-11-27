@@ -10,8 +10,9 @@ body{margin:0;background:#000;color:var(--ink);font:15px system-ui,sans-serif}
 main{max-width:560px;margin:0 auto;padding:12px 16px}
 #stage{width:100%;aspect-ratio:1;margin:0 auto;perspective:1000px}
 #art{width:100%;height:100%;object-fit:contain;display:block;opacity:0}
-h1{font:400 34px/1.1 'Matador',Georgia,serif;margin:12px 0 2px;overflow-wrap:anywhere}
+h1{font:400 37px/1.1 'Matador',Georgia,serif;margin:12px 0 2px;overflow-wrap:anywhere}
 #sub,#note{color:var(--dim);min-height:1.4em;overflow-wrap:anywhere}
+#sub{font-family:'Matador',Georgia,serif}
 .row{display:flex;gap:8px;align-items:center;margin:10px 0}
 button,.btn{font:inherit;color:var(--ink);background:var(--blood);border:0;border-radius:6px;padding:10px 13px;cursor:pointer}
 .off{background:#1d1517;color:var(--dim)}
@@ -22,7 +23,7 @@ input[type=range]{flex:1;accent-color:var(--blood);min-width:0}
 #q{width:100%;font:inherit;background:#120d0f;color:var(--ink);border:1px solid #3a2026;border-radius:6px;padding:9px}
 ol{list-style:none;padding:0;margin:8px 0 40px}
 li{display:flex;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px solid #1c1416;cursor:pointer}
-li.on{background:#2a0d13}li .star{background:none;padding:2px 4px;font-size:18px}li span.t{margin-left:auto}li span:first-of-type{font:19px 'Matador',Georgia,serif;overflow-wrap:anywhere}
+li.on{background:#2a0d13}li .star{background:none;padding:2px 4px;font-size:18px}li span.t{margin-left:auto}li span:first-of-type{font:22px 'Matador',Georgia,serif;overflow-wrap:anywhere}
 @media (min-width:900px){
   main{max-width:1200px;height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
   #player{overflow:auto}
@@ -56,7 +57,7 @@ li.on{background:#2a0d13}li .star{background:none;padding:2px 4px;font-size:18px
 <script>
 const TRACKS_URL = 'tracks.json';          // next to this page on GitHub Pages
 const NO_COVER = 'https://goddll.github.io/zxterm/tracks-no_cover.jpg';
-const CATS = ['star', 'vocal', 'metal', 'jazz', 'groove', 'chill'];   // bit 0 .. bit 5
+const CATS = ['star', 'vocal', 'metal', 'jazz', 'groove', 'chill', 'dance'];   // bit 0 .. bit 6
 const $ = s => document.querySelector(s);
 const media = new Audio();
 
@@ -94,6 +95,7 @@ async function setArt(t) {
   if (id === artFor) return;
   const first = artFor === undefined, turn = ++artTurn, el = $('#art');
   artFor = id;
+  el.getAnimations().forEach(a => a.cancel());   // or an interrupted flip stays edge-on
   const url = t ? await cover(t) : NO_COVER;
   const ready = new Image(); ready.src = url;
   await ready.decode().catch(() => {});
@@ -114,7 +116,7 @@ async function setArt(t) {
 /* ---------- favourites ---------- */
 try { favs = JSON.parse(localStorage.getItem('favs')) || {}; } catch {}
 const starred = t => favs[t.id] ?? !!(t.c & 1);
-// star and instrumental only ever narrow; the other four add up (any of the ones that are on)
+// star and instrumental only ever narrow; the others add up (any of the ones that are on)
 const matches = t => (!(mask & 1) || starred(t))
   && (!(mask & 2) || !(t.c & 2))
   && (!(mask & ~3) || !!(t.c & mask & ~3));
@@ -289,7 +291,9 @@ function list() {
 
 CATS.forEach((name, bit) => {
   const b = document.createElement('button');
-  b.textContent = name === 'vocal' ? 'instrumental' : name; b.className = 'off';
+  const [icon, tip] = { star: ['★', 'Favourites'], vocal: ['●', 'Instrumental'] }[name] || [name];
+  b.textContent = icon; b.className = 'off';
+  if (tip) { b.title = tip; b.setAttribute('aria-label', tip); }
   b.onclick = () => {
     mask ^= 1 << bit;
     b.classList.toggle('off', !(mask & 1 << bit));
