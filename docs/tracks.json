@@ -1,1 +1,5 @@
-{"base":"https://smplayer.pages.dev/","tracks":[{"id":"5b7f8044-e524-4f3b-ae93-5fd0e318aaf6","files":{"mp3":{"mime":"audio/mpeg","init":false,"parts":[0,30,60,90,120,150,180]}},"added":"2026-11-26T22:41:40.690Z","title":"FS 🕶️ (Encore)","artist":"Skating Matador","album":"","genre":"","comment":"","v":"mwy5061g","duration":188.81,"art":"a/5b7f8044-e524-4f3b-ae93-5fd0e318aaf6.jpg"}]}
+{"base":"https://smplayer.pages.dev/","tracks":[
+{"id":"5b7f8044-e524-4f3b-ae93-5fd0e318aaf6","t":"FS 🕶️ (Encore)","a":"Skating Matador","d":"2026-11-23T22:00:00.000Z","c":17,"s":188.81,"k":"mp3","p":5},
+{"id":"87b5ed0d-e4e7-4be3-aa99-65fcde58678b","t":"Snapkid 🕶️","a":"Skating Matador","d":"2026-11-21T22:00:00.000Z","c":34,"s":290.04,"k":"mp3","p":8},
+{"id":"395ba13c-9d80-48ec-b721-185fee216cc8","t":"Home Bread 🥁","a":"Skating Matador","d":"2026-11-20T22:00:00.000Z","c":49,"s":239.23,"k":"mp3","p":6}
+]}
