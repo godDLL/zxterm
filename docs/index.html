@@ -112,7 +112,10 @@ async function setArt(t) {
 /* ---------- favourites ---------- */
 try { favs = JSON.parse(localStorage.getItem('favs')) || {}; } catch {}
 const starred = t => favs[t.id] ?? !!(t.c & 1);
-const matches = t => !mask || !!(((t.c & ~1) | (starred(t) ? 1 : 0)) & mask);
+// star and instrumental only ever narrow; the other four add up (any of the ones that are on)
+const matches = t => (!(mask & 1) || starred(t))
+  && (!(mask & 2) || !(t.c & 2))
+  && (!(mask & ~3) || !!(t.c & mask & ~3));
 function toggleStar(t) {
   favs[t.id] = !starred(t);
   try { localStorage.setItem('favs', JSON.stringify(favs)); } catch {}
@@ -284,7 +287,7 @@ function list() {
 
 CATS.forEach((name, bit) => {
   const b = document.createElement('button');
-  b.textContent = name; b.className = 'off';
+  b.textContent = name === 'vocal' ? 'instrumental' : name; b.className = 'off';
   b.onclick = () => {
     mask ^= 1 << bit;
     b.classList.toggle('off', !(mask & 1 << bit));
