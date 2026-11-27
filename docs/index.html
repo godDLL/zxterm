@@ -17,11 +17,16 @@
 body{margin:0;background:#000;color:var(--ink);font:15px system-ui,sans-serif}
 main{max-width:560px;margin:0 auto;padding:calc(12px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left))}
 #coverrow{display:flex;gap:8px}
-#stage{flex:1;min-width:0;aspect-ratio:1;margin:0 auto;perspective:1000px;cursor:pointer}
+#stage{flex:1;min-width:0;aspect-ratio:1;margin:0 auto;perspective:1000px;cursor:pointer;position:relative}
+#over{position:absolute;inset:0;margin:auto;width:34%;height:34%;color:var(--ink);opacity:.85;filter:drop-shadow(0 0 14px #000);pointer-events:none;transition:opacity .15s}
+#stage.playing #over,#stage.loading #over{opacity:0}
+#spin{position:absolute;inset:0;margin:auto;width:17%;height:17%;border:9.6px solid #eee8df40;border-top-color:var(--ink);border-radius:50%;filter:drop-shadow(0 0 14px #000);pointer-events:none;opacity:0;visibility:hidden;animation:spin .9s linear infinite}
+#stage.loading #spin{opacity:.85;visibility:visible;transition:opacity .15s .15s,visibility 0s .15s}@keyframes spin{to{transform:rotate(1turn)}}
+#titlerow{display:flex;align-items:center;gap:8px;margin-top:12px}
 #suno{margin-left:auto}
 #coverrow #vol{flex:none;width:28px;margin:0;writing-mode:vertical-lr;direction:rtl;touch-action:none}
 #art{width:100%;height:100%;object-fit:contain;display:block;opacity:0}
-h1{font:400 40px/1.1 'Matador',Georgia,serif;margin:12px 0 2px;overflow-wrap:anywhere}
+h1{font:400 40px/1.1 'Matador',Georgia,serif;margin:0 0 2px;flex:1;min-width:0;overflow-wrap:anywhere}
 #sub,#note{color:var(--dim);min-height:1.4em;overflow-wrap:anywhere}
 #sub{font:18px 'Matador',Georgia,serif}
 #vol{accent-color:#888}
@@ -47,15 +52,12 @@ li.on{background:#2a0d13}li .tags{display:none;font:italic 13px Georgia,serif;op
 <main>
   <section id="player">
     <div class="row">
-      <button id="prev" aria-label="previous">⏮</button>
-      <button id="play" aria-label="play or pause">▶</button>
-      <button id="next" aria-label="next">⏭</button>
       <button id="shuffle" class="off" aria-pressed="false">shuffle</button>
       <input type="range" id="vol" min="0" max="1" step="0.01" value="0.67" aria-label="volume">
       <a id="suno" class="btn" target="_blank" rel="noopener" aria-label="open on suno.com" title="open on suno.com" hidden><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4h6v6M20 4l-9 9M10 5H5v14h14v-5"/></svg></a>
     </div>
-    <div id="coverrow"><div id="stage"><img id="art" alt=""></div></div>
-    <h1 id="title">Skating Matador</h1>
+    <div id="coverrow"><div id="stage" title="Play/Pause"><img id="art" alt=""><svg id="over" viewBox="0 0 100 100" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M50 0a50 50 0 1 1 0 100a50 50 0 1 1 0-100zM36 25v50L80 50z"/></svg><div id="spin"></div></div></div>
+    <div id="titlerow"><h1 id="title">Skating Matador</h1><button id="prev" aria-label="previous">⏮</button><button id="next" aria-label="next">⏭</button></div>
     <div id="sub">loading tracks…</div>
     <div class="row"><span class="t" id="now">0:00</span><input type="range" id="seek" min="0" max="1000" value="0" aria-label="seek"><span class="t" id="len">0:00</span></div>
     <div id="note"></div>
@@ -240,8 +242,10 @@ function show() {
   });
 }
 
+const busy = on => $('#stage').classList.toggle('loading', on);
+
 function fail(e, autoplay) {
-  $('#play').textContent = '▶';
+  busy(false);
   $('#note').textContent = 'could not load this one: ' + e.message;
   if (autoplay && ++fails < 5) step(1);
 }
@@ -254,7 +258,7 @@ async function load(autoplay) {
   stream = null;
   loaded = t.id;
   show();
-  $('#play').textContent = '…';
+  busy(true);
   const s = { mime: mimeOf(t), starts: Array.from({ length: t.p }, (_, i) => i * PART), urls: urlsOf(t), duration: t.s, have: new Set(), autoplay };
   try {
     await openStream(s, mine);
@@ -262,8 +266,9 @@ async function load(autoplay) {
     stream = s;
     await pump();
     if (mine !== token) return;
-    $('#play').textContent = '▶';
     if (autoplay) await media.play().catch(() => {});
+    if (mine !== token) return;
+    busy(false);
     const nt = queue[(queue.indexOf(t) + 1) % queue.length];
     if (nt) {
       const next = urlsOf(nt);
@@ -317,9 +322,11 @@ CATS.forEach((name, bit) => {
   $('#cats').append(b);
 });
 
-media.onplay = () => { $('#play').textContent = '⏸'; fails = 0; };
-media.onpause = () => $('#play').textContent = '▶';
+media.onplay = () => { $('#stage').classList.add('playing'); fails = 0; };
+media.onpause = () => $('#stage').classList.remove('playing');
 media.onended = () => step(1);
+media.onwaiting = () => busy(true);          // ran out of buffered audio
+media.onplaying = media.oncanplay = () => busy(false);
 media.onseeking = pump;
 media.ontimeupdate = () => {
   pump();
@@ -340,7 +347,6 @@ $('#stage').addEventListener('wheel', e => {  // wheel over the cover: 5% a notc
 }, { passive: false });
 media.volume = 0.67;
 try { const v = localStorage.getItem('vol'); if (v !== null) media.volume = $('#vol').value = +v; } catch {}
-$('#play').onclick = toggle;
 $('#stage').onclick = toggle;
 
 const wide = matchMedia('(min-width:900px)');
