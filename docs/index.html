@@ -35,7 +35,7 @@ input[type=range]{flex:1;accent-color:var(--blood);min-width:0}
 #q{width:100%;font:inherit;background:#120d0f;color:var(--ink);border:1px solid #3a2026;border-radius:6px;padding:9px}
 ol{list-style:none;padding:0;margin:8px 0 40px}
 li{display:flex;align-items:center;gap:10px;padding:8px 6px;border-bottom:1px solid #1c1416;cursor:pointer}
-li.on{background:#2a0d13}li .star{background:none;padding:2px 4px;font-size:18px}li span.t{min-width:4ch;text-align:right;font-variant-numeric:tabular-nums}li span.n{flex:1;min-width:0;font:22px 'Matador',Georgia,serif;overflow-wrap:anywhere}
+li.on{background:#2a0d13}li .tags{display:none;font:italic 13px Georgia,serif;opacity:.65;text-align:right;max-width:40%}li.on .tags{display:inline}@media (hover:hover){li:hover .tags{display:inline}}li .star{background:none;flex:none;width:30px;height:30px;padding:0;font-size:18px;line-height:1;border:1px solid transparent;border-radius:50%}li .star.inst{border-color:currentColor}li span.t{min-width:4ch;text-align:right;font-variant-numeric:tabular-nums}li span.n{flex:1;min-width:0;font:22px 'Matador',Georgia,serif;overflow-wrap:anywhere}
 @media (min-width:900px){
   main{max-width:1200px;height:100vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
   #player{overflow:auto}
@@ -292,10 +292,12 @@ function list() {
     li.dataset.id = t.id;
     a.textContent = t.t; a.className = 'n'; b.textContent = t.s ? fmt(t.s) : ''; b.className = 't';
     const star = document.createElement('button');
-    star.className = 'star'; star.textContent = starred(t) ? '★' : '☆';
+    star.className = 'star'; if (!(t.c & 2)) { star.classList.add('inst'); star.title = 'Instrumental'; } star.textContent = starred(t) ? '★' : '☆';
     star.setAttribute('aria-label', 'favourite'); star.setAttribute('aria-pressed', starred(t));
     star.onclick = e => { e.stopPropagation(); toggleStar(t); };
-    li.append(b, a, star);
+    const tags = document.createElement('span');
+    tags.className = 'tags'; tags.textContent = CATS.filter((n, i) => i > 1 && t.c & 1 << i).join(' · ');
+    li.append(b, a, tags, star);
     li.classList.toggle('on', t === cur);
     li.onclick = () => { cur = t; fails = 0; unlock(); load(true); };
     ol.append(li);
