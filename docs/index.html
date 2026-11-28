@@ -289,8 +289,11 @@ function list() {
   const plain = x => x.toLowerCase().replace(/\uFE0F/g, '');   // emoji may come with or without it
   const q = plain($('#q').value), ol = $('#list');
   ol.textContent = '';
+  // a collaborator's symbol also finds songs that name them in the artist field, as a whole word
+  const mate = COLLABS.find(([mark]) => plain(mark) === q.trim());
+  const named = mate && new RegExp(`(?<![\\p{L}\\p{N}])${mate[1]}(?![\\p{L}\\p{N}])`, 'iu');
   for (const t of queue) {
-    if (q && !plain(t.t).includes(q)) continue;
+    if (q && !plain(t.t).includes(q) && !named?.test(t.a)) continue;
     const li = document.createElement('li'), a = document.createElement('span'), b = document.createElement('span');
     li.dataset.id = t.id;
     a.textContent = t.t; a.className = 'n'; b.textContent = t.s ? fmt(t.s) : ''; b.className = 't';
