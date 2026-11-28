@@ -18,7 +18,7 @@ body{margin:0;background:#000;color:var(--ink);font:15px system-ui,sans-serif}
 main{max-width:560px;margin:0 auto;padding:calc(12px + env(safe-area-inset-top)) calc(16px + env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) calc(16px + env(safe-area-inset-left))}
 #coverrow{display:flex;justify-content:center}
 #stage{flex:1;min-width:0;aspect-ratio:1;perspective:1000px;cursor:pointer;position:relative}
-#over{position:absolute;right:0;bottom:8px;width:96px;height:96px;background:#fff;color:#000;border-radius:12px;opacity:.8;filter:drop-shadow(0 0 14px #000);pointer-events:none;transition:opacity .15s}
+#over{position:absolute;right:8px;bottom:8px;width:96px;height:96px;background:#fff;color:#000;border-radius:12px;opacity:.8;filter:drop-shadow(0 0 14px #000);pointer-events:none;transition:opacity .15s}
 #stage.playing #over,#stage.loading #over{opacity:0}
 #spin{position:absolute;inset:0;margin:auto;width:17%;height:17%;border:9.6px solid #eee8df40;border-top-color:var(--ink);border-radius:50%;filter:drop-shadow(0 0 14px #000);pointer-events:none;opacity:0;visibility:hidden;animation:spin .9s linear infinite}
 #stage.loading #spin{opacity:.85;visibility:visible;transition:opacity .15s .15s,visibility 0s .15s}@keyframes spin{to{transform:rotate(1turn)}}
@@ -30,7 +30,7 @@ h1{font:400 40px/1.1 'Matador',Georgia,serif;letter-spacing:-.04em;margin:0 0 2p
 #sub,#note{color:var(--dim);min-height:1.4em;overflow-wrap:anywhere}
 #sub{font:18px 'Matador',Georgia,serif;letter-spacing:-.04em}
 #vol{accent-color:#888}
-.row{display:flex;gap:8px;align-items:center;margin:10px 0}
+.row{display:flex;gap:8px;align-items:center;margin:10px 0}#titlerow,.row{padding-right:8px}
 button{font:inherit;color:var(--ink);background:var(--blood);border:0;border-radius:6px;padding:10px 13px;cursor:pointer}
 .off{background:#1d1517;color:var(--dim)}
 input[type=range]{flex:1;accent-color:var(--blood);min-width:0}
